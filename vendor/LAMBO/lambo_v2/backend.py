@@ -5,7 +5,11 @@ import sys
 from pathlib import Path
 from typing import Any, Optional
 
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:
+    def load_dotenv(*_args: Any, **_kwargs: Any) -> bool:
+        return False
 
 from .common import extract_json_payload
 

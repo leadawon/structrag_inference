@@ -1,0 +1,7 @@
+type: "vllm"
+args:
+  api_name: "Qwen"
+  api_key: "EMPTY"
+  api_url: "http://127.0.0.1:1225/v1"
+run_args:
+  temperature: 0.0

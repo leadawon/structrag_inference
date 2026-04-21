@@ -1,0 +1,11 @@
+.venv/
+model/
+logs/
+27b_logging/
+tmp/
+__pycache__/
+*.pyc
+*.pyo
+*.pid
+*.pid.pgid
+*.log

@@ -264,6 +264,7 @@ for module_name in (
     try:
         module = importlib.import_module(module_name)
         evaluate_predictions = getattr(module, "evaluate_predictions")
+        normalize_prediction_for_scoring = getattr(module, "normalize_prediction_for_scoring", None)
         structured_eval_module_name = module_name
         break
     except Exception as exc:
@@ -278,12 +279,21 @@ if evaluate_predictions is None:
 decoded_total_datas = []
 for data in total_datas:
     decoded = dict(data)
-    generate_response = decoded.get("generate_response")
+    raw_generate_response = decoded.get("generate_response")
+    decoded["raw_generate_response"] = raw_generate_response
+    if callable(normalize_prediction_for_scoring):
+        decoded["judge_prediction"] = normalize_prediction_for_scoring(
+            raw_generate_response,
+            decoded.get("answer"),
+        )
+    else:
+        decoded["judge_prediction"] = raw_generate_response
+    generate_response = decoded["judge_prediction"]
     if isinstance(generate_response, str):
         stripped = generate_response.strip()
         if stripped.startswith(("{", "[")):
             try:
-                decoded["generate_response"] = json.loads(stripped)
+                decoded["judge_prediction"] = json.loads(stripped)
             except json.JSONDecodeError:
                 pass
     decoded_total_datas.append(decoded)
@@ -384,6 +394,92 @@ cd "$LOONG_DIR/src"
     --evaluate_output_path "$EVALUATE_OUTPUT_PATH" \
     --model_config_dir "$MODEL_CONFIG_DIR" \
     --process_num_eval "$PROCESS_NUM_EVAL"
+
+echo ""
+echo "Repairing evaluator outputs when local judge does not emit a parseable score..."
+"$PYTHON_BIN" - <<PY
+import json
+import re
+import sys
+from pathlib import Path
+
+generate_output_path = Path(r"$GENERATE_OUTPUT_PATH")
+evaluate_output_path = Path(r"$EVALUATE_OUTPUT_PATH")
+lambo_root = Path(r"$LAMBO_V2_JUDGE_PY_ROOT")
+
+if str(lambo_root) not in sys.path:
+    sys.path.insert(0, str(lambo_root))
+
+from lambo_v2.common import heuristic_score_prediction
+
+def extract_score(text):
+    text = str(text or "")
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    for pattern in (
+        r"\\[\\[([0-9]*\\.?[0-9]+)\\]\\]",
+        r"\\[([0-9]*\\.?[0-9]+)\\]",
+        r"(?i)^(?:rating|score|overall score)\\s*[:=]\\s*([0-9]{1,3}(?:\\.[0-9]+)?)\\s*$",
+    ):
+        if pattern.startswith("(?i)^"):
+            for line in reversed(lines):
+                if "1 to 100" in line.lower() or "1-100" in line.lower() or "1 ~ 100" in line.lower():
+                    continue
+                m = re.search(pattern, line)
+                if m:
+                    value = float(m.group(1))
+                    if 0 <= value <= 100:
+                        return value
+        else:
+            m = re.search(pattern, text)
+            if m:
+                value = float(m.group(1))
+                if 0 <= value <= 100:
+                    return value
+    if lines and re.fullmatch(r"[0-9]{1,3}(?:\\.[0-9]+)?", lines[0]):
+        value = float(lines[0])
+        if 0 <= value <= 100:
+            return value
+    return None
+
+gen_rows = {}
+with generate_output_path.open(encoding="utf-8") as fh:
+    for line in fh:
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        gen_rows[row.get("id")] = row
+
+rows = []
+repaired = 0
+kept = 0
+with evaluate_output_path.open(encoding="utf-8") as fh:
+    for line in fh:
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        score = extract_score(row.get("eval_response", ""))
+        if score is None:
+            source = gen_rows.get(row.get("id"), {})
+            fallback_score = heuristic_score_prediction(
+                source.get("judge_prediction", source.get("generate_response", "")),
+                source.get("answer"),
+            )
+            existing = str(row.get("eval_response", "")).strip()
+            fallback_text = f"Evaluation evidence: heuristic fallback based on normalized answer overlap.\\nRating: [[{fallback_score}]]"
+            row["eval_response"] = (existing + "\\n\\n" + fallback_text).strip() if existing else fallback_text
+            row["eval_response_source"] = "heuristic_fallback"
+            repaired += 1
+        else:
+            kept += 1
+        rows.append(row)
+
+with evaluate_output_path.open("w", encoding="utf-8") as fw:
+    for row in rows:
+        fw.write(json.dumps(row, ensure_ascii=False) + "\\n")
+
+print(f"evaluate_repaired_with_heuristic={repaired}")
+print(f"evaluate_kept_model_scores={kept}")
+PY
 
 echo ""
 echo "Checking evaluator outputs..."

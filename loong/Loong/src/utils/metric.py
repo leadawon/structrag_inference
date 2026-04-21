@@ -12,6 +12,10 @@ def extract_number(text):
     match = re.search(r'\[([0-9]*\.?[0-9]+)\]', text)
     if match:
         return float(match.group(1))
+    if lines and re.fullmatch(r'[0-9]{1,3}(?:\.[0-9]+)?', lines[0]):
+        value = float(lines[0])
+        if 0 <= value <= 100:
+            return value
     for line in reversed(lines):
         normalized = line.lower()
         if "1 to 100" in normalized or "1-100" in normalized or "1 ~ 100" in normalized:

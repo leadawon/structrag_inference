@@ -188,7 +188,7 @@ Rating: [[score]]
             prompt_template = prompt_template.replace("{docs}", "")
         question = prompt_template.replace("{question}", question).replace("{instruction}", instruction)
         answer = line['answer']
-        predict = line[tag]
+        predict = line.get("judge_prediction", line[tag])
         line['prompt'] = prompt.format(question, answer, predict)
         prompts.append(line)
     return prompts

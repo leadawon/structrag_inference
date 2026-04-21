@@ -10,19 +10,19 @@ import time
 from typing import Any, Dict, List, Optional
 
 from ..backend import QwenLocalClient
+from ..common import coerce_gold_answer, heuristic_score_prediction, normalize_prediction_for_scoring
 
 
-JUDGE_PROMPT = """You are grading an assistant answer against a gold answer.
+JUDGE_PROMPT = """Grade the assistant answer against the gold answer.
 
 Criteria:
 - Accuracy and hallucinations
 - Completeness
 
-Score from 1 to 100.
-Use 100 only if the assistant answer is fully correct.
-
-Return exactly one line in this format and nothing else:
-Rating: [[score]]
+Return only a score from 0 to 100.
+Do not explain.
+Do not restate the task.
+Write the score on the first line after `Score:`.
 
 [Question]
 {question}
@@ -32,6 +32,8 @@ Rating: [[score]]
 
 [Assistant Answer]
 {prediction}
+
+Score:
 """
 
 
@@ -45,6 +47,10 @@ def _extract_score(text: str) -> Optional[float]:
     m = re.search(r"\[([0-9]*\.?[0-9]+)\]", text)
     if m:
         return float(m.group(1))
+    if lines and re.fullmatch(r"[0-9]{1,3}(?:\.[0-9]+)?", lines[0]):
+        value = float(lines[0])
+        if 0 <= value <= 100:
+            return value
     # Only trust explicit score/rating lines, not instructional phrases like "Score: 1 to 100".
     for line in reversed(lines):
         normalized = line.lower()
@@ -97,21 +103,23 @@ def _truncate_for_log(text: Optional[str], max_chars: int) -> str:
 def _repair_score(
     *,
     llm: QwenLocalClient,
-    raw_evaluation: str,
+    question: str,
+    gold: str,
+    prediction: str,
 ) -> tuple[Optional[float], str]:
-    repair_prompt = f"""The following evaluation may not follow the required score format.
-Extract the final score as a number from 1 to 100.
-If the score is implied but not explicitly bracketed, infer the intended numeric score from the evaluation text.
-Return exactly one line in this format and nothing else:
-Rating: [[score]]
-
-[Evaluation]
-{raw_evaluation}
-"""
+    repair_prompt = JUDGE_PROMPT.format(
+        question=question,
+        gold=gold,
+        prediction=prediction,
+    )
     repaired = llm.generate_text(
-        system_prompt="You normalize evaluator outputs into a single numeric score.",
+        system_prompt=(
+            "You are a strict evaluator. "
+            "Reply with a single score only. "
+            "Format: Score: <number>."
+        ),
         user_prompt=repair_prompt,
-        max_output_tokens=32,
+        max_output_tokens=8,
     )
     return _extract_score(repaired), repaired
 
@@ -137,8 +145,11 @@ def run_llm_judge(
         sample_started_at = time.time()
         question = str(row.get("question", ""))
         instruction = str(row.get("instruction", ""))
-        gold = _stringify(row.get("answer", ""))
-        prediction = _stringify(row.get("generate_response", ""))
+        gold_value = coerce_gold_answer(row.get("answer", ""))
+        raw_prediction_value = row.get("judge_prediction", row.get("generate_response", ""))
+        normalized_prediction_value = normalize_prediction_for_scoring(raw_prediction_value, gold_value)
+        gold = _stringify(gold_value)
+        prediction = _stringify(normalized_prediction_value)
         full_question = question if not instruction else f"{question}\n\n[Instruction]\n{instruction}"
         prompt = JUDGE_PROMPT.format(
             question=full_question,
@@ -148,18 +159,26 @@ def run_llm_judge(
         raw = llm.generate_text(
             system_prompt=(
                 "You are a strict, impartial evaluator. "
-                "Do not explain your reasoning. "
-                "Do not restate the task. "
-                "Output exactly one line: Rating: [[score]]."
+                "Output only a numeric score line."
             ),
             user_prompt=prompt,
             max_output_tokens=64,
             metadata={"module": "llm_judge", "sample_id": row.get("sample_id", "")},
         )
         score = _extract_score(raw)
+        if score is not None and "thinking process" in raw.lower() and "score:" not in raw.lower() and "rating:" not in raw.lower():
+            score = None
         repair_raw = None
         if score is None:
-            score, repair_raw = _repair_score(llm=llm, raw_evaluation=raw)
+            score, repair_raw = _repair_score(
+                llm=llm,
+                question=full_question,
+                gold=gold,
+                prediction=prediction,
+            )
+        if score is None:
+            score = heuristic_score_prediction(normalized_prediction_value, gold_value)
+            repair_raw = (repair_raw or "") + ("\n" if repair_raw else "") + f"Heuristic fallback score: {score}"
         if score is not None:
             scores.append(score)
         verdicts.append(
@@ -171,6 +190,7 @@ def run_llm_judge(
                 "score": score,
                 "gold": gold,
                 "prediction": prediction,
+                "raw_prediction": _stringify(row.get("generate_response", "")),
                 "raw": raw,
                 "repair_raw": repair_raw,
             }

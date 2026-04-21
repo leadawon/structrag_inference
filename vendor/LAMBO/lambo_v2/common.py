@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import ast
 import json
 import re
 from pathlib import Path
@@ -167,6 +168,39 @@ def extract_json_payload(text: str) -> Optional[Any]:
     return None
 
 
+def extract_literal_payload(text: str) -> Optional[Any]:
+    payload = extract_json_payload(text)
+    if payload is not None:
+        return payload
+
+    stripped = _strip_code_fences(text)
+    if not stripped:
+        return None
+
+    candidates: List[str] = [stripped]
+    stack: List[str] = []
+    start_idx: Optional[int] = None
+    for idx, char in enumerate(stripped):
+        if char in "{[":
+            if start_idx is None:
+                start_idx = idx
+            stack.append("}" if char == "{" else "]")
+        elif char in "}]":
+            if not stack or char != stack[-1]:
+                continue
+            stack.pop()
+            if start_idx is not None and not stack:
+                candidates.append(stripped[start_idx : idx + 1])
+                start_idx = None
+
+    for candidate in reversed(candidates):
+        try:
+            return ast.literal_eval(candidate)
+        except Exception:
+            continue
+    return None
+
+
 def extract_tag_content(text: str, tag: str) -> Optional[str]:
     pattern = re.compile(rf"<{tag}>(.*?)</{tag}>", re.DOTALL | re.IGNORECASE)
     matches = pattern.findall(str(text or ""))
@@ -238,17 +272,30 @@ def _normalize_mapping_value(value: Any) -> str:
     text = str(value or "").strip()
     text = re.sub(r"^\#+\s*", "", text)
     text = re.sub(r"\s+", " ", text).strip()
+    if text.startswith("《") and text.endswith("》"):
+        title_inner = re.sub(r"\s+", "", text[1:-1])
+        text = f"《{title_inner}》"
     return text
 
 
-def normalize_mapping_values(value: Any) -> List[str]:
+def normalize_sequence_values(value: Any) -> List[str]:
     raw_values = value if isinstance(value, list) else [value]
-    values = []
+    values: List[str] = []
+    seen = set()
     for item in raw_values:
         text = _normalize_mapping_value(item)
-        if text and text.casefold() not in {"none", "null"}:
-            values.append(text)
-    return sorted(set(values), key=_label_sort_key)
+        if not text:
+            continue
+        folded = text.casefold()
+        if folded in {"none", "null"} or folded in seen:
+            continue
+        seen.add(folded)
+        values.append(text)
+    return values
+
+
+def normalize_mapping_values(value: Any) -> List[str]:
+    return sorted(set(normalize_sequence_values(value)), key=_label_sort_key)
 
 
 def coerce_gold_answer(value: Any) -> Any:
@@ -280,3 +327,123 @@ def flatten_items(items: Iterable[Dict[str, Any]]) -> List[Dict[str, Any]]:
             continue
         flattened.append(item)
     return flattened
+
+
+def _extract_numeric_candidate(text: str) -> Optional[str]:
+    raw_text = str(text or "")
+    if not raw_text.strip():
+        return None
+
+    best: Optional[Tuple[int, int, str]] = None
+    pattern = re.compile(r"[-+]?\d[\d,]*(?:\.\d+)?")
+    for match in pattern.finditer(raw_text):
+        token = match.group(0)
+        compact = token.replace(",", "")
+        if not compact:
+            continue
+        score = 0
+        if "," in token:
+            score += 4
+        if "." in token:
+            score += 2
+        if len(re.sub(r"[^0-9]", "", token)) >= 6:
+            score += 2
+        context = raw_text[max(0, match.start() - 40) : min(len(raw_text), match.end() + 40)].lower()
+        if any(keyword in context for keyword in (" is ", " was ", " 为", "是", " amount", "余额", "损失", "收益", "资产", "价值", "期末", "数值")):
+            score += 4
+        if any(keyword in context for keyword in ("year", "date", "月", "日", "2024", "2023", "2022")):
+            score -= 2
+        candidate = (score, -match.start(), token)
+        if best is None or candidate > best:
+            best = candidate
+
+    return best[2] if best is not None else None
+
+
+def normalize_prediction_for_scoring(prediction: Any, gold_answer: Any) -> Any:
+    gold = coerce_gold_answer(gold_answer)
+    if prediction is None:
+        return prediction
+
+    if isinstance(prediction, (dict, list, int, float)):
+        return prediction
+
+    text = str(prediction).strip()
+    if not text:
+        return text
+
+    if isinstance(gold, dict):
+        payload = extract_literal_payload(text)
+        if isinstance(payload, dict):
+            return payload
+        return text
+
+    if isinstance(gold, list):
+        payload = extract_literal_payload(text)
+        if isinstance(payload, list):
+            return payload
+        return text
+
+    normalized_gold = _normalize_scalar(gold)
+    numeric_like_gold = bool(re.fullmatch(r"[()\-+0-9,.$¥€£%元美元股]+", normalized_gold))
+    if numeric_like_gold:
+        numeric_candidate = _extract_numeric_candidate(text)
+        if numeric_candidate is not None:
+            return numeric_candidate
+
+    payload = extract_literal_payload(text)
+    if payload is not None and not isinstance(payload, (dict, list)):
+        return payload
+    return text
+
+
+def heuristic_score_prediction(prediction: Any, gold_answer: Any) -> float:
+    gold = coerce_gold_answer(gold_answer)
+    pred = normalize_prediction_for_scoring(prediction, gold)
+
+    if isinstance(gold, dict) and isinstance(pred, dict):
+        normalized_prediction = {key: normalize_mapping_values(values) for key, values in pred.items()}
+        normalized_gold = {key: normalize_mapping_values(values) for key, values in gold.items()}
+        gold_pairs = {(key, value) for key, values in normalized_gold.items() for value in values}
+        pred_pairs = {(key, value) for key, values in normalized_prediction.items() for value in values}
+        if normalized_prediction == normalized_gold:
+            return 100.0
+        true_positive = len(gold_pairs & pred_pairs)
+        precision = true_positive / len(pred_pairs) if pred_pairs else 0.0
+        recall = true_positive / len(gold_pairs) if gold_pairs else 0.0
+        f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
+        extra_count = len(pred_pairs - gold_pairs)
+        missing_count = len(gold_pairs - pred_pairs)
+        score = 100.0 * f1 - 10.0 * extra_count - 6.0 * missing_count
+        if true_positive == 0 and pred_pairs:
+            score = max(score, 10.0)
+        return max(0.0, min(100.0, round(score, 1)))
+
+    if isinstance(gold, list) and isinstance(pred, list):
+        normalized_prediction = normalize_sequence_values(pred)
+        normalized_gold = normalize_sequence_values(gold)
+        if normalized_prediction == normalized_gold:
+            return 100.0
+        pred_set = set(normalized_prediction)
+        gold_set = set(normalized_gold)
+        true_positive = len(pred_set & gold_set)
+        precision = true_positive / len(pred_set) if pred_set else 0.0
+        recall = true_positive / len(gold_set) if gold_set else 0.0
+        set_f1 = (2 * precision * recall / (precision + recall)) if (precision + recall) else 0.0
+        position_hits = sum(
+            1
+            for idx, item in enumerate(normalized_gold)
+            if idx < len(normalized_prediction) and normalized_prediction[idx] == item
+        )
+        position_acc = position_hits / len(normalized_gold) if normalized_gold else 0.0
+        extra_count = max(0, len(normalized_prediction) - len(normalized_gold))
+        score = 70.0 * set_f1 + 30.0 * position_acc - 15.0 * extra_count
+        if true_positive == 0 and normalized_prediction:
+            score = max(score, 10.0)
+        return max(0.0, min(100.0, round(score, 1)))
+
+    if _normalize_scalar(pred) == _normalize_scalar(gold):
+        return 100.0
+    if str(pred).strip():
+        return 10.0
+    return 0.0

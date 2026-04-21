@@ -6,6 +6,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_PATH="${VENV_PATH:-$ROOT_DIR/.venv}"
 PYTHON_BIN="${PYTHON_BIN:-$VENV_PATH/bin/python}"
 LOONG_DIR="${LOONG_DIR:-$ROOT_DIR/loong/Loong}"
+JUDGE_MODEL_DIR="${JUDGE_MODEL_DIR:-${TOKENIZER_PATH:-$ROOT_DIR/model/Qwen3.5-27B}}"
+JUDGE_MAX_NEW_TOKENS="${JUDGE_MAX_NEW_TOKENS:-400}"
 
 INPUT_LLM_NAME="${INPUT_LLM_NAME:-qwen}"
 DATASET_NAME="${DATASET_NAME:-loong}"
@@ -132,6 +134,7 @@ echo "generate_output_path=$GENERATE_OUTPUT_PATH"
 echo "evaluate_output_path=$EVALUATE_OUTPUT_PATH"
 echo "score_log_path=$SCORE_LOG_PATH"
 echo "structrag_enable_thinking=$STRUCTRAG_ENABLE_THINKING"
+echo "judge_model_dir=$JUDGE_MODEL_DIR"
 
 EVAL_MODEL_CONFIG_FOR_RUN="$EVAL_MODEL_CONFIG"
 TMP_MODEL_CONFIG_DIR=""
@@ -151,20 +154,22 @@ import json
 from pathlib import Path
 
 path = Path(r"$TMP_MODEL_CONFIG_DIR") / "qwen_local_judge.yaml"
-api_url = r"$LAMBO_V2_JUDGE_BASE_URL"
-api_name = r"$API_MODEL_NAME"
+model_dir = r"$JUDGE_MODEL_DIR"
 enable_thinking = r"$STRUCTRAG_ENABLE_THINKING"
+max_new_tokens = int(r"$JUDGE_MAX_NEW_TOKENS")
 
 path.write_text(
     "\n".join(
         [
-            'type: "vllm"',
+            'type: "local_transformers"',
             "args:",
-            f'  api_name: "{api_name}"',
-            '  api_key: "EMPTY"',
-            f'  api_url: "{api_url}"',
+            f'  model_dir: "{model_dir}"',
+            '  trust_remote_code: false',
+            '  compute_dtype: "bfloat16"',
+            '  max_input_tokens: 32768',
             "run_args:",
             "  temperature: 0.0",
+            f"  max_new_tokens: {max_new_tokens}",
             f"  enable_thinking: {json.dumps(enable_thinking.strip().lower() in {'1', 'true', 'yes', 'on'})}",
             "",
         ]
@@ -172,8 +177,8 @@ path.write_text(
     encoding="utf-8",
 )
 print(f"judge_model_config_override={path}")
-print(f"judge_api_name={api_name}")
-print(f"judge_api_url={api_url}")
+print(f"judge_model_dir={model_dir}")
+print(f"judge_max_new_tokens={max_new_tokens}")
 print(f"judge_enable_thinking={enable_thinking}")
 PY
     MODEL_CONFIG_DIR="$TMP_MODEL_CONFIG_DIR"
@@ -332,12 +337,13 @@ generate_output_path = Path(r"$GENERATE_OUTPUT_PATH")
 judge_output_path = Path(r"$LAMBO_V2_JUDGE_OUTPUT_PATH")
 lambo_root = Path(r"$LAMBO_V2_JUDGE_PY_ROOT")
 strict = r"$LAMBO_V2_JUDGE_STRICT" == "1"
+enable_thinking = r"$STRUCTRAG_ENABLE_THINKING".strip().lower() in {"1", "true", "yes", "on"}
 
 try:
     if str(lambo_root) not in sys.path:
         sys.path.insert(0, str(lambo_root))
 
-    from lambo_v2.backend import OpenAIClient
+    from lambo_v2.backend import QwenLocalClient
     from lambo_v2.eval.llm_judge import run_llm_judge
 
     prediction_rows = [
@@ -345,10 +351,12 @@ try:
         for line in generate_output_path.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
-    client = OpenAIClient(
-        api_key=r"$LAMBO_V2_JUDGE_API_KEY",
-        model_name=r"$LAMBO_V2_JUDGE_MODEL",
-        base_url=r"$LAMBO_V2_JUDGE_BASE_URL",
+    client = QwenLocalClient(
+        model_dir=r"$JUDGE_MODEL_DIR",
+        max_output_tokens=int(r"$JUDGE_MAX_NEW_TOKENS"),
+        max_input_tokens=32768,
+        compute_dtype="bfloat16",
+        enable_thinking=enable_thinking,
     )
     judge_out = run_llm_judge(llm=client, prediction_rows=prediction_rows)
     judge_output_path.parent.mkdir(parents=True, exist_ok=True)

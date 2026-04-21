@@ -47,7 +47,7 @@ That script uses the bundled 99-sample subset, runs StructRAG inference, and if 
 If inference is already finished and you only want to run judge/scoring later:
 
 ```bash
-START_SERVER=1 bash scripts/27b/run_score_existing.sh --latest
+bash scripts/27b/run_score_existing.sh --latest
 ```
 
 Preview only:
@@ -67,10 +67,10 @@ bash scripts/27b/run_score_existing_conda310.sh
 - `bash scripts/27b/download_model.sh`
   - downloads `Qwen/Qwen3.5-27B` into `model/Qwen3.5-27B`
 - `bash scripts/27b/run_server.sh --detach`
-  - starts the local 27B vLLM server only
+  - legacy helper; judge path no longer depends on a server
 - `bash scripts/27b/run_inference_exper99.sh`
   - main entrypoint for the 99-sample 27B run
-- `START_SERVER=1 bash scripts/27b/run_score_existing.sh --latest`
+- `bash scripts/27b/run_score_existing.sh --latest`
   - reuses finished inference outputs and runs judge/scoring only
 
 ## Included Result Folder
@@ -90,5 +90,6 @@ loong/Loong/output/qwen_ts-20260420T102150Z_act-exper99_api-qwen3-5-27b_tok-qwen
 ## Notes
 
 - `think` is configured off for the bundled 27B workflow.
+- judge/scoring now uses local `transformers` inference directly and does not require `vllm`.
 - `run_score_existing.sh` is patched to tolerate the old absolute paths stored in the copied `run_manifest.json` and resolve them to this local bundle.
 - The bundled Loong data file is the `exper99` subset only, not the full original dataset.

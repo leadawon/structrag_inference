@@ -8,9 +8,16 @@ from decimal import Decimal
 import numpy as np
 import time
 import os
+import sys
+from pathlib import Path
 from openai import OpenAI
 from anthropic import Anthropic
 # import google.generativeai as genai
+
+ROOT_DIR = Path(__file__).resolve().parents[4]
+if str(ROOT_DIR) not in sys.path:
+    sys.path.insert(0, str(ROOT_DIR))
+from structrag_local_backend import LocalChatModel
 
 class MyEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -121,6 +128,29 @@ def _get_enable_thinking(config):
 def get_api_results(prompt_input, config):
     prompt = prompt_input['prompt']
 
+    if config['type'] == 'local_transformers':
+        model_dir = config['args']['model_dir']
+        trust_remote_code = bool(config['args'].get('trust_remote_code', False))
+        compute_dtype = config['args'].get('compute_dtype', 'bfloat16')
+        max_input_tokens = int(config['args'].get('max_input_tokens', 32768))
+        max_new_tokens = int(config['run_args'].get('max_new_tokens', 400))
+        temperature = float(config['run_args'].get('temperature', 0.0))
+        enable_thinking = _get_enable_thinking(config)
+
+        llm = LocalChatModel(
+            model_dir=model_dir,
+            compute_dtype=compute_dtype,
+            enable_thinking=enable_thinking,
+            max_input_tokens=max_input_tokens,
+            trust_remote_code=trust_remote_code,
+        )
+        return llm.generate_text(
+            system_prompt=config['args'].get('system_prompt', ''),
+            user_prompt=prompt,
+            max_output_tokens=max_new_tokens,
+            temperature=temperature,
+        )
+
     if config['type'] == 'openai' or config['type'] == 'vllm':
         try:
             api_url = config['args'].get('api_url', '')
@@ -200,6 +230,11 @@ def api(prompt, output_path, config, tag):
 
 
 def generate(prompts, config, output_path, process_num, tag):
+    if config['type'] == 'local_transformers':
+        for prompt in tqdm(prompts, total=len(prompts)):
+            api(prompt, output_path=output_path, config=config, tag=tag)
+        return
+
     func = partial(api, output_path=output_path, config=config, tag=tag)
     with multiprocessing.Pool(processes=process_num) as pool:
         for _ in tqdm(pool.imap(func, prompts), total=len(prompts)):

@@ -30,21 +30,20 @@ Usage:
   bash scripts/27b/run_score_existing.sh --latest
   bash scripts/27b/run_score_existing.sh --output-path-suffix '_ts-...'
   bash scripts/27b/run_score_existing.sh --manifest /abs/path/run_manifest.json
-  START_SERVER=1 bash scripts/27b/run_score_existing.sh --latest
   DRY_RUN=1 bash scripts/27b/run_score_existing.sh --latest
 
 Behavior:
   - Reuses completed inference outputs under eval_results/.../final_output*.jsonl
   - Restores scoring settings from the saved run_manifest.json
   - Re-runs structured eval + LAMBO v2 judge + Loong evaluator without rerunning inference
-  - If START_SERVER=1, starts the 27B local judge server first and stops it afterwards
+  - Uses local transformers-based judge inference; no vLLM server is required
 
 Defaults:
   DEFAULT_DATASET_NAME=loong_exper99
   DEFAULT_LLM_NAME=qwen
   DEFAULT_API_MODEL_NAME=Qwen3.5-27B
   FORCE_OVERWRITE=1
-  START_SERVER=0
+  START_SERVER=0  (ignored in local judge mode)
   STOP_SERVER_WHEN_DONE=<same as START_SERVER>
   DRY_RUN=0
   SERVER_SCRIPT_PATH=$ROOT_DIR/scripts/27b/run_server.sh
@@ -210,16 +209,6 @@ PY
     done
 }
 
-cleanup() {
-    set +e
-    if [[ "$SERVER_STARTED_BY_SCRIPT" == "1" && "$STOP_SERVER_WHEN_DONE" == "1" ]]; then
-        echo "Stopping judge server started by score wrapper..."
-        bash "$SERVER_SCRIPT_PATH" --stop || true
-    fi
-}
-
-trap cleanup EXIT
-
 if [[ ! -x "$PYTHON_BIN" ]]; then
     echo "Python binary not found: $PYTHON_BIN"
     exit 1
@@ -285,15 +274,9 @@ if [[ "$DRY_RUN" == "1" ]]; then
 fi
 
 if [[ "$START_SERVER" == "1" ]]; then
-    export MODEL_DIR="${MODEL_DIR:-$MANIFEST_TOKENIZER_PATH}"
-    export MAX_MODEL_LEN="${MAX_MODEL_LEN:-$MANIFEST_SERVER_MAX_MODEL_LEN}"
-    export SERVED_MODEL_NAME="${SERVED_MODEL_NAME:-$MANIFEST_API_MODEL_NAME}"
-    echo "Starting judge server from wrapper..."
-    bash "$SERVER_SCRIPT_PATH" --detach
-    SERVER_STARTED_BY_SCRIPT=1
-    wait_for_server_health "$MANIFEST_URL"
+    echo "START_SERVER=1 was requested, but local judge mode does not use a server. Ignoring it."
 else
-    echo "START_SERVER=0, assuming judge server is already available at $MANIFEST_URL"
+    echo "Using local judge mode; no server startup is needed."
 fi
 
 cd "$ROOT_DIR"
@@ -311,6 +294,7 @@ API_MODEL_NAME="$MANIFEST_API_MODEL_NAME" \
 INCLUDE_ERROR_OUTPUTS_IN_SCORE="$MANIFEST_INCLUDE_ERROR_OUTPUTS_IN_SCORE" \
 STRUCTURED_EVAL_PY_ROOT="$MANIFEST_STRUCTURED_EVAL_PY_ROOT" \
 STRUCTRAG_ENABLE_THINKING="$MANIFEST_STRUCTRAG_ENABLE_THINKING" \
+JUDGE_MODEL_DIR="$MANIFEST_TOKENIZER_PATH" \
 LOONG_DIR="$MANIFEST_LOONG_DIR" \
 SCORE_LOG_PATH="$SCORE_LOG_PATH" \
 SCORE_METADATA_PATH="$SCORE_METADATA_PATH" \

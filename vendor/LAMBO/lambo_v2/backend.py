@@ -11,44 +11,38 @@ from dotenv import load_dotenv
 from .common import extract_json_payload
 
 load_dotenv(Path(__file__).resolve().parents[1] / ".env")
-
-
-# ---------------------------------------------------------------------------
-# Local Qwen backend (Transformers)
-# ---------------------------------------------------------------------------
-META_COGNITIVE_SRC = Path("/workspace/meta-cognitive-RAG/src")
-if str(META_COGNITIVE_SRC) not in sys.path:
-    sys.path.insert(0, str(META_COGNITIVE_SRC))
+BUNDLE_ROOT = Path(__file__).resolve().parents[3]
+if str(BUNDLE_ROOT) not in sys.path:
+    sys.path.insert(0, str(BUNDLE_ROOT))
+from structrag_local_backend import LocalChatModel
 
 
 class QwenLocalClient:
     def __init__(
         self,
-        model_dir: Path | str = "/workspace/meta-cognitive-RAG/models/Qwen2.5-32B-Instruct",
+        model_dir: Path | str,
         max_output_tokens: int = 2048,
         max_input_tokens: int = 120000,
         per_gpu_max_memory_gib: int = 20,
         load_in_4bit: Optional[bool] = None,
+        compute_dtype: str = "bfloat16",
+        enable_thinking: Optional[bool] = False,
+        trust_remote_code: bool = False,
     ) -> None:
-        from meta_cognitive_rag.local_backend import LocalTransformersBackend, LocalTransformersConfig  # type: ignore
-        if load_in_4bit is None:
-            load_in_4bit = os.getenv("LAMBO_LOAD_IN_4BIT", "1").strip() not in {"0", "false", "False"}
-        env_memory = os.getenv("LAMBO_PER_GPU_MAX_MEMORY_GIB", "").strip()
-        if env_memory:
-            try:
-                per_gpu_max_memory_gib = int(env_memory)
-            except Exception:
-                pass
-        self.config = LocalTransformersConfig(
-            model_id="Qwen/Qwen2.5-32B-Instruct",
+        self.model = LocalChatModel(
             model_dir=model_dir,
-            max_output_tokens=max_output_tokens,
+            compute_dtype=compute_dtype,
+            enable_thinking=enable_thinking,
             max_input_tokens=max_input_tokens,
-            compute_dtype="float16",
-            load_in_4bit=load_in_4bit,
-            per_gpu_max_memory_gib=per_gpu_max_memory_gib,
+            trust_remote_code=trust_remote_code,
         )
-        self.backend = LocalTransformersBackend(self.config)
+        self.config = {
+            "model_dir": str(model_dir),
+            "max_output_tokens": max_output_tokens,
+            "max_input_tokens": max_input_tokens,
+            "compute_dtype": compute_dtype,
+            "enable_thinking": enable_thinking,
+        }
 
     def generate_text(
         self,
@@ -59,13 +53,12 @@ class QwenLocalClient:
         temperature: float = 0.0,
         metadata: Optional[dict[str, Any]] = None,
     ) -> str:
-        return self.backend.generate(
+        return self.model.generate_text(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
             temperature=temperature,
-            max_output_tokens=max_output_tokens or self.config.max_output_tokens,
-            metadata=metadata or {},
-        ).text
+            max_output_tokens=max_output_tokens or self.config["max_output_tokens"],
+        )
 
     def generate_json(
         self,
@@ -398,7 +391,9 @@ def get_default_client(backend: str = "local") -> QwenLocalClient | GeminiClient
     elif backend == "openai":
         client = OpenAIClient()
     else:
-        client = QwenLocalClient()
+        client = QwenLocalClient(
+            model_dir=os.getenv("STRUCTRAG_LOCAL_MODEL_DIR", "/workspace/structrag_inference/model/Qwen3.5-27B")
+        )
 
     _client_cache[backend] = client
     return client

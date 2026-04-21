@@ -39,6 +39,7 @@ Behavior:
   3. Installs requirements.txt
   4. Downloads Qwen3.5-27B if needed
   5. Re-runs judge/scoring from the bundled completed inference outputs
+  6. Uses local transformers inference; no vLLM server is required
 
 Defaults:
   CONDA_ENV_NAME=$CONDA_ENV_NAME
@@ -46,7 +47,7 @@ Defaults:
   INSTALL_REQUIREMENTS=$INSTALL_REQUIREMENTS
   DOWNLOAD_MODEL_IF_MISSING=$DOWNLOAD_MODEL_IF_MISSING
   MODEL_DIR=$MODEL_DIR
-  START_SERVER=$START_SERVER
+  START_SERVER=$START_SERVER (ignored in local judge mode)
 EOF
 }
 
@@ -123,5 +124,4 @@ echo "Starting judge/scoring from existing inference outputs..."
 PYTHON_BIN="$PYTHON_BIN" \
 SERVER_PYTHON_BIN="$SERVER_PYTHON_BIN" \
 MODEL_DIR="$MODEL_DIR" \
-START_SERVER="$START_SERVER" \
 bash "$ROOT_DIR/scripts/27b/run_score_existing.sh" --latest

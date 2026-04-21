@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 from statistics import mean
+import time
 from typing import Any, Dict, List, Optional
 
 from ..backend import QwenLocalClient
@@ -66,7 +68,13 @@ def run_llm_judge(
 ) -> Dict[str, Any]:
     verdicts: List[Dict[str, Any]] = []
     scores: List[float] = []
-    for row in prediction_rows:
+    total = len(prediction_rows)
+    progress_every = max(1, int(os.environ.get("LLM_JUDGE_PROGRESS_EVERY", "1")))
+    started_at = time.time()
+    print(f"llm_judge_total={total}", flush=True)
+
+    for index, row in enumerate(prediction_rows, start=1):
+        sample_started_at = time.time()
         question = str(row.get("question", ""))
         instruction = str(row.get("instruction", ""))
         gold = _stringify(row.get("answer", ""))
@@ -99,7 +107,19 @@ def run_llm_judge(
             }
         )
 
-    total = len(prediction_rows)
+        if index % progress_every == 0 or index == total:
+            sample_elapsed = time.time() - sample_started_at
+            total_elapsed = time.time() - started_at
+            print(
+                "llm_judge_progress="
+                f"{index}/{total} "
+                f"sample_id={row.get('id', '')} "
+                f"score={score} "
+                f"sample_sec={sample_elapsed:.1f} "
+                f"elapsed_min={total_elapsed / 60:.1f}",
+                flush=True,
+            )
+
     effective = len(scores)
     perfect = sum(1 for s in scores if s == 100)
     summary = {

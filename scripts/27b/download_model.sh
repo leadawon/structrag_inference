@@ -148,4 +148,4 @@ PY
 
 echo ""
 echo "Done. You can now run:"
-echo "  bash scripts/27b/run_inference_exper99.sh"
+echo "  bash scripts/27b/run_score_existing_conda310.sh"

@@ -18,33 +18,14 @@ EVAL_MODEL_CONFIG="${EVAL_MODEL_CONFIG:-qwen_local_judge.yaml}"
 GEN_MODEL_CONFIG="${GEN_MODEL_CONFIG:-qwen2.yaml}"
 MODEL_CONFIG_DIR="${MODEL_CONFIG_DIR:-$LOONG_DIR/config/models}"
 RUN_TIMESTAMP="${RUN_TIMESTAMP:-}"
-URL="${URL:-127.0.0.1:1225}"
-API_MODEL_NAME="${API_MODEL_NAME:-Qwen}"
 STRUCTRAG_ENABLE_THINKING="${STRUCTRAG_ENABLE_THINKING:-0}"
-if [[ "${STRUCTRAG_ENABLE_THINKING,,}" == "1" || "${STRUCTRAG_ENABLE_THINKING,,}" == "true" || "${STRUCTRAG_ENABLE_THINKING,,}" == "yes" || "${STRUCTRAG_ENABLE_THINKING,,}" == "on" ]]; then
-    OPENAI_THINKING_MODULES="${OPENAI_THINKING_MODULES:-}"
-else
-    OPENAI_THINKING_MODULES=""
-fi
 
 FORCE_OVERWRITE="${FORCE_OVERWRITE:-0}"
 INCLUDE_ERROR_OUTPUTS_IN_SCORE="${INCLUDE_ERROR_OUTPUTS_IN_SCORE:-0}"
 STRUCTURED_EVAL_PY_ROOT="${STRUCTURED_EVAL_PY_ROOT:-$ROOT_DIR/vendor/LAMBO}"
-if [[ "$URL" == http://* || "$URL" == https://* ]]; then
-    if [[ "$URL" == */v1 ]]; then
-        DEFAULT_LAMBO_V2_JUDGE_BASE_URL="$URL"
-    else
-        DEFAULT_LAMBO_V2_JUDGE_BASE_URL="${URL%/}/v1"
-    fi
-else
-    DEFAULT_LAMBO_V2_JUDGE_BASE_URL="http://$URL/v1"
-fi
 LAMBO_V2_JUDGE="${LAMBO_V2_JUDGE:-1}"
 LAMBO_V2_JUDGE_STRICT="${LAMBO_V2_JUDGE_STRICT:-0}"
 LAMBO_V2_JUDGE_PY_ROOT="${LAMBO_V2_JUDGE_PY_ROOT:-$STRUCTURED_EVAL_PY_ROOT}"
-LAMBO_V2_JUDGE_BASE_URL="${LAMBO_V2_JUDGE_BASE_URL:-$DEFAULT_LAMBO_V2_JUDGE_BASE_URL}"
-LAMBO_V2_JUDGE_MODEL="${LAMBO_V2_JUDGE_MODEL:-$API_MODEL_NAME}"
-LAMBO_V2_JUDGE_API_KEY="${LAMBO_V2_JUDGE_API_KEY:-EMPTY}"
 
 safe_suffix="${OUTPUT_PATH_SUFFIX//\//_}"
 OUTPUT_MODEL_NAME="${OUTPUT_MODEL_NAME:-${INPUT_LLM_NAME}${safe_suffix}}"
@@ -76,9 +57,8 @@ Environment overrides:
   FORCE_OVERWRITE=1
   INCLUDE_ERROR_OUTPUTS_IN_SCORE=0
   STRUCTURED_EVAL_PY_ROOT=/workspace/LAMBO
+  JUDGE_MODEL_DIR=$ROOT_DIR/model/Qwen3.5-27B
   LAMBO_V2_JUDGE=1
-  LAMBO_V2_JUDGE_BASE_URL=http://127.0.0.1:1225/v1
-  LAMBO_V2_JUDGE_MODEL=Qwen
   STRUCTRAG_ENABLE_THINKING=0
 
 What it does:
@@ -327,7 +307,7 @@ PY
 if [[ "$LAMBO_V2_JUDGE" == "1" ]]; then
     echo ""
     echo "Running LAMBO v2-style LLM judge..."
-    OPENAI_THINKING_MODULES="$OPENAI_THINKING_MODULES" "$PYTHON_BIN" - <<PY
+    "$PYTHON_BIN" - <<PY
 import json
 import sys
 import traceback
@@ -425,7 +405,7 @@ print(f"evaluate_scored={len(scored)}")
 if not scored:
     raise SystemExit(
         "Evaluator produced 0 valid scored responses. "
-        "Check EVAL_MODEL_CONFIG / judge server connectivity before metric calculation."
+        "Check EVAL_MODEL_CONFIG / local model loading before metric calculation."
     )
 PY
 
@@ -459,18 +439,14 @@ payload = {
     "eval_model_config": "$EVAL_MODEL_CONFIG",
     "eval_model_config_for_run": "$EVAL_MODEL_CONFIG_FOR_RUN",
     "gen_model_config": "$GEN_MODEL_CONFIG",
-    "url": "$URL",
-    "api_model_name": "$API_MODEL_NAME",
     "structrag_enable_thinking": "$STRUCTRAG_ENABLE_THINKING",
-    "openai_thinking_modules": "$OPENAI_THINKING_MODULES",
     "include_error_outputs_in_score": "$INCLUDE_ERROR_OUTPUTS_IN_SCORE",
+    "judge_model_dir": "$JUDGE_MODEL_DIR",
     "structured_eval_py_root": "$STRUCTURED_EVAL_PY_ROOT",
     "structured_eval_output_path": "$STRUCTURED_EVAL_OUTPUT_PATH",
     "lambo_v2_judge": "$LAMBO_V2_JUDGE",
     "lambo_v2_judge_strict": "$LAMBO_V2_JUDGE_STRICT",
     "lambo_v2_judge_py_root": "$LAMBO_V2_JUDGE_PY_ROOT",
-    "lambo_v2_judge_base_url": "$LAMBO_V2_JUDGE_BASE_URL",
-    "lambo_v2_judge_model": "$LAMBO_V2_JUDGE_MODEL",
     "lambo_v2_judge_output_path": "$LAMBO_V2_JUDGE_OUTPUT_PATH",
     "eval_results_dir": "$EVAL_RESULTS_DIR",
     "loong_output_dir": "$LOONG_OUTPUT_DIR",

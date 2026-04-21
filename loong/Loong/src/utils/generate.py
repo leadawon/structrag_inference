@@ -1,18 +1,12 @@
 import json
 from tqdm import tqdm
 import multiprocessing
-import requests
 import numpy as np
 from functools import partial
 from decimal import Decimal
-import numpy as np
-import time
 import os
 import sys
 from pathlib import Path
-from openai import OpenAI
-from anthropic import Anthropic
-# import google.generativeai as genai
 
 ROOT_DIR = Path(__file__).resolve().parents[4]
 if str(ROOT_DIR) not in sys.path:
@@ -32,79 +26,6 @@ class MyEncoder(json.JSONEncoder):
             return float(obj)
         # print(obj, type(obj))
         return json.JSONEncoder.default(self, obj)
-
-
-def _normalize_auth_header(api_key):
-    if not api_key or api_key == "EMPTY":
-        return None
-    if api_key.lower().startswith("bearer "):
-        return api_key
-    return f"Bearer {api_key}"
-
-
-def _extract_chat_content(result):
-    if isinstance(result, dict):
-        if "choices" in result:
-            return result["choices"][0]["message"]["content"]
-        if "data" in result and isinstance(result["data"], dict):
-            return _extract_chat_content(result["data"])
-        if "response" in result and isinstance(result["response"], dict):
-            return _extract_chat_content(result["response"])
-    return None
-
-
-def _call_custom_chat_api(prompt, config):
-    api_url = config["args"]["api_url"].rstrip("/")
-    if not api_url.endswith("/api/ask"):
-        api_url = f"{api_url}/api/ask"
-
-    headers = {"Content-Type": "application/json"}
-    auth_header = _normalize_auth_header(config["args"].get("api_key", ""))
-    if auth_header:
-        headers["Authorization"] = auth_header
-
-    raw_info = {
-        "model": config["args"]["api_name"],
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": config["run_args"]["temperature"],
-    }
-    enable_thinking = _get_enable_thinking(config)
-    if enable_thinking is not None:
-        raw_info["chat_template_kwargs"] = {"enable_thinking": enable_thinking}
-    callback = requests.post(api_url, json=raw_info, headers=headers, timeout=(600, 600))
-    callback.raise_for_status()
-    result = callback.json()
-    content = _extract_chat_content(result)
-    if content is None:
-        raise ValueError(f"Unexpected API response format from {api_url}: {result}")
-    return content
-
-
-def _call_openai_compatible_api(prompt, config):
-    api_key = config["args"].get("api_key", "EMPTY")
-    api_url = config["args"].get("api_url", "")
-    client = OpenAI(
-        api_key=api_key if api_key != "EMPTY" else "EMPTY",
-        base_url=api_url if api_url else None,
-    )
-    create_kwargs = {
-        "messages": [{"role": "user", "content": prompt}],
-        "model": config["args"]["api_name"],
-        "temperature": config["run_args"]["temperature"],
-    }
-    enable_thinking = _get_enable_thinking(config)
-    if enable_thinking is not None:
-        create_kwargs["extra_body"] = {
-            "chat_template_kwargs": {"enable_thinking": enable_thinking}
-        }
-
-    response = client.chat.completions.create(**create_kwargs)
-    message = response.choices[0].message
-    content = message.content or ""
-    if not content:
-        reasoning = getattr(message, "reasoning", None) or getattr(message, "reasoning_content", None) or ""
-        return reasoning
-    return content
 
 
 def _parse_bool(raw_value):
@@ -151,64 +72,7 @@ def get_api_results(prompt_input, config):
             temperature=temperature,
         )
 
-    if config['type'] == 'openai' or config['type'] == 'vllm':
-        try:
-            api_url = config['args'].get('api_url', '')
-            if '/api/ask' in api_url or ('/v1' not in api_url and 'api.openai.com' not in api_url):
-                return _call_custom_chat_api(prompt, config)
-            return _call_openai_compatible_api(prompt, config)
-        except Exception as e:
-            print(e)
-            return []
-        
-    elif config['type'] == 'gemini':
-        genai.configure(api_key=config['args']['api_key'])
-
-        model = genai.GenerativeModel(name=config['args']['api_name'])
-        try:
-            response = model.generate_content(prompt,
-                        generation_config=genai.types.GenerationConfig(
-                        temperature=config['run_args']['temperature']))
-            return response.text
-        except Exception as e:
-            print(e)
-            return []
-    
-    elif config['type'] == 'claude':
-        client = Anthropic(api_key=config['args']['api_key'])
-        try:
-            message = client.messages.create(
-                messages=[{"role": "user", "content": prompt,}],
-                model=config['args']['api_name'],
-            )
-            return message.content
-        except Exception as e:
-            print(e)
-            return []
-    
-    elif config['type'] == 'http':
-        headers = {"Content-Type": "application/json",
-                "Authorization": config['args']['api_key']}
-        raw_info = {
-            "model": config['args']['api_name'],
-            "messages": [{"role": "user", "content": prompt}],
-            "n": 1}
-        raw_info.update(config['run_args'])
-        enable_thinking = _get_enable_thinking(config)
-        if enable_thinking is not None:
-            raw_info["chat_template_kwargs"] = {"enable_thinking": enable_thinking}
-        try:
-            callback = requests.post(config['args']['api_url'], data=json.dumps(raw_info, cls=MyEncoder), headers=headers,
-                                    timeout=(600, 600))
-            result = callback.json()
-            # todo: customize the result
-            return result['data']['response']['choices'][0]['message']['content']
-        except Exception as e:
-            print(e)
-            return []
-        
-    else:
-        raise f"type of {config['type']} is not valid"
+    raise ValueError(f"type of {config['type']} is not valid for this judge-only bundle")
 
 def fetch_api_result(prompt_input, config, max_retries=5):
     """Attempt to get a valid result from the API, with a maximum number of retries."""

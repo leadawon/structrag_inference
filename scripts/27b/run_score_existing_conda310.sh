@@ -10,7 +10,6 @@ CONDA_PYTHON_VERSION="${CONDA_PYTHON_VERSION:-3.10.14}"
 INSTALL_REQUIREMENTS="${INSTALL_REQUIREMENTS:-1}"
 DOWNLOAD_MODEL_IF_MISSING="${DOWNLOAD_MODEL_IF_MISSING:-1}"
 MODEL_DIR="${MODEL_DIR:-$ROOT_DIR/model/Qwen3.5-27B}"
-START_SERVER="${START_SERVER:-1}"
 
 model_ready() {
     local model_dir="$1"
@@ -31,7 +30,6 @@ Usage:
   bash scripts/27b/run_score_existing_conda310.sh
   CONDA_ENV_NAME=structrag310 bash scripts/27b/run_score_existing_conda310.sh
   MODEL_DIR=/path/to/Qwen3.5-27B bash scripts/27b/run_score_existing_conda310.sh
-  START_SERVER=1 bash scripts/27b/run_score_existing_conda310.sh
 
 Behavior:
   1. Creates or reuses a conda env
@@ -47,7 +45,6 @@ Defaults:
   INSTALL_REQUIREMENTS=$INSTALL_REQUIREMENTS
   DOWNLOAD_MODEL_IF_MISSING=$DOWNLOAD_MODEL_IF_MISSING
   MODEL_DIR=$MODEL_DIR
-  START_SERVER=$START_SERVER (ignored in local judge mode)
 EOF
 }
 
@@ -85,7 +82,6 @@ fi
 conda activate "$CONDA_ENV_NAME"
 
 PYTHON_BIN="$(command -v python)"
-SERVER_PYTHON_BIN="$PYTHON_BIN"
 
 echo "python_bin=$PYTHON_BIN"
 python --version
@@ -122,6 +118,5 @@ fi
 echo ""
 echo "Starting judge/scoring from existing inference outputs..."
 PYTHON_BIN="$PYTHON_BIN" \
-SERVER_PYTHON_BIN="$SERVER_PYTHON_BIN" \
 MODEL_DIR="$MODEL_DIR" \
 bash "$ROOT_DIR/scripts/27b/run_score_existing.sh" --latest

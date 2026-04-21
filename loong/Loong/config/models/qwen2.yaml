@@ -1,7 +1,10 @@
-type: "vllm"
+type: "local_transformers"
 args:
-  api_name: "Qwen2-72B-Instruct"
-  api_key: "EMPTY"
-  api_url: "http://localhost:8000/v1"
+  model_dir: "/workspace/structrag_inference/model/Qwen3.5-27B"
+  trust_remote_code: false
+  compute_dtype: "bfloat16"
+  max_input_tokens: 32768
 run_args:
   temperature: 0.0
+  max_new_tokens: 400
+  enable_thinking: false

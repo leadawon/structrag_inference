@@ -1,13 +1,13 @@
-"""Loong-style LLM judge reusing our local Qwen client."""
+"""Loong-style LLM judge using the local transformers backend."""
 
 from __future__ import annotations
 
 import json
 import re
 from statistics import mean
-from typing import Any, Dict, List, Optional, Union
+from typing import Any, Dict, List, Optional
 
-from ..backend import QwenLocalClient, GeminiClient, OpenAIClient
+from ..backend import QwenLocalClient
 
 
 JUDGE_PROMPT = """[Question]
@@ -61,7 +61,7 @@ def _stringify(value: Any) -> str:
 
 def run_llm_judge(
     *,
-    llm: Union[QwenLocalClient, GeminiClient, OpenAIClient],
+    llm: QwenLocalClient,
     prediction_rows: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
     verdicts: List[Dict[str, Any]] = []

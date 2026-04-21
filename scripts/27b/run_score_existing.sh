@@ -7,12 +7,7 @@ ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 VENV_PATH="${VENV_PATH:-$ROOT_DIR/.venv}"
 PYTHON_BIN="${PYTHON_BIN:-$VENV_PATH/bin/python}"
 
-SERVER_SCRIPT_PATH="${SERVER_SCRIPT_PATH:-$ROOT_DIR/scripts/27b/run_server.sh}"
-WAIT_TIMEOUT="${WAIT_TIMEOUT:-1800}"
-WAIT_INTERVAL="${WAIT_INTERVAL:-15}"
 FORCE_OVERWRITE="${FORCE_OVERWRITE:-1}"
-START_SERVER="${START_SERVER:-0}"
-STOP_SERVER_WHEN_DONE="${STOP_SERVER_WHEN_DONE:-$START_SERVER}"
 DRY_RUN="${DRY_RUN:-0}"
 DEFAULT_DATASET_NAME="${DEFAULT_DATASET_NAME:-loong_exper99}"
 DEFAULT_LLM_NAME="${DEFAULT_LLM_NAME:-qwen}"
@@ -22,7 +17,6 @@ RERUN_TAG="${RERUN_TAG:-rerun-$(date -u +%Y%m%dT%H%M%SZ)}"
 RUN_MANIFEST="${RUN_MANIFEST:-}"
 OUTPUT_PATH_SUFFIX_ARG=""
 LATEST_MODE=0
-SERVER_STARTED_BY_SCRIPT=0
 
 usage() {
     cat <<EOF
@@ -43,10 +37,7 @@ Defaults:
   DEFAULT_LLM_NAME=qwen
   DEFAULT_API_MODEL_NAME=Qwen3.5-27B
   FORCE_OVERWRITE=1
-  START_SERVER=0  (ignored in local judge mode)
-  STOP_SERVER_WHEN_DONE=<same as START_SERVER>
   DRY_RUN=0
-  SERVER_SCRIPT_PATH=$ROOT_DIR/scripts/27b/run_server.sh
 EOF
 }
 
@@ -153,8 +144,6 @@ mapping = {
     "MANIFEST_PROCESS_NUM_EVAL": data.get("process_num_eval", "20"),
     "MANIFEST_EVAL_MODEL_CONFIG": data.get("eval_model_config", "qwen_local_judge.yaml"),
     "MANIFEST_GEN_MODEL_CONFIG": data.get("gen_model_config", "qwen2.yaml"),
-    "MANIFEST_URL": data.get("url", "127.0.0.1:1225"),
-    "MANIFEST_API_MODEL_NAME": data.get("api_model_name", "Qwen3.5-27B"),
     "MANIFEST_STRUCTRAG_ENABLE_THINKING": data.get("structrag_enable_thinking", "0"),
     "MANIFEST_INCLUDE_ERROR_OUTPUTS_IN_SCORE": data.get("include_error_outputs_in_score", "1"),
     "MANIFEST_STRUCTURED_EVAL_PY_ROOT": data.get("structured_eval_py_root", "/workspace/LAMBO"),
@@ -169,44 +158,6 @@ for key, value in mapping.items():
 PY
 )"
     eval "$manifest_env"
-}
-
-wait_for_server_health() {
-    local url="$1"
-    local start_ts
-    start_ts="$(date +%s)"
-
-    while true; do
-        if "$PYTHON_BIN" - "$url" <<'PY'
-import sys
-import requests
-
-endpoint = sys.argv[1]
-if endpoint.startswith(("http://", "https://")):
-    health_url = endpoint.rstrip("/") + "/health"
-else:
-    health_url = f"http://{endpoint}/health"
-
-resp = requests.get(health_url, timeout=5)
-raise SystemExit(0 if resp.status_code == 200 else 1)
-PY
-        then
-            echo "judge server is healthy: $url"
-            return 0
-        fi
-
-        local now_ts
-        now_ts="$(date +%s)"
-        local elapsed_s
-        elapsed_s=$((now_ts - start_ts))
-        if (( elapsed_s >= WAIT_TIMEOUT )); then
-            echo "Timed out waiting for judge server health after ${WAIT_TIMEOUT}s: $url"
-            return 1
-        fi
-
-        echo "Waiting for judge server health... elapsed=${elapsed_s}s timeout=${WAIT_TIMEOUT}s"
-        sleep "$WAIT_INTERVAL"
-    done
 }
 
 if [[ ! -x "$PYTHON_BIN" ]]; then
@@ -269,15 +220,11 @@ echo "score_log_path=$SCORE_LOG_PATH"
 echo "score_metadata_path=$SCORE_METADATA_PATH"
 
 if [[ "$DRY_RUN" == "1" ]]; then
-    echo "DRY_RUN=1, stopping before server start / score execution."
+    echo "DRY_RUN=1, stopping before score execution."
     exit 0
 fi
 
-if [[ "$START_SERVER" == "1" ]]; then
-    echo "START_SERVER=1 was requested, but local judge mode does not use a server. Ignoring it."
-else
-    echo "Using local judge mode; no server startup is needed."
-fi
+echo "Using local judge mode; no server startup is needed."
 
 cd "$ROOT_DIR"
 FORCE_OVERWRITE="$FORCE_OVERWRITE" \
@@ -289,8 +236,6 @@ PROCESS_NUM_EVAL="$MANIFEST_PROCESS_NUM_EVAL" \
 EVAL_MODEL_CONFIG="$MANIFEST_EVAL_MODEL_CONFIG" \
 GEN_MODEL_CONFIG="$MANIFEST_GEN_MODEL_CONFIG" \
 MODEL_CONFIG_DIR="$MANIFEST_MODEL_CONFIG_DIR" \
-URL="$MANIFEST_URL" \
-API_MODEL_NAME="$MANIFEST_API_MODEL_NAME" \
 INCLUDE_ERROR_OUTPUTS_IN_SCORE="$MANIFEST_INCLUDE_ERROR_OUTPUTS_IN_SCORE" \
 STRUCTURED_EVAL_PY_ROOT="$MANIFEST_STRUCTURED_EVAL_PY_ROOT" \
 STRUCTRAG_ENABLE_THINKING="$MANIFEST_STRUCTRAG_ENABLE_THINKING" \

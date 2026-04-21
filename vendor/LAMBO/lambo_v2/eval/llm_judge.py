@@ -112,6 +112,7 @@ def run_llm_judge(
     progress_every = max(1, int(os.environ.get("LLM_JUDGE_PROGRESS_EVERY", "1")))
     print_raw = _env_flag("LLM_JUDGE_PRINT_RAW", "0")
     print_raw_on_failure = _env_flag("LLM_JUDGE_PRINT_RAW_ON_FAILURE", "1")
+    print_raw_below = float(os.environ.get("LLM_JUDGE_PRINT_RAW_BELOW", "0") or 0)
     raw_max_chars = int(os.environ.get("LLM_JUDGE_RAW_MAX_CHARS", "4000"))
     started_at = time.time()
     print(f"llm_judge_total={total}", flush=True)
@@ -159,7 +160,8 @@ def run_llm_judge(
             }
         )
 
-        should_print_raw = print_raw or (score is None and print_raw_on_failure)
+        suspicious_low_score = score is not None and print_raw_below > 0 and score <= print_raw_below
+        should_print_raw = print_raw or (score is None and print_raw_on_failure) or suspicious_low_score
         if should_print_raw:
             print(
                 f"llm_judge_raw_begin sample_id={row.get('id', '')} index={index}/{total}",

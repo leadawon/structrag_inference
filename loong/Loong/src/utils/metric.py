@@ -5,16 +5,30 @@ import numpy as np
 def extract_number(text):
     if not text:
         return None
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
     match = re.search(r'\[\[([0-9]*\.?[0-9]+)\]\]', text)
     if match:
         return float(match.group(1))
     match = re.search(r'\[([0-9]*\.?[0-9]+)\]', text)
     if match:
         return float(match.group(1))
+    for line in reversed(lines):
+        normalized = line.lower()
+        if "1 to 100" in normalized or "1-100" in normalized or "1 ~ 100" in normalized:
+            continue
+        for pattern in (
+            r'(?i)^(?:rating|score|overall score)\s*[:=]\s*([0-9]{1,3}(?:\.[0-9]+)?)\s*$',
+            r'(?i)^(?:rating|score|overall score)\s*[:=]\s*\[\[?([0-9]{1,3}(?:\.[0-9]+)?)\]?\]\s*$',
+            r'(?i)^([0-9]{1,3}(?:\.[0-9]+)?)\s*/\s*100\s*$',
+        ):
+            match = re.search(pattern, line)
+            if match:
+                value = float(match.group(1))
+                if 0 <= value <= 100:
+                    return value
     for pattern in (
-        r'(?i)\b(?:rating|score|overall score)\s*[:=]\s*([0-9]{1,3}(?:\.[0-9]+)?)\b',
-        r'(?i)\b([0-9]{1,3}(?:\.[0-9]+)?)\s*/\s*100\b',
-        r'(?i)\b(?:rating|score|overall score)\D{0,12}\b([0-9]{1,3}(?:\.[0-9]+)?)\b',
+        r'(?i)\bRating:\s*\[\[([0-9]{1,3}(?:\.[0-9]+)?)\]\]',
+        r'(?i)\bScore:\s*\[\[([0-9]{1,3}(?:\.[0-9]+)?)\]\]',
     ):
         match = re.search(pattern, text)
         if match:

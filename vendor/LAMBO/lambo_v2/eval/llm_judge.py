@@ -66,6 +66,19 @@ def _stringify(value: Any) -> str:
         return str(value)
 
 
+def _env_flag(name: str, default: str = "0") -> bool:
+    value = os.environ.get(name, default).strip().lower()
+    return value in {"1", "true", "yes", "on"}
+
+
+def _truncate_for_log(text: Optional[str], max_chars: int) -> str:
+    if not text:
+        return ""
+    if max_chars <= 0 or len(text) <= max_chars:
+        return text
+    return text[:max_chars] + "\n...<truncated>..."
+
+
 def _repair_score(
     *,
     llm: QwenLocalClient,
@@ -97,6 +110,9 @@ def run_llm_judge(
     scores: List[float] = []
     total = len(prediction_rows)
     progress_every = max(1, int(os.environ.get("LLM_JUDGE_PROGRESS_EVERY", "1")))
+    print_raw = _env_flag("LLM_JUDGE_PRINT_RAW", "0")
+    print_raw_on_failure = _env_flag("LLM_JUDGE_PRINT_RAW_ON_FAILURE", "1")
+    raw_max_chars = int(os.environ.get("LLM_JUDGE_RAW_MAX_CHARS", "4000"))
     started_at = time.time()
     print(f"llm_judge_total={total}", flush=True)
 
@@ -142,6 +158,22 @@ def run_llm_judge(
                 "repair_raw": repair_raw,
             }
         )
+
+        should_print_raw = print_raw or (score is None and print_raw_on_failure)
+        if should_print_raw:
+            print(
+                f"llm_judge_raw_begin sample_id={row.get('id', '')} index={index}/{total}",
+                flush=True,
+            )
+            print(_truncate_for_log(raw, raw_max_chars), flush=True)
+            print("llm_judge_raw_end", flush=True)
+            if repair_raw is not None:
+                print(
+                    f"llm_judge_repair_raw_begin sample_id={row.get('id', '')} index={index}/{total}",
+                    flush=True,
+                )
+                print(_truncate_for_log(repair_raw, raw_max_chars), flush=True)
+                print("llm_judge_repair_raw_end", flush=True)
 
         if index % progress_every == 0 or index == total:
             sample_elapsed = time.time() - sample_started_at

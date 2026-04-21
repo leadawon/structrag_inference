@@ -56,6 +56,12 @@ Preview only:
 DRY_RUN=1 bash scripts/27b/run_score_existing.sh --latest
 ```
 
+If you prefer `conda` with Python 3.10.14 and want one command that sets up the env and runs judge/scoring:
+
+```bash
+bash scripts/27b/run_score_existing_conda310.sh
+```
+
 ## Main Scripts
 
 - `bash scripts/27b/download_model.sh`

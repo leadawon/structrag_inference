@@ -29,6 +29,7 @@ def evaluate_prediction_against_gold(prediction: Any, gold_answer: Any) -> Dict[
             "pair_precision": precision,
             "pair_recall": recall,
             "pair_f1": f1,
+            "position_accuracy": None,
             "missing": sorted(gold_pairs - pred_pairs),
             "extra": sorted(pred_pairs - gold_pairs),
         }
@@ -91,7 +92,7 @@ def evaluate_predictions(rows: List[Dict[str, Any]]) -> Dict[str, Any]:
                 "pair_precision": metrics["pair_precision"],
                 "pair_recall": metrics["pair_recall"],
                 "pair_f1": metrics["pair_f1"],
-                "position_accuracy": metrics["position_accuracy"],
+                "position_accuracy": metrics.get("position_accuracy"),
                 "missing": metrics["missing"],
                 "extra": metrics["extra"],
             }

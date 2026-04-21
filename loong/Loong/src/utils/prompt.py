@@ -157,34 +157,26 @@ def get_generate_prompts(args):
 
 
 def get_evaluate_prompts(args, tag):
-    prompt = '''[Question]
+    prompt = '''You are grading an assistant answer against a gold answer.
+
+Criteria:
+- Accuracy and hallucinations
+- Completeness
+
+Score from 1 to 100.
+Use 100 only if the assistant answer is fully correct.
+
+Return exactly one line in this format and nothing else:
+Rating: [[score]]
+
+[Question]
 {}
 
 [Gold Answer]
 {}
 
-[The Start of Assistant's Predicted Answer]
-{}
-[The End of Assistant's Predicted Answer]
-
-[System]
-We would like to request your feedback on the performance of the AI assistant in response to the user question displayed above according to the gold answer. Please use the following listed aspects and their descriptions as evaluation criteria:
-    - Accuracy and Hallucinations: The assistant's answer is semantically consistent with the gold answer; The numerical value and order need to be accurate, and there should be no hallucinations.
-    - Completeness: Referring to the reference answers, the assistant's answer should contain all the key points needed to answer the user's question; further elaboration on these key points can be omitted.
-Please rate whether this answer is suitable for the question. Please note that the gold answer can be considered as a correct answer to the question.
-
-The assistant receives an overall score on a scale of 1 to 100, where a higher score indicates better overall performance.
-Please note that if the assistant's answer and the gold answer fully meet the above criteria, its overall rating should be the full marks (100).
-Please first provide a comprehensive explanation of your evaluation, avoiding any potential bias.
-Then, output a line indicating the score of the Assistant.
-
-PLEASE OUTPUT WITH THE FOLLOWING FORMAT, WHERE THE SCORE IS A SCALE OF 1 TO 100 BY STRICTLY FOLLOWING THIS FORMAT: "[[score]]", FOR EXAMPLE "Rating: [[100]]":
-<start output>
-Evaluation evidence: your evluation explanation here, no more than 100 words
-Rating: [[score]]
-<end output>
-
-Now, start your evaluation:'''
+[Assistant Answer]
+{}'''
     prompts = []
     lines = open(args.output_path).readlines()
     for line in lines:

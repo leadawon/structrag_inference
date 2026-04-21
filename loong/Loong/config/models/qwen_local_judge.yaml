@@ -6,5 +6,5 @@ args:
   max_input_tokens: 32768
 run_args:
   temperature: 0.0
-  max_new_tokens: 400
+  max_new_tokens: 64
   enable_thinking: false

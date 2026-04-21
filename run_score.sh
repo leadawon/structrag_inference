@@ -7,7 +7,7 @@ VENV_PATH="${VENV_PATH:-$ROOT_DIR/.venv}"
 PYTHON_BIN="${PYTHON_BIN:-$VENV_PATH/bin/python}"
 LOONG_DIR="${LOONG_DIR:-$ROOT_DIR/loong/Loong}"
 JUDGE_MODEL_DIR="${JUDGE_MODEL_DIR:-${TOKENIZER_PATH:-$ROOT_DIR/model/Qwen3.5-27B}}"
-JUDGE_MAX_NEW_TOKENS="${JUDGE_MAX_NEW_TOKENS:-400}"
+JUDGE_MAX_NEW_TOKENS="${JUDGE_MAX_NEW_TOKENS:-64}"
 
 INPUT_LLM_NAME="${INPUT_LLM_NAME:-qwen}"
 DATASET_NAME="${DATASET_NAME:-loong}"
@@ -144,6 +144,7 @@ path.write_text(
             'type: "local_transformers"',
             "args:",
             f'  model_dir: "{model_dir}"',
+            '  system_prompt: "You are a strict, impartial evaluator. Do not explain your reasoning. Do not restate the task. Output exactly one line: Rating: [[score]]."',
             '  trust_remote_code: false',
             '  compute_dtype: "bfloat16"',
             '  max_input_tokens: 32768',

@@ -129,6 +129,7 @@ def run_llm_judge(
     print_raw_on_failure = _env_flag("LLM_JUDGE_PRINT_RAW_ON_FAILURE", "1")
     print_raw_below = float(os.environ.get("LLM_JUDGE_PRINT_RAW_BELOW", "0") or 0)
     raw_max_chars = int(os.environ.get("LLM_JUDGE_RAW_MAX_CHARS", "4000"))
+    input_max_chars = int(os.environ.get("LLM_JUDGE_INPUT_MAX_CHARS", str(raw_max_chars)))
     started_at = time.time()
     print(f"llm_judge_total={total}", flush=True)
 
@@ -178,6 +179,20 @@ def run_llm_judge(
         suspicious_low_score = score is not None and print_raw_below > 0 and score <= print_raw_below
         should_print_raw = print_raw or (score is None and print_raw_on_failure) or suspicious_low_score
         if should_print_raw:
+            print(
+                f"llm_judge_input_begin sample_id={row.get('id', '')} index={index}/{total}",
+                flush=True,
+            )
+            print(
+                "[Question]\n"
+                + _truncate_for_log(full_question, input_max_chars)
+                + "\n\n[Gold Answer]\n"
+                + _truncate_for_log(gold, input_max_chars)
+                + "\n\n[Assistant Answer]\n"
+                + _truncate_for_log(prediction, input_max_chars),
+                flush=True,
+            )
+            print("llm_judge_input_end", flush=True)
             print(
                 f"llm_judge_raw_begin sample_id={row.get('id', '')} index={index}/{total}",
                 flush=True,

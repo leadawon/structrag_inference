@@ -1,0 +1,7 @@
+{
+  "summary": {
+    "error": "No module named 'dotenv'"
+  },
+  "verdicts": [],
+  "traceback": "Traceback (most recent call last):\n  File \"<stdin>\", line 16, in <module>\n  File \"/workspace/structrag_inference/vendor/LAMBO/lambo_v2/backend.py\", line 8, in <module>\n    from dotenv import load_dotenv\nModuleNotFoundError: No module named 'dotenv'\n"
+}

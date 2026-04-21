@@ -1,53 +1,33 @@
 {
   "sample_count": 99,
-  "exact_match_rate": 0.04040404040404041,
-  "avg_pair_f1": 1.0,
+  "exact_match_rate": 0.3333333333333333,
+  "avg_pair_f1": 0.7485320457835345,
   "per_sample": [
     {
       "id": "13a4a371-6339-4c9d-82cf-fc9ab2bb017d",
       "selected_index": 0,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# TinyLlama: An Open-Source Small Language Model "
-          ],
-          "Citation": [
-            "# Lory: Fully Differentiable Mixture-of-Experts for Autoregressive Language Model Pre-training "
-          ]
-        }
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper **\"OpenMoE: An Early Effort on Open Mixture-of-Experts Language Models\"** can be clearly established by examining the directional flow of the \"reference\" relationships within the dataset.\n\nFirst, regarding the **references** (papers that \"OpenMoE\" uses or cites), the retrieval analysis identified a specific triple where \"OpenMoE\" acts as the head entity. The data explicitly states that \"OpenMoE: An Early Effort on Open Mixture-of-Experts Language Models\" references **\"TinyLlama: An Open-Source Small Language Model\"**. This relationship confirms that the authors of OpenMoE utilized or built upon the work presented in the TinyLlama paper. The analysis further clarified that other potential candidates, such as the paper \"Lory,\" do not fit this category; instead, \"Lory\" appears in a relationship where it references OpenMoE, which is the inverse of the reference definition required here. Therefore, the only identified reference for OpenMoE in the provided context is TinyLlama.\n\nSecond, regarding the **citations** (papers that use or cite \"OpenMoE\"), the retrieval results highlight a distinct relationship where \"OpenMoE\" appears as the tail entity. The analysis pinpointed a triple where the head entity is **\"Lory: Fully Differentiable Mixture-of-Experts for Autoregressive Language Model Pre-training\"**. In this instance, the \"Lory\" paper explicitly references \"OpenMoE: An Early Effort on Open Mixture-of-Experts Language Models,\" indicating that the Lory paper builds upon or acknowledges the contributions of the OpenMoE paper. The evaluation process confirmed that the \"TinyLlama\" paper does not cite OpenMoE, as the relationship between them is unidirectional from OpenMoE to TinyLlama. Consequently, the only identified paper citing OpenMoE within the provided set is Lory.\n\nIn summary, the paper \"OpenMoE: An Early Effort on Open Mixture-of-Experts Language Models\" serves as a foundational reference for the \"Lory\" paper, while simultaneously relying on the \"TinyLlama\" paper for its own development. These relationships form a clear chain of academic dependency within the provided dataset.\n\n```json\n{\n  \"Reference\": [\n    \"TinyLlama: An Open-Source Small Language Model\"\n  ],\n  \"Citation\": [\n    \"Lory: Fully Differentiable Mixture-of-Experts for Autoregressive Language Model Pre-training\"\n  ]\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "c4a4e642-fa00-4377-a756-40f2f7ea7a74",
       "selected_index": 1,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# A Survey of Hallucination in \"Large\" Foundation Models "
-          ],
-          "Citation": [
-            "# From Role-Play to Drama-Interaction: An LLM Solution "
-          ]
-        }
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results, the citation and reference relationships for the paper **\"CharacterEval: A Chinese Benchmark for Role-Playing Conversational Agent Evaluation\"** have been established through a systematic filtering of the graph data triples.\n\nRegarding the **references** (papers that \"CharacterEval\" uses or mentions), the analysis identified a specific triple where \"CharacterEval\" serves as the head entity with the relation \"reference.\" In this instance, the target paper explicitly references **\"A Survey of Hallucination in 'Large' Foundation Models.\"** Other potential candidates, such as \"From Role-Play to Drama-Interaction: An LLM Solution,\" were examined but discarded for this category because they do not appear as the tail entity in a triple where \"CharacterEval\" is the head. Consequently, the only confirmed reference within the provided dataset is the survey on hallucination in large foundation models.\n\nConversely, regarding the **citations** (papers that use or mention \"CharacterEval\"), the analysis focused on triples where \"CharacterEval\" appears as the tail entity, indicating it is being cited by the head entity. The filtering process revealed that the paper **\"From Role-Play to Drama-Interaction: An LLM Solution\"** lists \"CharacterEval\" in its references, thereby establishing a citation relationship where \"From Role-Play to Drama-Interaction: An LLM Solution\" cites \"CharacterEval.\" Other papers in the dataset, such as \"A Survey of Hallucination in 'Large' Foundation Models,\" were found to have empty reference lists or did not list \"CharacterEval\" as a tail, meaning they do not cite the target paper in this context.\n\nIn summary, \"CharacterEval: A Chinese Benchmark for Role-Playing Conversational Agent Evaluation\" references \"A Survey of Hallucination in 'Large' Foundation Models\" and is cited by \"From Role-Play to Drama-Interaction: An LLM Solution.\"\n\n```json\n{\n  \"Reference\": [\n    \"A Survey of Hallucination in \\\"Large\\\" Foundation Models\"\n  ],\n  \"Citation\": [\n    \"From Role-Play to Drama-Interaction: An LLM Solution\"\n  ]\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "835a4005-8c32-4083-b52d-4e014d1d35f5",
@@ -55,18 +35,13 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# CONTRASTIVE SEMI-SUPERVISED LEARNING FOR ASR ",
-          "# HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units ",
-          "# SUPERB: Speech processing Universal PERformance Benchmark "
-        ]
-      ],
+      "pair_precision": 0.75,
+      "pair_recall": 1.0,
+      "pair_f1": 0.8571428571428571,
+      "position_accuracy": 0.0,
+      "missing": [],
       "extra": [
-        "Based on the detailed analysis of the provided retrieval results and the citation graph data, the longest linear citation chain has been constructed by connecting the sequential reference relationships among the four identified papers. The chain begins with the most recent work that cites the subsequent paper, continuing backward through the references until reaching the earliest cited work in this specific sequence.\n\nThe logical flow of the citation chain is established as follows: The paper **\"SUPERB: Speech processing Universal PERformance Benchmark\"** cites the work titled **\"HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units\"**. In turn, this primary HuBERT paper cites **\"CONTRASTIVE SEMI-SUPERVISED LEARNING FOR ASR\"**. Finally, the Contrastive Semi-Supervised Learning paper cites a specific variant or related work titled **\"HuBERT: How much can a bad teacher benefit ASR pre-training?\"**. This creates a continuous, unbroken linear path of four distinct documents where each paper (except the last) serves as a reference for the preceding paper in the list, satisfying the requirement that the first paper is cited by the second, the second by the third, and so on.\n\nTherefore, the longest citation chain, presented as a list of paper titles in the order from the most cited (the end of the reference chain) to the most recent citer (the start of the chain), is:\n\n[\"HuBERT: How much can a bad teacher benefit ASR pre-training?\", \"CONTRASTIVE SEMI-SUPERVISED LEARNING FOR ASR\", \"HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units\", \"SUPERB: Speech processing Universal PERformance Benchmark\"]"
+        "HuBERT: How much can a bad teacher benefit ASR pre-training?"
       ]
     },
     {
@@ -74,19 +49,13 @@
       "selected_index": 3,
       "type": "paper",
       "level": 4,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems ",
-          "# A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results and the specific citation relationships identified within the supplied collection of papers, the following detailed citation chain has been constructed. The analysis reveals a linear and continuous dependency structure involving exactly two distinct academic works, where the citation flow moves from a more recent or derivative study to its foundational reference.\n\nThe starting point of this citation chain is the paper titled **\"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems\"**. According to the graph data analysis, this document serves as the root of the chain because it does not cite any other works contained within the provided set of papers; its reference list regarding this specific collection is empty. Consequently, it acts as the foundational work in this sequence, having no outgoing citation links to other provided documents.\n\nFollowing this foundational paper, the chain proceeds to the second document, titled **\"A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data\"**. The retrieval results explicitly confirm a direct citation relationship where this second paper references the first. Specifically, the data indicates that the GRU and SVM-based intrusion detection study cites the LSTM-based natural language generation study. This establishes a clear directional link: the second paper relies upon or builds upon the work presented in the first.\n\nSince the first paper cites nothing else in the set and the second paper cites only the first, no further extensions or branches exist within this specific collection. Therefore, the longest possible continuous citation chain that can be formed from the provided documents consists of these two titles in a specific sequential order where the later paper cites the earlier one. Adhering strictly to the requirement that the list must represent a linear chain where the first item is cited by the second, the final constructed citation chain is:\n\n[\"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems\", \"A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data\"]"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 1.0,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "e904afd3-5cb9-4bf7-bbee-9c8defac858c",
@@ -94,18 +63,19 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "pair_f1": 0.0,
+      "position_accuracy": 0.0,
       "missing": [
-        [
-          "# Contrastive Decoding: Open-ended Text Generation as Optimization ",
-          "# An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation ",
-          "# On the performativity of SDG classifications in large bibliometric databases "
-        ]
+        "An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation",
+        "Contrastive Decoding: Open-ended Text Generation as Optimization",
+        "On the performativity of SDG classifications in large bibliometric databases"
       ],
       "extra": [
-        "Based on the retrieval results and the analysis of the citation relationships among the provided papers, the longest continuous linear citation chain has been constructed. This chain adheres to the specific requirement that the first paper in the list is cited by the second, and the second is cited by the third, creating a sequential flow of references where each subsequent document builds upon the previous one.\n\nThe citation relationships identified are as follows:\n1.  The paper titled **\"On the performativity of SDG classifications in large bibliometric databases\"** explicitly references (cites) the work **\"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\"**.\n2.  Subsequently, **\"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\"** references (cites) the paper **\"Contrastive Decoding: Open-ended Text Generation as Optimization\"**.\n\nAlthough there is a reciprocal citation relationship where \"Contrastive Decoding: Open-ended Text Generation as Optimization\" also cites \"An Empirical Study...\", including this would create a cycle rather than a linear chain. Therefore, to satisfy the requirement for a linear and continuous sequence of unique papers, the chain is established starting from the paper that is cited but does not cite the others in this specific sequence, moving forward to the paper that cites it, and finally to the paper that cites the second one.\n\nFollowing the logic that the first paper is cited by the second, and the second by the third, the order is determined by reversing the citation flow (from the cited work to the citing work). Thus, \"Contrastive Decoding...\" is the foundational work in this chain (cited by the next), \"An Empirical Study...\" is the middle work (citing the first and cited by the third), and \"On the performativity...\" is the final work (citing the second).\n\nHowever, the instruction specifically requests the list where the **first paper is cited by the second**. This implies the list order should be: [Paper Cited, Paper Citing Paper 1, Paper Citing Paper 2].\n*   **Paper 1 (Cited by Paper 2):** \"Contrastive Decoding: Open-ended Text Generation as Optimization\" (Cited by \"An Empirical Study...\")\n*   **Paper 2 (Cites Paper 1, Cited by Paper 3):** \"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\" (Cites \"Contrastive Decoding...\", Cited by \"On the performativity...\")\n*   **Paper 3 (Cites Paper 2):** \"On the performativity of SDG classifications in large bibliometric databases\" (Cites \"An Empirical Study...\")\n\nWait, reviewing the retrieval result's final output which lists: `[\"On the performativity...\", \"An Empirical Study...\", \"Contrastive Decoding...\"]`.\nLet's re-read the instruction: \"the first paper title in the list (Paper 1) should not cite any other works. Instead, it should be cited by the next paper in the list (Paper 2)\".\nThis means:\n*   Paper 1 is the **cited** work (the target).\n*   Paper 2 is the **citing** work (the source).\n*   Relationship: Paper 2 cites Paper 1.\n\nLet's re-evaluate the flow based on the triples:\n*   Triple 1: \"On the performativity...\" **cites** \"An Empirical Study...\".\n    *   Here, \"An Empirical Study...\" is cited by \"On the performativity...\".\n*   Triple 3: \"An Empirical Study...\" **cites** \"Contrastive Decoding...\".\n    *   Here, \"Contrastive Decoding...\" is cited by \"An Empirical Study...\".\n\nIf we construct a chain where $P_1$ is cited by $P_2$, and $P_2$ is cited by $P_3$:\n*   We need $P_2$ to cite $P_1$.\n*   We need $P_3$ to cite $P_2$.\n\nFrom the data:\n*   \"An Empirical Study...\" cites \"Contrastive Decoding...\". So if $P_2$ = \"An Empirical Study...\", then $P_1$ = \"Contrastive Decoding...\".\n*   \"On the performativity...\" cites \"An Empirical Study...\". So if $P_3$ = \"On the performativity...\", then $P_2$ = \"An Empirical Study...\".\n\nThis creates the chain:\n1.  $P_1$: \"Contrastive Decoding: Open-ended Text Generation as Optimization\"\n2.  $P_2$: \"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\"\n3.  $P_3$: \"On the performativity of SDG classifications in large bibliometric databases\"\n\nVerification:\n*   Is $P_1$ cited by $P_2$? Yes, \"An Empirical Study...\" cites \"Contrastive Decoding...\".\n*   Is $P_2$ cited by $P_3$? Yes, \"On the performativity...\" cites \"An Empirical Study...\".\n\nHowever, the retrieval result provided in the last subquery outputted the list in the reverse order: `[\"On the performativity...\", \"An Empirical Study...\", \"Contrastive Decoding...\"]`.\nLet's check the instruction again: \"the first paper title in the list (Paper 1) should not cite any other works. Instead, it should be cited by the next paper in the list (Paper 2)\".\nThis phrasing is slightly ambiguous. \"Paper 1 should not cite any other works\" usually implies it is the oldest paper (the root). But \"it should be cited by the next paper\" confirms it is the target of the citation.\nIf Paper 1 is the target, and Paper 2 cites it, then the list is [Target, Citer, Citer of Citer].\nThis matches my derivation: [\"Contrastive Decoding...\", \"An Empirical Study...\", \"On the performativity...\"].\n\nBut let's look at the retrieval result's logic: \"Start: 'On the performativity...' references 'An Empirical Study...'\".\nIf the retrieval result's final list is `[\"On the performativity...\", \"An Empirical Study...\", \"Contrastive Decoding...\"]`, does this fit the rule?\n*   Paper 1: \"On the performativity...\"\n*   Paper 2: \"An Empirical Study...\"\n*   Does Paper 1 cite Paper 2? No, Paper 1 *cites* Paper 2.\n*   Does Paper 1 get cited by Paper 2? No, Paper 2 *cites* Paper 1? No, Paper 2 is cited by Paper 1.\nThe retrieval result's list `[\"On the performativity...\", \"An Empirical Study...\", \"Contrastive Decoding...\"]` represents the flow of citations: Source -> Target -> Target of Target.\nBut the instruction says: \"Paper 1 ... should be cited by the next paper (Paper 2)\".\nThis means the list must be ordered [Target, Source, Source of Source].\nTherefore, the correct order is:\n1. \"Contrastive Decoding: Open-ended Text Generation as Optimization\" (Cited by #2)\n2. \"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\" (Cites #1, Cited by #3)\n3. \"On the performativity of SDG classifications in large bibliometric databases\" (Cites #2)\n\nThe retrieval result's final list seems to have listed them in the order of citation flow (Source to Target), which contradicts the specific instruction \"first paper ... should be cited by the next\". I must follow the instruction strictly. The instruction defines the list order as [Cited, Citer, Citer of Citer].\n\nTherefore, the correct chain is:\n[\"Contrastive Decoding: Open-ended Text Generation as Optimization\", \"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\", \"On the performativity of SDG classifications in large bibliometric databases\"]\n\nWait, let me re-read the retrieval result's final sentence carefully.\n\"The resulting chain of paper titles is: [\"On the performativity...\", \"An Empirical Study...\", \"Contrastive Decoding...\"]\"\nIf I output this, I am saying:\n1. \"On the performativity...\" is cited by \"An Empirical Study...\"?\n   - Fact: \"On the performativity...\" cites \"An Empirical Study...\".\n   - So \"An Empirical Study...\" is cited by \"On the performativity...\".\n   - This means the retrieval result's list order is [Citer, Cited, Cited of Cited].\n   - This violates the instruction \"first paper ... should be cited by the next\".\n\nI must correct the order based on the instruction, not just copy the retrieval result's final list if it contradicts the logic.\nInstruction: \"first paper ... should be cited by the next paper\".\nLogic: $P_2$ cites $P_1$.\nData: \"An Empirical Study\" cites \"Contrastive Decoding\".\nSo $P_2$ = \"An Empirical Study\", $P_1$ = \"Contrastive Decoding\".\nData: \"On the performativity\" cites \"An Empirical Study\".\nSo $P_3$ = \"On the performativity\", $P_2$ = \"An Empirical Study\".\n\nChain: $P_1 \\leftarrow P_2 \\leftarrow P_3$.\nList: [\"Contrastive Decoding...\", \"An Empirical Study...\", \"On the performativity...\"].\n\nThis is the only logical interpretation that satisfies \"Paper 1 is cited by Paper 2\".\n\nFinal List:\n[\"Contrastive Decoding: Open-ended Text Generation as Optimization\", \"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\", \"On the performativity of SDG classifications in large bibliometric databases\"]\n\nWait, is there any ambiguity in \"should not cite any other works\"?\n\"Paper 1 should not cite any other works [in the list]\".\nIn my chain:\n1. \"Contrastive Decoding...\"\n2. \"An Empirical Study...\"\n3. \"On the performativity...\"\nDoes Paper 1 cite Paper 2 or 3? No.\nDoes Paper 2 cite Paper 1? Yes.\nDoes Paper 2 cite Paper 3? No.\nDoes Paper 3 cite Paper 2? Yes.\nDoes Paper 3 cite Paper 1? No.\nThis fits perfectly.\n\nThe retrieval result's list `[\"On the performativity...\", \"An Empirical Study...\", \"Contrastive Decoding...\"]` would mean:\n1. \"On the performativity...\"\n2. \"An Empirical Study...\"\nDoes 1 cite 2? Yes.\nDoes 1 get cited by 2? No.\nThis violates the instruction. I will provide the corrected order.\n\n[\"Contrastive Decoding: Open-ended Text Generation as Optimization\", \"An Empirical Study On Contrastive Search And Contrastive Decoding For Open-ended Text Generation\", \"On the performativity of SDG classifications in large bibliometric databases\"]"
+        "An Empirical Study...",
+        "Contrastive Decoding...",
+        "On the performativity..."
       ]
     },
     {
@@ -114,43 +84,25 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Churn analysis using deep convolutional neural networks and autoencoders ",
-          "# Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis* ",
-          "# MUlTimodAL DeEP LEARNING OF Word-OF-MOUTH TEXT AND DEMOGRAPHICS TO PREDICT CUSTOMER RATING: HANDLING CONSUMER HETEROGENEITY IN MARKETING ",
-          "# An Efficient Multimodal Learning Framework to Comprehend Consumer Preferences Using BERT and Cross-Attention "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the four supplied papers have been meticulously mapped to identify the longest linear and continuous citation chain. The data reveals a clear sequential dependency where each paper in the chain cites the subsequent one, forming an unbroken lineage of academic reference.\n\nThe construction of this chain begins with the most recent work in the sequence, titled \"An Efficient Multimodal Learning Framework to Comprehend Consumer Preferences Using BERT and Cross-Attention.\" According to the retrieved graph data, this paper serves as the initial \"head\" of the chain, as it explicitly references the next paper in the sequence. It cites the work titled \"MUlTimodAL DeEP LEARNING OF Word-OF-MOUTH TEXT AND DEMOGRAPHICS TO PREDICT CUSTOMER RATING: HANDLING CONSUMER HETEROGENEITY IN MARKETING.\" This establishes the first link in the linear progression.\n\nFollowing this connection, the paper \"MUlTimodAL DeEP LEARNING OF Word-OF-MOUTH TEXT AND DEMOGRAPHICS TO PREDICT CUSTOMER RATING: HANDLING CONSUMER HETEROGENEITY IN MARKETING\" acts as the citing agent for the next document. The retrieval results confirm that this multimodal deep learning study references \"Churn prediction with sequential data and deep neural networks. a comparative analysis.\" This creates the second continuous link, ensuring that the flow of citation remains unbroken from the first paper to the third.\n\nContinuing the sequence, the paper \"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis*\" is identified as the next citing entity. The data indicates that this comparative analysis paper references the final document in the provided set, titled \"Churn analysis using deep convolutional neural networks and autoencoders.\" This forms the third and final link in the chain.\n\nThe chain concludes with \"Churn analysis using deep convolutional neural networks and autoencoders,\" as the retrieval results explicitly note that this document does not cite any other works within the provided collection, making it the terminal node of the sequence. No other combination of the provided papers yields a longer continuous chain; alternative starting points result in shorter sequences of three or two papers. Therefore, the longest possible linear citation chain, adhering strictly to the requirement that each paper is cited by the subsequent one in the list, comprises all four documents in the specific order derived from the graph analysis.\n\n[\"An Efficient Multimodal Learning Framework to Comprehend Consumer Preferences Using BERT and Cross-Attention\", \"MUlTimodAL DeEP LEARNING OF Word-OF-MOUTH TEXT AND DEMOGRAPHICS TO PREDICT CUSTOMER RATING: HANDLING CONSUMER HETEROGENEITY IN MARKETING\", \"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis*\", \"Churn analysis using deep convolutional neural networks and autoencoders\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.0,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "b7405d8e-13f0-4750-a25d-df3a67ffd39a",
       "selected_index": 7,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# Benchmarking Large Language Models in Retrieval-Augmented Generation "
-          ],
-          "Citation": [
-            "# When to Retrieve: Teaching LLMs to Utilize Information Retrieval Effectively "
-          ]
-        }
-      ],
-      "extra": [
-        "Based on the retrieval results provided, a clear analysis of the citation and reference relationships surrounding the paper \"Seven Failure Points When Engineering a Retrieval Augmented Generation System\" can be established.\n\nRegarding the **references** (papers that the target paper uses or mentions), the data explicitly indicates that \"Seven Failure Points When Engineering a Retrieval Augmented Generation System\" cites one specific work from the provided list. The retrieval triple shows a relationship where the head is \"Seven Failure Points When Engineering a Retrieval Augmented Generation System\" and the tail is \"Benchmarking Large Language Models in Retrieval-Augmented Generation.\" This confirms that the target paper relies on or discusses the findings of \"Benchmarking Large Language Models in Retrieval-Augmented Generation\" as part of its own analysis.\n\nConversely, regarding the **citations** (papers that use or mention the target paper), the analysis identifies a distinct relationship where another provided paper builds upon the target work. The retrieval results highlight a triple where the head is \"When to Retrieve: Teaching LLMs to Utilize Information Retrieval Effectively\" and the tail is \"Seven Failure Points When Engineering a Retrieval Augmented Generation System.\" This structure signifies that \"When to Retrieve: Teaching LLMs to Utilize Information Retrieval Effectively\" cites \"Seven Failure Points When Engineering a Retrieval Augmented Generation System.\" No other papers in the provided set were found to cite the target paper, nor were any other papers found to be referenced by it within the scope of the given data.\n\nTherefore, the comprehensive relationship map for \"Seven Failure Points When Engineering a Retrieval Augmented Generation System\" includes one reference and one citation as detailed below:\n\n```json\n{\n  \"Reference\": [\n    \"Benchmarking Large Language Models in Retrieval-Augmented Generation\"\n  ],\n  \"Citation\": [\n    \"When to Retrieve: Teaching LLMs to Utilize Information Retrieval Effectively\"\n  ]\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "150529cd-8767-477e-aa2b-28bae4970fdd",
@@ -158,18 +110,17 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "pair_f1": 0.0,
+      "position_accuracy": 0.0,
       "missing": [
-        [
-          "# Massively scalable stencil algorithm ",
-          "# Disruptive Changes in Field Equation Modeling A Simple Interface for Wafer Scale Engines ",
-          "# Breaking the Molecular Dynamics Timescale Barrier Using a Wafer-Scale System "
-        ]
+        "Breaking the Molecular Dynamics Timescale Barrier Using a Wafer-Scale System",
+        "Disruptive Changes in Field Equation Modeling A Simple Interface for Wafer Scale Engines",
+        "Massively scalable stencil algorithm"
       ],
       "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the three supplied papers form a clear, linear, and continuous chain. The data explicitly identifies the direction of citation, where the \"Head\" of a relationship represents the citing paper and the \"Tail\" represents the cited work.\n\nThe chain begins with the paper titled **\"Breaking the Molecular Dynamics Timescale Barrier Using a Wafer-Scale System\"**. According to the analysis, this document serves as the starting point of the longest chain because it cites another work within the provided collection but is not cited by any other paper in this specific set. Specifically, this paper explicitly lists **\"Disruptive Changes in Field Equation Modeling A Simple Interface for Wafer Scale Engines\"** as reference [23], establishing the first link in the sequence.\n\nFollowing this connection, the second paper, **\"Disruptive Changes in Field Equation Modeling A Simple Interface for Wafer Scale Engines\"**, acts as the middle node. It is cited by the first paper and, in turn, cites the third paper in the sequence. The retrieval data confirms that this document explicitly lists **\"Massively scalable stencil algorithm\"** as reference [12]. This creates a seamless transition from the second paper to the third.\n\nThe chain concludes with the paper titled **\"Massively scalable stencil algorithm\"**. Analysis indicates that this document does not cite any of the other two papers within the provided collection, making it the terminal point of this specific citation lineage. Consequently, the longest possible linear citation chain that encompasses all provided documents flows strictly from the most recent citing work to the foundational cited work.\n\nAdhering to the requirement that the first paper in the list should not cite any other works within the context of being the \"start\" of the chain (meaning it is the origin of the citation flow in this specific linear sequence where Paper 1 cites Paper 2), and ensuring the list reflects the sequential citation order where each paper is cited by the subsequent one in the chain logic (or rather, the list represents the flow of citation from the citing paper to the cited paper), the correct ordered list is as follows:\n\n[\"Breaking the Molecular Dynamics Timescale Barrier Using a Wafer-Scale System\", \"Disruptive Changes in Field Equation Modeling A Simple Interface for Wafer Scale Engines\", \"Massively scalable stencil algorithm\"]"
+        "23"
       ]
     },
     {
@@ -178,19 +129,12 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# InMoDeGAN: Interpretable Motion Decomposition Generative Adversarial Network for Video Generation ",
-          "# LATENT IMAGE ANIMATOR: <br> LEARNING TO ANIMATE IMAGES VIA LATENT SPACE NAVIGATION ",
-          "# Dance Any Beat: Blending Beats with Visuals in Dance Video Generation "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the supplied papers have been meticulously mapped to construct the longest possible linear and continuous citation chain. The data reveals a clear sequential dependency where each paper in the chain cites the subsequent one, forming an unbroken lineage of academic reference.\n\nThe chain originates with the paper titled **\"Dance Any Beat: Blending Beats with Visuals in Dance Video Generation\"**. According to the filtered graph data, this work serves as the starting point of the sequence because it cites another paper within the provided collection but is not cited by any other paper in this specific set. Specifically, \"Dance Any Beat\" establishes a direct reference to the work titled **\"LATENT IMAGE ANIMATOR: LEARNING TO ANIMATE IMAGES VIA LATENT SPACE NAVIGATION\"**. This confirms the first link in the chain, where the former paper relies on the latter for its foundational context or methodology.\n\nFollowing this connection, the analysis of the second paper, \"LATENT IMAGE ANIMATOR,\" indicates that it is not merely a terminal point but an active citing agent within this group. The retrieval results explicitly state that \"LATENT IMAGE ANIMATOR\" references a third paper titled **\"InMoDeGAN: Interpretable Motion Decomposition Generative Adversarial Network for Video Generation\"**. This creates the second link in the sequence, demonstrating that the methods or concepts in the animator paper are built upon or discuss the generative adversarial network framework introduced in the InMoDeGAN paper.\n\nThe chain concludes with \"InMoDeGAN.\" The data confirms that within the scope of the provided collection, \"InMoDeGAN\" does not cite any of the other two papers (\"Dance Any Beat\" or \"LATENT IMAGE ANIMATOR\"), nor does it cite any other external works listed in the dataset. Therefore, it acts as the final node in this specific citation lineage. No other citation relationships were identified that would allow for a longer or alternative linear path among these three documents. Consequently, the longest continuous citation chain flows strictly from the most recent citing work down to the foundational cited work in the following order: \"Dance Any Beat\" cites \"LATENT IMAGE ANIMATOR,\" which in turn cites \"InMoDeGAN.\"\n\nThe final list of paper titles representing this longest linear and continuous citation chain is:\n\n[\"Dance Any Beat: Blending Beats with Visuals in Dance Video Generation\", \"LATENT IMAGE ANIMATOR: <br> LEARNING TO ANIMATE IMAGES VIA LATENT SPACE NAVIGATION\", \"InMoDeGAN: Interpretable Motion Decomposition Generative Adversarial Network for Video Generation\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.3333333333333333,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "49680a79-a974-49b0-b7e3-85ff515bc4f2",
@@ -201,6 +145,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         {
           "Reference": [
@@ -220,20 +165,13 @@
       "selected_index": 11,
       "type": "paper",
       "level": 4,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models ",
-          "# Fine-Tuning LLaMA for Multi-Stage Text Retrieval ",
-          "# Improving Text Embeddings with Large Language Models "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results and the specific citation relationships identified within the collection of papers, the following detailed account outlines the construction of the longest linear citation chain.\n\nThe analysis begins by examining the specific citation triples extracted from the graph data. The first identified relationship establishes that the paper titled **\"Fine-Tuning LLaMA for Multi-Stage Text Retrieval\"** explicitly cites the work **\"RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models.\"** This creates a direct link where \"RankVicuna\" serves as the foundational reference for the \"Fine-Tuning LLaMA\" study. Furthermore, the data indicates that \"RankVicuna\" does not cite any other papers within this specific provided set, positioning it as the starting point (the oldest or most foundational work in this specific chain) regarding the direction of citation flow.\n\nThe second critical relationship identified is that the paper **\"Improving Text Embeddings with Large Language Models\"** cites **\"Fine-Tuning LLaMA for Multi-Stage Text Retrieval.\"** This connection extends the chain, indicating that the \"Improving Text Embeddings\" study builds upon the methodologies or findings presented in the \"Fine-Tuning LLaMA\" paper. By combining these two distinct relationships, a continuous, linear path emerges: \"Improving Text Embeddings with Large Language Models\" references \"Fine-Tuning LLaMA for Multi-Stage Text Retrieval,\" which in turn references \"RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models.\"\n\nTo strictly adhere to the requirement that the list represents a chain where the first paper is cited by the second, and the second by the third, the order must reflect the chronological flow of the citation dependency (i.e., the cited work comes first, followed by the citing work). Therefore, the chain starts with the paper that is cited but does not cite others in this set (\"RankVicuna\"), followed by the paper that cites it (\"Fine-Tuning LLaMA\"), and concludes with the paper that cites the second one (\"Improving Text Embeddings\"). This sequence ensures that every paper in the list (except the last) is cited by the immediately following paper, creating a seamless and unbroken lineage of academic reference.\n\nConsequently, the longest linear citation chain derived from the provided documents, formatted as a list of titles, is:\n\n[\"RankVicuna: Zero-Shot Listwise Document Reranking with Open-Source Large Language Models\", \"Fine-Tuning LLaMA for Multi-Stage Text Retrieval\", \"Improving Text Embeddings with Large Language Models\"]"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 1.0,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "30a2535f-7e73-46ad-a402-ee80ac6e4f92",
@@ -241,62 +179,38 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Scaling Advantage in Approximate Optimization with Quantum Annealing ",
-          "# 4-clique Network Minor Embedding for Quantum Annealers ",
-          "# Quantum Annealers Chain Strengths: A Simple Heuristic to Set Them All ",
-          "# Benchmarking Quantum Annealers with Near-Optimal Minor-Embedded Instances "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the four papers form a single, continuous, and linear chain. The data indicates a clear sequential flow where each paper cites the subsequent one in the list, starting from the most recent work and tracing back to the foundational study within this specific set.\n\nThe chain begins with the paper titled **\"Benchmarking Quantum Annealers with Near-Optimal Minor-Embedded Instances.\"** According to the graph data, this paper serves as the initial node in the sequence because it references the next work in the chain but is not cited by any other paper within the provided collection. Specifically, it cites **\"Quantum Annealers Chain Strengths: A Simple Heuristic to Set Them All.\"**\n\nContinuing the sequence, the paper **\"Quantum Annealers Chain Strengths: A Simple Heuristic to Set Them All\"** acts as the second link. It is cited by the first paper and, in turn, cites the third paper in the chain, which is **\"4-clique Network Minor Embedding for Quantum Annealers.\"** This establishes a direct dependency where the heuristic study builds upon or references the minor embedding methodology.\n\nThe third paper, **\"4-clique Network Minor Embedding for Quantum Annealers,\"** further extends the chain by citing the final work in this specific dataset. It references **\"Scaling Advantage in Approximate Optimization with Quantum Annealing.\"**\n\nFinally, the paper **\"Scaling Advantage in Approximate Optimization with Quantum Annealing\"** represents the terminal node of this citation chain. The analysis confirms that while it is cited by the \"4-clique\" paper, it does not cite any of the other three papers within the provided set, thereby concluding the linear sequence.\n\nThis reconstruction confirms that the longest and only continuous linear citation chain comprises all four provided papers in the following strict order:\n\n[\"Benchmarking Quantum Annealers with Near-Optimal Minor-Embedded Instances\", \"Quantum Annealers Chain Strengths: A Simple Heuristic to Set Them All\", \"4-clique Network Minor Embedding for Quantum Annealers\", \"Scaling Advantage in Approximate Optimization with Quantum Annealing\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.0,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "68e88dcc-6dec-4bb4-b51b-1fe8d6cd856d",
       "selected_index": 13,
       "type": "paper",
       "level": 4,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Query2doc: Query Expansion with Large Language Models ",
-          "# Query Expansion by Prompting Large Language Models ",
-          "# LGDE: Local Graph-based Dictionary Expansion "
-        ]
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and the specific citation relationships identified within the graph data, the longest continuous linear citation chain has been constructed. This chain strictly adheres to the requirement that the first paper in the list must be cited by the second, the second by the third, and so forth, creating a sequential flow of references where each subsequent document builds upon the preceding one.\n\nThe logical construction of this chain begins by identifying the foundational work that is cited by others but does not cite any other papers within the provided collection. The retrieval data indicates that **\"Query2doc: Query Expansion with Large Language Models\"** serves as this base, as it appears as a \"tail\" in citation triples but never as a \"head,\" meaning it is referenced by other works in the set but does not reference any of them.\n\nMoving up the chain, the next paper is **\"Query Expansion by Prompting Large Language Models.\"** The retrieval results explicitly confirm that this paper cites \"Query2doc: Query Expansion with Large Language Models.\" Therefore, \"Query2doc\" (Paper 1) is cited by \"Query Expansion by Prompting Large Language Models\" (Paper 2), satisfying the first link of the required sequence.\n\nFinally, the chain is extended to its maximum length of three papers by identifying the most recent work in the sequence. The data shows that **\"LGDE: Local Graph-based Dictionary Expansion\"** cites \"Query Expansion by Prompting Large Language Models.\" Consequently, the second paper in our chain is cited by this third paper, completing the linear progression. No other papers in the provided list cite \"LGDE,\" confirming that this is the terminal point of the chain.\n\nThus, the final ordered list representing the longest citation chain, where each paper is cited by the one immediately following it, is:\n\n[\"Query2doc: Query Expansion with Large Language Models\", \"Query Expansion by Prompting Large Language Models\", \"LGDE: Local Graph-based Dictionary Expansion\"]"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 1.0,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "949f3450-9b30-4556-be5f-ca8afe9e072f",
       "selected_index": 15,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [],
-          "Citation": [
-            "# LlamaTurk: Adapting Open-Source Generative Large Language Models for Low-Resource Language ",
-            "# InstructionCP: A fast approach to transfer Large Language Models into target language "
-          ]
-        }
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper **\"LLaMA Beyond English: An Empirical Study on Language Capability Transfer\"** can be determined as follows.\n\nRegarding the **references** (papers that \"LLaMA Beyond English: An Empirical Study on Language Capability Transfer\" uses or cites), the retrieval data explicitly indicates an empty set. The graph analysis searched for triples where the head entity is \"LLaMA Beyond English: An Empirical Study on Language Capability Transfer\" and the relation is \"reference.\" The results show that while other papers in the dataset reference this work, this specific paper does not reference any of the other provided papers in the list. Consequently, the list of references is empty.\n\nConversely, regarding the **citations** (papers that use or cite \"LLaMA Beyond English: An Empirical Study on Language Capability Transfer\"), the retrieval results identify two specific papers that reference this work. The graph data reveals two distinct triples where the target paper serves as the \"tail\" entity, indicating it is being cited by the \"head\" entity. The first citing paper is **\"LlamaTurk: Adapting Open-Source Generative Large Language Models for Low-Resource Language,\"** which establishes a reference relationship toward the target paper. The second citing paper is **\"InstructionCP: A fast approach to transfer Large Language Models into target language,\"** which similarly cites the target work in its own study. These findings confirm that while the target paper does not cite the other provided documents, it serves as a foundational reference for both \"LlamaTurk\" and \"InstructionCP.\"\n\n```json\n{\n  \"Reference\": [],\n  \"Citation\": [\n    \"LlamaTurk: Adapting Open-Source Generative Large Language Models for Low-Resource Language\",\n    \"InstructionCP: A fast approach to transfer Large Language Models into target language\"\n  ]\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "8878fb61-6996-4984-9774-5ce9fb506d37",
@@ -304,21 +218,21 @@
       "type": "paper",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.5,
+      "pair_recall": 0.5,
+      "pair_f1": 0.5,
+      "position_accuracy": null,
       "missing": [
-        {
-          "Reference": [
-            "# Mistral 7B "
-          ],
-          "Citation": [
-            "# Sparse Expansion and Neuronal Disentanglement "
-          ]
-        }
+        [
+          "Reference",
+          "Mistral 7B"
+        ]
       ],
       "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper titled \"Extreme Compression of Large Language Models via Additive Quantization\" have been established through a systematic evaluation of the available triples.\n\nRegarding the **references** (papers that \"Extreme Compression of Large Language Models via Additive Quantization\" uses or cites), the retrieval analysis explicitly identifies a single connection. The graph data indicates that \"Extreme Compression of Large Language Models via Additive Quantization\" acts as the head entity in a reference relationship where the tail entity is \"Mistral 7b\". This confirms that the target paper directly references \"Mistral 7b\" in its work. No other papers were found in the provided dataset to be referenced by this specific title.\n\nConversely, regarding the **citations** (papers that cite or use \"Extreme Compression of Large Language Models via Additive Quantization\"), the analysis focused on identifying triples where the target paper appears as the tail entity. The evaluation of the graph triples reveals that \"Sparse Expansion and Neuronal Disentanglement\" is the head entity in a relationship where \"Extreme Compression of Large Language Models via Additive Quantization\" is the tail. This structural relationship signifies that \"Sparse Expansion and Neuronal Disentanglement\" cites the target paper. Other entries, such as the one involving \"Mistral 7B,\" were evaluated and found to have empty tails or incorrect directional relationships, confirming they do not cite the target paper.\n\nIn summary, within the scope of the provided papers, \"Extreme Compression of Large Language Models via Additive Quantization\" references \"Mistral 7b\" and is cited by \"Sparse Expansion and Neuronal Disentanglement.\"\n\n```json\n{\n  \"Reference\": [\n    \"Mistral 7b\"\n  ],\n  \"Citation\": [\n    \"Sparse Expansion and Neuronal Disentanglement\"\n  ]\n}\n```"
+        [
+          "Reference",
+          "Mistral 7b"
+        ]
       ]
     },
     {
@@ -327,17 +241,16 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "pair_f1": 0.0,
+      "position_accuracy": 0.0,
       "missing": [
-        [
-          "# Influence of Neighborhood on the Preference of an Item in eCommerce Search ",
-          "# Context-Aware Learning to Rank with Self-Attention "
-        ]
+        "Context-Aware Learning to Rank with Self-Attention",
+        "Influence of Neighborhood on the Preference of an Item in eCommerce Search"
       ],
       "extra": [
-        "Based on a thorough analysis of the provided retrieval results and the specific citation relationships identified within the supplied collection of papers, the following detailed explanation outlines the construction of the longest possible linear citation chain.\n\nThe analysis begins by examining the directional flow of citations between the two specific documents provided in the dataset. The first critical finding establishes that the paper titled \"Context-Aware Learning to Rank with Self-Attention\" explicitly includes the paper \"Influence of Neighborhood on the Preference of an Item in eCommerce Search\" within its bibliography. Specifically, the retrieval data confirms that \"Influence of Neighborhood on the Preference of an Item in eCommerce Search\" appears as reference number [17] in \"Context-Aware Learning to Rank with Self-Attention.\" This creates a definitive citation link where the former is the cited work and the latter is the citing work.\n\nTo construct the required chain, we must adhere to the specific structural constraint that the list must begin with a paper that is cited by the subsequent paper, continuing linearly. Therefore, the chain must start with the foundational document that has no incoming citations from other papers in this specific set. The analysis reveals that \"Influence of Neighborhood on the Preference of an Item in eCommerce Search\" does not cite any other paper from the provided collection, nor is it cited by any other paper besides the one mentioned above. Consequently, it serves as the starting point (Paper 1) of the chain.\n\nThe second position in the chain is occupied by \"Context-Aware Learning to Rank with Self-Attention.\" This paper fulfills the requirement of citing the first paper in the sequence. Furthermore, the analysis confirms that there are no other papers in the provided collection that cite \"Context-Aware Learning to Rank with Self-Attention.\" This means the citation flow terminates here, preventing the extension of the chain to a third or subsequent paper. No non-linear relationships or external articles were considered, ensuring the chain strictly reflects the internal dynamics of the provided dataset.\n\nThus, the longest continuous linear citation chain, where each paper is cited by the next in the sequence, consists of exactly two papers. The sequence starts with the work regarding neighborhood influence in eCommerce search and is followed by the work regarding context-aware learning with self-attention.\n\n[\"Influence of Neighborhood on the Preference of an Item in eCommerce Search\", \"Context-Aware Learning to Rank with Self-Attention\"]"
+        "17"
       ]
     },
     {
@@ -346,18 +259,12 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Churn analysis using deep convolutional neural networks and autoencoders ",
-          "# Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis* "
-        ]
-      ],
-      "extra": [
-        "Based on a thorough analysis of the provided retrieval results and the specific citation relationships identified within the supplied collection of papers, the following detailed citation chain has been constructed. The analysis begins by examining the explicit \"reference\" relationships extracted from the graph data, which reveal a singular, unidirectional link between two specific documents. The first identified relationship indicates that the paper titled \"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis*\" explicitly cites the work titled \"Churn analysis using deep convolutional neural networks and autoencoders.\" This establishes a direct dependency where the former document relies on the findings or methodology of the latter.\n\nFurther investigation into the citation behavior of the second paper, \"Churn analysis using deep convolutional neural networks and autoencoders,\" confirms that it does not reference any other works within the provided set, as indicated by an empty tail in the corresponding data triple. Similarly, no other papers in the collection are found to cite \"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis*,\" meaning the chain cannot be extended backward. Consequently, the longest possible continuous linear citation chain that can be formed from this specific dataset consists of exactly these two papers, ordered such that the citing paper precedes the cited paper to reflect the flow of reference. This sequence accurately demonstrates the sequential citation order where the first item in the list references the second, and the chain terminates there due to the absence of further inter-document citations within the provided scope.\n\n[\"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis*\", \"Churn analysis using deep convolutional neural networks and autoencoders\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.0,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "b5b963fe-30ab-435f-9574-dcdfd96f3707",
@@ -365,18 +272,12 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Minimod: A Finite Difference solver for Seismic Modeling ",
-          "# Massively scalable stencil algorithm "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results and the specific citation relationships identified within the supplied collection of papers, the following detailed account outlines the construction of the longest linear citation chain.\n\nThe investigation begins by examining the citation graph data to determine the directional flow of references among the documents. The analysis reveals two primary entities within the dataset: \"Minimod: A Finite Difference solver for Seismic Modeling\" and \"Massively scalable stencil algorithm.\" The first step in establishing the chain involves identifying the citation behavior of each paper. The data explicitly indicates that the paper titled \"Minimod: A Finite Difference solver for Seismic Modeling\" possesses an empty reference list within this specific context; it does not cite any other works from the provided collection. This characteristic identifies it as a terminal node in the citation flow, meaning it serves as a foundational work that is referenced by others but does not reference any of the other papers in this set.\n\nConversely, the analysis of the second entity reveals a clear outgoing citation. The paper titled \"Massively scalable stencil algorithm\" is documented as explicitly referencing \"Minimod: A Finite Difference solver for Seismic Modeling.\" This establishes a directed relationship where \"Massively scalable stencil algorithm\" acts as the citing work (the head of the relationship) and \"Minimod: A Finite Difference solver for Seismic Modeling\" acts as the cited work (the tail of the relationship). No other citation relationships exist within the provided data, and there are no circular references or branching paths that would create alternative chains.\n\nTo satisfy the requirement of constructing a linear and continuous citation chain where the first paper is cited by the next, and so on, the sequence must begin with the paper that performs the citing and proceed to the paper that is cited. Since \"Massively scalable stencil algorithm\" cites \"Minimod,\" and \"Minimod\" cites nothing else in this group, the only valid and continuous chain consists of these two papers in that specific order. This chain represents the longest possible sequence derivable from the available data, as no additional papers can be appended to either the beginning or the end to extend the sequence further. The chain is strictly linear, moving from the more recent or dependent work (\"Massively scalable stencil algorithm\") back to the work it relies upon (\"Minimod: A Finite Difference solver for Seismic Modeling\").\n\nTherefore, adhering strictly to the instructions to present the titles in a list format that reflects this sequential citation order, the longest citation chain is:\n\n[\"Massively scalable stencil algorithm\", \"Minimod: A Finite Difference solver for Seismic Modeling\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.0,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "7b104919-2fba-44d2-91dd-a56bd2f30e91",
@@ -384,22 +285,17 @@
       "type": "paper",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 1.0,
+      "pair_recall": 0.5,
+      "pair_f1": 0.6666666666666666,
+      "position_accuracy": null,
       "missing": [
-        {
-          "Reference": [
-            "# LLM A*: Human in the Loop Large Language Models Enabled A* Search for Robotics "
-          ],
-          "Citation": [
-            "# Ensembling Prioritized Hybrid Policies for Multi-agent Pathfinding "
-          ]
-        }
+        [
+          "Citation",
+          "Ensembling Prioritized Hybrid Policies for Multi-agent Pathfinding"
+        ]
       ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper titled \"Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model\" can be clearly delineated.\n\nRegarding the **references** (papers that the target paper uses or cites), the graph data explicitly identifies one specific relationship. The analysis of the triples reveals that \"Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model\" serves as the head entity in a relationship where it references another work. Specifically, the data confirms that this paper cites \"LLM A*: Human in the Loop Large Language Models Enabled A* Search for Robotics.\" This indicates that the authors of the \"Evolution of Heuristics\" paper utilized the concepts, methods, or findings from the \"LLM A*\" paper in their own research. No other papers within the provided set were identified as being referenced by the target paper.\n\nConversely, regarding the **citations** (papers that use or cite the target paper), the retrieval results indicate an absence of such relationships within the provided dataset. The analysis involved scanning for any triples where \"Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model\" appeared as the tail entity (the work being cited). The evaluation of the other available papers—\"Ensembling Prioritized Hybrid Policies for Multi-agent Pathfinding\" and \"LLM A*: Human in the Loop Large Language Models Enabled A* Search for Robotics\"—showed that neither of these documents lists the target paper in their references. The graph data explicitly notes that the target paper does not appear in the reference lists of these other works. Consequently, there are no papers in the provided set that cite \"Evolution of Heuristics: Towards Efficient Automatic Algorithm Design Using Large Language Model.\"\n\nIn summary, the target paper actively references one other paper in the collection but is not cited by any of the other provided papers.\n\n```json\n{\"Reference\": [\"LLM A*: Human in the Loop Large Language Models Enabled A* Search for Robotics\"], \"Citation\": []}\n```"
-      ]
+      "extra": []
     },
     {
       "id": "31ee8539-2e9e-40e2-adc3-082c872698f7",
@@ -407,19 +303,15 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.75,
+      "pair_recall": 0.75,
+      "pair_f1": 0.75,
+      "position_accuracy": 0.0,
       "missing": [
-        [
-          "# Churn analysis using deep convolutional neural networks and autoencoders ",
-          "# Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis* ",
-          "# MUlTimodAL DeEP LEARNING OF Word-OF-MOUTH TEXT AND DEMOGRAPHICS TO PREDICT CUSTOMER RATING: HANDLING CONSUMER HETEROGENEITY IN MARKETING ",
-          "# An Efficient Multimodal Learning Framework to Comprehend Consumer Preferences Using BERT and Cross-Attention "
-        ]
+        "Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis*"
       ],
       "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the four specified papers form a single, continuous, and linear chain. By examining the directed graph data where the \"head\" paper cites the \"tail\" paper, we can trace a clear sequential path that connects all documents without branching or cycles. The chain originates with the most recent work in this specific set, \"An Efficient Multimodal Learning Framework to Comprehend Consumer Preferences Using BERT and Cross-Attention,\" which serves as the starting point because it cites another paper in the collection but is not cited by any other paper within this specific group.\n\nFollowing this initial link, the first paper cites \"MUlTimodAL DeEP LEARNING OF Word-OF-MOUTH TEXT AND DEMOGRAPHICS TO PREDICT CUSTOMER RATING: HANDLING CONSUMER HETEROGENEITY IN MARKETING.\" This second paper acts as a bridge in the sequence; it is the target of the citation from the first paper, yet it simultaneously serves as the source for the next citation in the chain. Specifically, this multimodal learning paper references \"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis,\" thereby extending the lineage further.\n\nContinuing this logical progression, the third paper in the sequence, \"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis,\" is shown to cite the final document in the set: \"Churn analysis using deep convolutional neural networks and autoencoders.\" The analysis confirms that this fourth and final paper does not cite any other works within the provided collection, marking it as the terminal node of this citation chain. Consequently, the longest and only possible linear citation chain encompasses all four papers in this exact order of dependency, flowing from the most recent citing work down to the foundational cited work.\n\nThe constructed citation chain, presented as a list of paper titles in the correct sequential order as required, is:\n\n[\"An Efficient Multimodal Learning Framework to Comprehend Consumer Preferences Using BERT and Cross-Attention\", \"MUlTimodAL DeEP LEARNING OF Word-OF-MOUTH TEXT AND DEMOGRAPHICS TO PREDICT CUSTOMER RATING: HANDLING CONSUMER HETEROGENEITY IN MARKETING\", \"Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis\", \"Churn analysis using deep convolutional neural networks and autoencoders\"]"
+        "Churn Prediction with Sequential Data and Deep Neural Networks A Comparative Analysis"
       ]
     },
     {
@@ -427,22 +319,13 @@
       "selected_index": 22,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# LARGE LANGUAGE MoDELS CANNOT SELF-CorRECT REASONING YET ",
-            "# Can Large Language Models Really Improve by Self-critiquing Their Own Plans? "
-          ],
-          "Citation": []
-        }
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper titled \"LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks\" have been determined as follows.\n\nRegarding the **references** (papers that the target paper uses or mentions), the data explicitly identifies two specific works. The paper \"LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks\" establishes a \"reference\" relationship with \"Can Large Language Models Really Improve by Self-critiquing Their Own Plans?\" and \"LARGE LANGUAGE MoDELS CANNOT SELF-CorRECT REASONING YET.\" This indicates that the target paper builds upon, critiques, or discusses the findings and methodologies presented in these two preceding works within its own argumentation. These are the only papers from the provided list that the target paper cites.\n\nRegarding the **citations** (papers that use or mention the target paper), a thorough examination of the provided graph triples reveals no instances where \"LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks\" appears as a tail (the object being cited). The analysis confirms that while the other two papers (\"Can Large Language Models Really Improve by Self-critiquing Their Own Plans?\" and \"LARGE LANGUAGE MoDELS CANNOT SELF-CorRECT REASONING YET\") are referenced by the target paper, they do not, in turn, reference the target paper. Consequently, within the scope of the provided dataset, there are no papers that cite \"LLMs Can't Plan, But Can Help Planning in LLM-Modulo Frameworks.\"\n\nThe final structured output summarizing these relationships is presented below:\n\n```json\n{\n  \"Reference\": [\n    \"Can Large Language Models Really Improve by Self-critiquing Their Own Plans?\",\n    \"LARGE LANGUAGE MoDELS CANNOT SELF-CorRECT REASONING YET\"\n  ],\n  \"Citation\": []\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "ecded47a-3741-4458-ba61-c04271c33651",
@@ -450,19 +333,12 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Very Deep Transformers for Neural Machine Translation ",
-          "# Understanding the Difficulty of Training Transformers ",
-          "# MonaCoBERT: Monotonic attention based ConvBERT for Knowledge Tracing "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the three papers have been mapped to identify the longest continuous linear chain. The data reveals a specific network of references where \"MonaCoBERT: Monotonic attention based ConvBERT for Knowledge Tracing\" cites \"Understanding the Difficulty of Training Transformers.\" Furthermore, a reciprocal citation relationship exists between \"Understanding the Difficulty of Training Transformers\" and \"Very Deep Transformers for Neural Machine Translation,\" as the former cites the latter, while the latter also cites the former.\n\nTo construct the longest linear citation chain without repetition or cycles, we must trace the path of references starting from a paper that acts as the initial source in this specific sequence. While \"Very Deep Transformers for Neural Machine Translation\" and \"Understanding the Difficulty of Training Transformers\" form a two-node cycle, the inclusion of \"MonaCoBERT\" allows for an extension of this path. Specifically, \"MonaCoBERT\" references \"Understanding the Difficulty of Training Transformers,\" which in turn references \"Very Deep Transformers for Neural Machine Translation.\" This creates a valid, non-repeating sequence of three distinct papers. Attempting to extend this chain further is impossible because \"Very Deep Transformers for Neural Machine Translation\" only references \"Understanding the Difficulty of Training Transformers\" within this set, which would result in a cycle and violate the requirement for a linear, continuous chain of unique nodes. Other potential starting points, such as beginning with \"Very Deep Transformers\" or \"Understanding the Difficulty,\" only yield chains of two papers due to the immediate cyclical nature of their mutual citations.\n\nTherefore, the definitive longest citation chain begins with \"MonaCoBERT,\" proceeds to \"Understanding the Difficulty of Training Transformers,\" and concludes with \"Very Deep Transformers for Neural Machine Translation.\" This sequence accurately reflects the sequential citation order where each paper in the list (except the last) cites the subsequent paper in the list, maximizing the length of the chain to three documents.\n\n[\"MonaCoBERT: Monotonic attention based ConvBERT for Knowledge Tracing\", \"Understanding the Difficulty of Training Transformers\", \"Very Deep Transformers for Neural Machine Translation\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.3333333333333333,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "71d0fb39-d315-4e33-beec-c53271663f7f",
@@ -470,21 +346,16 @@
       "type": "paper",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# ONLINE SPECULATIVE DECODING "
-          ],
-          "Citation": [
-            "# LoRA-Switch: Boosting the Efficiency of Dynamic LLM Adapters via System-Algorithm Co-design "
-          ]
-        }
-      ],
+      "pair_precision": 0.6666666666666666,
+      "pair_recall": 1.0,
+      "pair_f1": 0.8,
+      "position_accuracy": null,
+      "missing": [],
       "extra": [
-        "Based on the detailed analysis of the provided retrieval results, the citation and reference relationships for the paper **\"MedusA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads\"** can be clearly established by examining the directionality of the \"reference\" relations within the graph data.\n\nFirst, regarding the **references** (papers that MedusA uses or cites), the retrieval data identifies a specific triple where \"MedusA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads\" acts as the head entity with a \"reference\" relation pointing to a tail entity. This specific connection indicates that MedusA explicitly builds upon or cites the work titled **\"ONLINE SPECULATIVE DECODING\"**. The analysis confirms this as the only instance where MedusA is the active citer among the provided documents.\n\nSecond, regarding the **citations** (papers that use or cite MedusA), the retrieval results highlight two distinct papers where \"MedusA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads\" appears as the tail entity, signifying it is the work being referenced. The first citing paper is **\"LoRA-Switch: Boosting the Efficiency of Dynamic LLM Adapters via System-Algorithm Co-design\"**, which includes MedusA in its reference list. The second citing paper is **\"ONLINE SPECULATIVE DECODING\"**, which also references MedusA. It is important to note the bidirectional relationship here: while MedusA cites \"ONLINE SPECULATIVE DECODING\", the retrieval data also indicates that \"ONLINE SPECULATIVE DECODING\" cites MedusA, suggesting a reciprocal or closely related scholarly dialogue between these two specific works within the provided dataset.\n\nConsequently, the complete relationship profile for the target paper is as follows:\n\n```json\n{\n  \"Reference\": [\n    \"ONLINE SPECULATIVE DECODING\"\n  ],\n  \"Citation\": [\n    \"LoRA-Switch: Boosting the Efficiency of Dynamic LLM Adapters via System-Algorithm Co-design\",\n    \"ONLINE SPECULATIVE DECODING\"\n  ]\n}\n```"
+        [
+          "Citation",
+          "ONLINE SPECULATIVE DECODING"
+        ]
       ]
     },
     {
@@ -492,46 +363,26 @@
       "selected_index": 25,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# Data Filtering Networks "
-          ],
-          "Citation": [
-            "# ARVideo: Autoregressive Pretraining for Self-Supervised Video Representation Learning "
-          ]
-        }
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper titled \"Scalable Pre-training of Large Autoregressive Image Models\" have been established.\n\nRegarding the **references** (papers that \"Scalable Pre-training of Large Autoregressive Image Models\" uses or cites), the graph data explicitly identifies a single relationship. In the first triple of the retrieval results, the head entity is \"Scalable Pre-training of Large Autoregressive Image Models\" with a \"reference\" relation pointing to the tail entity \"Data Filtering Networks.\" This indicates that the target paper directly builds upon or utilizes the work presented in \"Data Filtering Networks.\" No other papers from the provided set were found in the tail position of triples where the target paper acts as the head.\n\nRegarding the **citations** (papers that cite or use \"Scalable Pre-training of Large Autoregressive Image Models\"), the analysis reveals that the target paper is referenced by one other work in the provided dataset. Specifically, the retrieval results highlight a triple where the head entity is \"ARVideo: Autoregressive Pretraining for Self-Supervised Video Representation Learning.\" In this instance, the relation is \"reference,\" and the tail entity lists \"Scalable Pre-training of Large Autoregressive Image Models.\" This structure confirms that \"ARVideo: Autoregressive Pretraining for Self-Supervised Video Representation Learning\" cites the target paper as part of its own work. Other potential candidates, such as \"Data Filtering Networks,\" were checked but found to have an empty tail list or incorrect head entities, meaning they do not cite the target paper within this specific context.\n\nTherefore, the comprehensive citation network for this paper within the provided set consists of one reference and one citation, formatted as follows:\n\n```json\n{\n  \"Reference\": [\"Data Filtering Networks\"],\n  \"Citation\": [\"ARVideo: Autoregressive Pretraining for Self-Supervised Video Representation Learning\"]\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "3e4ee654-dfd8-4ffd-a825-79e0997961c9",
       "selected_index": 27,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# Purple Llama CYBERSECEvAL: A Secure Coding Benchmark for Language Models "
-          ],
-          "Citation": [
-            "# Navigating the Safety Landscape: Measuring Risks in Finetuning Large Language Models "
-          ]
-        }
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper titled \"On Prompt-Driven Safeguarding for Large Language Models\" have been established.\n\nRegarding the **references** (papers that \"On Prompt-Driven Safeguarding for Large Language Models\" uses or cites), the analysis of the first graph entry confirms a direct relationship. In this instance, \"On Prompt-Driven Safeguarding for Large Language Models\" serves as the head entity, and it explicitly references the paper titled \"Purple Llama CYBERSECEvAL: A Secure Coding Benchmark for Language Models\". This indicates that the safeguarding paper utilizes the secure coding benchmark as a foundational element or comparative standard within its study. No other papers from the provided list were found to be referenced by the target paper.\n\nConversely, regarding the **citations** (papers that use or cite \"On Prompt-Driven Safeguarding for Large Language Models\"), the third graph entry provides the necessary evidence. Here, the paper titled \"Navigating the Safety Landscape: Measuring Risks in Finetuning Large Language Models\" acts as the head entity, and it lists \"On Prompt-Driven Safeguarding for Large Language Models\" in its tail, signifying a \"reference\" relationship. This means that the work on navigating the safety landscape and measuring risks in finetuning explicitly builds upon or acknowledges the findings of the prompt-driven safeguarding paper. The second graph entry regarding \"Purple Llama\" was analyzed and found to have no outgoing references to the target paper in this specific context, confirming it is not a citing paper.\n\nIn summary, the target paper cites one specific work related to secure coding benchmarks, while it is itself cited by a work focused on measuring risks in the safety landscape of finetuned models. The final structured output reflecting these relationships is as follows:\n\n```json\n{\n  \"Reference\": [\n    \"Purple Llama CYBERSECEvAL: A Secure Coding Benchmark for Language Models\"\n  ],\n  \"Citation\": [\n    \"Navigating the Safety Landscape: Measuring Risks in Finetuning Large Language Models\"\n  ]\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "f359acf5-39a1-4490-ba4a-95d38de35fa7",
@@ -542,6 +393,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         {
           "Reference": [
@@ -562,18 +414,16 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.5,
+      "pair_recall": 0.3333333333333333,
+      "pair_f1": 0.4,
+      "position_accuracy": 0.0,
       "missing": [
-        [
-          "![](https://cdn.mathpix.com/cropped/2024_06_04_791d7ec1c70f2f7bcd44g-01.jpg?height=135&width=174&top_left_y=320&top_left_x=260)",
-          "# Generative AI for Game Theory-based Mobile Networking ",
-          "# Exploring Equilibrium Strategies in Network Games with Generative AI "
-        ]
+        "![](https://cdn.mathpix.com/cropped/2024_06_04_791d7ec1c70f2f7bcd44g-01.jpg?height=135&width=174&top_left_y=320&top_left_x=260)",
+        "Generative AI for Game Theory-based Mobile Networking"
       ],
       "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results and the specific citation relationships identified within the supplied collection of papers, the following detailed account outlines the construction of the longest linear citation chain.\n\nThe investigation began by examining the citation graph data to determine the directional flow of references among the three distinct documents provided: \"GTBENCH: Uncovering the Strategic Reasoning Limitations of LLMs via Game-Theoretic Evaluations,\" \"Exploring Equilibrium Strategies in Network Games with Generative AI,\" and \"Generative AI for Game Theory-based Mobile Networking.\" The analysis revealed that \"GTBENCH: Uncovering the Strategic Reasoning Limitations of LLMs via Game-Theoretic Evaluations\" stands as an isolated node within this specific context; it does not cite any of the other two papers, nor is it cited by them according to the provided triples. Similarly, \"Generative AI for Game Theory-based Mobile Networking\" was identified as a terminal node in the citation graph, meaning it serves as a source of information but does not reference any other documents within the provided set.\n\nThe critical connection that forms the basis of the citation chain was found between the remaining two papers. The data explicitly indicates that \"Exploring Equilibrium Strategies in Network Games with Generative AI\" contains a reference to \"Generative ai for game theory-based mobile networking.\" This establishes a direct, unidirectional link where the former paper builds upon or acknowledges the work of the latter. Consequently, this relationship allows for the construction of a linear sequence. In this sequence, \"Exploring Equilibrium Strategies in Network Games with Generative AI\" acts as the initiating paper (the citer), and \"Generative ai for game theory-based mobile networking\" acts as the subsequent paper (the cited work). Since the cited paper does not reference any further documents in the collection, the chain terminates there, resulting in a sequence of two distinct papers.\n\nComparing this sequence against other potential configurations, such as the isolated \"GTBENCH\" paper which forms a chain of only one node, it is evident that the link between the equilibrium strategies paper and the mobile networking paper represents the longest possible linear citation chain within the provided dataset. This chain satisfies all specified requirements: it is continuous, linear, and accurately reflects the sequential citation order where the first paper cites the second, and no external or non-linear relationships are considered.\n\nTherefore, the longest linear citation chain, presented as a list of paper titles in the correct sequential order from the citing work to the cited work, is:\n\n[\"Exploring Equilibrium Strategies in Network Games with Generative AI\", \"Generative ai for game theory-based mobile networking\"]"
+        "Generative ai for game theory-based mobile networking"
       ]
     },
     {
@@ -582,19 +432,12 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Scaling Sentence Embeddings with Large Language Models ",
-          "# ANGLE-OPTIMIZED TEXT EMBEDDINGS ",
-          "# PromptMind Team at EHRSQL-2024: Improving Reliability of SQL Generation using Ensemble LLMs "
-        ]
-      ],
-      "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the supplied papers form a single, continuous, and linear chain. The data explicitly outlines a sequential flow where each paper cites the subsequent one in the list, creating an unbroken path of academic reference.\n\nThe chain originates with the paper titled **\"PromptMind Team at EHRSQL-2024: Improving Reliability of SQL Generation using Ensemble LLMs\"**. According to the extracted graph data, this document serves as the starting point of the sequence because it cites the next paper in the chain but is not cited by any other paper within the provided collection. Specifically, the analysis confirms that \"PromptMind Team at EHRSQL-2024\" includes \"ANGLE-OPTIMIZED TEXT EMBEDDINGS\" in its references, establishing the first link in the chain.\n\nFollowing this initial connection, the second paper in the sequence is **\"ANGLE-OPTIMIZED TEXT EMBEDDINGS\"**. This document acts as the critical intermediary in the citation flow; it is cited by the \"PromptMind Team\" paper and, in turn, cites the final paper in the set. The retrieval results verify that \"ANGLE-OPTIMIZED TEXT EMBEDDINGS\" references \"Scaling Sentence Embeddings with Large Language Models,\" thereby extending the chain linearly.\n\nThe chain concludes with the paper titled **\"Scaling Sentence Embeddings with Large Language Models\"**. The analysis indicates that this document is the terminal node of the sequence. While it is cited by \"ANGLE-OPTIMIZED TEXT EMBEDDINGS,\" it does not cite any of the other provided papers, as the retrieval results explicitly state that its outgoing references to the collection are empty. Consequently, this paper represents the end of the longest possible linear citation path available within the given dataset.\n\nAdhering strictly to the requirement for a linear and continuous list where the first paper is the root (citing others but not cited by them in this set) and each subsequent paper is cited by the preceding one, the final constructed citation chain is presented below:\n\n[\"PromptMind Team at EHRSQL-2024: Improving Reliability of SQL Generation using Ensemble LLMs\", \"ANGLE-OPTIMIZED TEXT EMBEDDINGS\", \"Scaling Sentence Embeddings with Large Language Models\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.3333333333333333,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "a780dc25-81d8-4e0f-b344-5086b8055e04",
@@ -602,19 +445,18 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "pair_f1": 0.0,
+      "position_accuracy": 0.0,
       "missing": [
-        [
-          "# Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems ",
-          "# A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data ",
-          "# Deep Learning using Rectified Linear Units (ReLU) ",
-          "# BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE * "
-        ]
+        "A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data",
+        "BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE *",
+        "Deep Learning using Rectified Linear Units (ReLU)",
+        "Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems"
       ],
       "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the four supplied papers have been meticulously mapped to identify the longest linear and continuous citation chain. The analysis begins by establishing the directional flow of citations, where a \"head\" paper cites a \"tail\" paper, creating a sequential dependency.\n\nThe foundational link in this network is established by the paper titled **\"BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE *\"**, which serves as the starting point of the longest chain because it does not cite any other paper within the provided set; rather, it acts as the primary source that references subsequent work. Specifically, this paper cites **\"Deep Learning using Rectified Linear Units (ReLU)\"** (identified as reference [35] in the source document). This creates the first link in the chain: the magnetic resonance paper leads directly to the ReLU deep learning paper.\n\nFollowing this initial connection, the paper **\"Deep Learning using Rectified Linear Units (ReLU)\"** acts as a pivotal hub, citing two other distinct works within the collection. To construct the *longest* possible chain, we must select the path that allows for further extension. While this ReLU paper also cites \"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems,\" doing so would terminate the chain prematurely at three papers. Instead, the optimal path follows the citation of **\"A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data\"** (identified as reference [2] in the ReLU paper). This extends the sequence to a third distinct paper.\n\nThe continuity of the chain is confirmed by the next relationship: the paper on the **Neural Network Architecture combining GRU and SVM** explicitly cites **\"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems\"** (identified as reference [23]). This final paper acts as the terminal node of the chain, as the retrieval data confirms it does not cite any other works within the provided collection. Therefore, the sequence cannot be extended further from this point.\n\nBy tracing this specific path, we avoid shorter alternative routes (such as skipping the GRU/SVM paper) and ensure a linear, unbroken progression where each paper in the list is cited by the preceding one. The resulting chain encompasses all four provided documents in a single, unbroken line of citation logic: starting from the magnetic resonance study, moving to the foundational ReLU deep learning work, progressing to the specific GRU/SVM intrusion detection architecture, and finally concluding with the LSTM-based natural language generation system. This represents the maximum length possible given the constraints of the provided dataset.\n\nThe final, longest linear citation chain, presented as a list of paper titles in the correct sequential order, is:\n\n[\"BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE *\", \"Deep Learning using Rectified Linear Units (ReLU)\", \"A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data\", \"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems\"]"
+        "35"
       ]
     },
     {
@@ -622,23 +464,13 @@
       "selected_index": 33,
       "type": "paper",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "Reference": [
-            "# Mistral 7B "
-          ],
-          "Citation": [
-            "# Kangaroo: Lossless Self-Speculative Decoding via Double Early Exiting "
-          ]
-        }
-      ],
-      "extra": [
-        "Based on the detailed analysis of the provided retrieval results and graph data, the citation and reference relationships for the paper titled \"Break the Sequential Dependency of LLM Inference Using LOOKAHEAD DECODING\" have been established as follows.\n\nRegarding the **references** (papers that the target document utilizes or cites), the retrieval data explicitly identifies a single relationship. The analysis of the graph triples reveals a specific entry where \"Break the Sequential Dependency of LLM Inference Using LOOKAHEAD DECODING\" serves as the head of the relationship with the relation type \"reference.\" The tail of this triple points to the paper titled \"Mistral 7B.\" The reasoning confirms that \"Mistral 7B\" appears within the reference list of the target document, indicating that the target paper relies on or discusses the \"Mistral 7B\" model or paper in its work. No other papers were identified in the provided dataset as being referenced by the target document.\n\nRegarding the **citations** (papers that utilize or cite the target document), the retrieval process involved searching for triples where the target paper appears as the tail (the cited work) and another paper appears as the head (the citing work). The analysis filtered out irrelevant entries, such as those where the target paper was the head or where the tail was empty. A valid match was found in the third triple, where the head is \"Kangaroo: Lossless Self-Speculative Decoding via Double Early Exiting.\" The tail of this relationship includes the entry \"Break the sequential dependency of $1 l \\mathrm{~m}$ inference using lookahead decoding.\" Despite minor typographical variations in the raw text (such as \"$1 l \\mathrm{~m}$\" instead of \"LLM\"), the retrieval reasoning confirms this entry corresponds to the target paper. This indicates that the \"Kangaroo\" paper explicitly cites \"Break the Sequential Dependency of LLM Inference Using LOOKAHEAD DECODING\" in its own work. No other citing papers were found in the provided context.\n\nIn summary, the target paper references \"Mistral 7B\" and is cited by \"Kangaroo: Lossless Self-Speculative Decoding via Double Early Exiting.\"\n\n```json\n{\n  \"Reference\": [\n    \"Mistral 7B\"\n  ],\n  \"Citation\": [\n    \"Kangaroo: Lossless Self-Speculative Decoding via Double Early Exiting\"\n  ]\n}\n```"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "f7116f92-a07c-4278-9333-b63ed5965907",
@@ -646,19 +478,18 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "pair_f1": 0.0,
+      "position_accuracy": 0.0,
       "missing": [
-        [
-          "# Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems ",
-          "# A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data ",
-          "# Deep Learning using Rectified Linear Units (ReLU) ",
-          "# BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE * "
-        ]
+        "A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data",
+        "BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE *",
+        "Deep Learning using Rectified Linear Units (ReLU)",
+        "Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems"
       ],
       "extra": [
-        "Based on a comprehensive analysis of the provided retrieval results, the citation relationships among the four papers form a distinct, linear dependency chain. The construction of this chain relies on identifying the sequential flow of references where each paper cites the subsequent one in the sequence, creating a continuous path from the most recent work back to the foundational source within this specific set.\n\nThe chain begins with the paper titled **\"BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE *\"**. According to the retrieval data, this document serves as the starting point of the citation flow because it references the work titled **\"Deep Learning using Rectified Linear Units (ReLU)\"** (specifically cited as Reference [35] in the source document). This establishes the first link in the sequence, where the first paper actively cites the second.\n\nFollowing this connection, the paper **\"Deep Learning using Rectified Linear Units (ReLU)\"** acts as the central node that bridges the chain. It does not merely stop at being cited; it further extends the lineage by citing another specific work: **\"A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data\"** (listed as Reference [2]). While \"Deep Learning using Rectified Linear Units (ReLU)\" also cites \"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems,\" the longest continuous linear path is achieved by following the reference to the GRU and SVM architecture paper, as that paper itself continues the chain.\n\nThe sequence progresses to **\"A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data\"**. This paper maintains the linear continuity by citing the final document in the set: **\"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems\"** (identified as Reference [23]). This creates the third and final link in the citation chain.\n\nThe chain concludes with **\"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems\"**, which, according to the provided graph data, does not cite any of the other papers in this collection, marking it as the terminal node of this specific citation lineage.\n\nTherefore, the longest continuous linear citation chain, ordered such that the first paper cites the second, the second cites the third, and the third cites the fourth, is presented below:\n\n[\"BEYOND TRADITIONAL MAGNETIC RESONANCE PROCESSING WITH ARTIFICIAL INTELLIGENCE *\", \"Deep Learning using Rectified Linear Units (ReLU)\", \"A Neural Network Architecture Combining Gated Recurrent Unit (GRU) and Support Vector Machine (SVM) for Intrusion Detection in Network Traffic Data\", \"Semantically Conditioned LSTM-based Natural Language Generation for Spoken Dialogue Systems\"]"
+        "35"
       ]
     },
     {
@@ -667,19 +498,12 @@
       "type": "paper",
       "level": 4,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        [
-          "# Context-Aware Learning to Rank with Self-Attention ",
-          "# On the Impact of Outlier Bias on User Clicks ",
-          "# Treatment Effect Estimation for User Interest Exploration on Recommender Systems "
-        ]
-      ],
-      "extra": [
-        "Based on a thorough analysis of the provided retrieval results, the citation relationships among the supplied papers form a clear, linear dependency chain. The data explicitly identifies three distinct papers and their interconnections through reference relations. The chain originates with the paper titled \"Treatment Effect Estimation for User Interest Exploration on Recommender Systems,\" which serves as the most recent work in this specific set as it does not cite any other paper within the provided collection but is the starting point of the citation flow. This paper directly references the work titled \"On the Impact of Outlier Bias on User Clicks.\"\n\nFollowing this connection, the second paper in the sequence, \"On the Impact of Outlier Bias on User Clicks,\" acts as an intermediary node. It is cited by the first paper and, in turn, cites a third paper titled \"Context-Aware Learning to Rank with Self-Attention.\" This third paper represents the terminus of the chain, as the analysis confirms it has no outgoing references to any other papers within this specific group, indicated by an empty tail array in the graph data. Consequently, there is only one possible linear path that encompasses all three documents, moving sequentially from the citing paper to the cited paper. This path represents the longest and only continuous citation chain available in the dataset, linking the three works in a strict temporal and logical order of influence.\n\nTherefore, adhering to the requirement for a linear and continuous list where each paper is cited by the subsequent one in the sequence (starting from the paper that cites others down to the foundational paper cited by others), the final citation chain is presented below:\n\n[\"Treatment Effect Estimation for User Interest Exploration on Recommender Systems\", \"On the Impact of Outlier Bias on User Clicks\", \"Context-Aware Learning to Rank with Self-Attention\"]"
-      ]
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": 0.3333333333333333,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "3b3111ed-78b9-47dc-9700-b9152d777935",
@@ -687,28 +511,20 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "赔偿案件": [
-            "《判决文书4》",
-            "《判决文书7》"
-          ],
-          "民事案件": [
-            "《判决文书6》"
-          ],
-          "执行案件": [
-            "《判决文书1》",
-            "《判决文书2》",
-            "《判决文书3》",
-            "《判决文书5》"
-          ]
-        }
-      ],
+      "pair_precision": 0.7777777777777778,
+      "pair_recall": 1.0,
+      "pair_f1": 0.8750000000000001,
+      "position_accuracy": null,
+      "missing": [],
       "extra": [
-        "根据提供的检索结果，对七篇判决文书的分类分析如下：\n\n**1. 关于《判决文书 1》**\n该文书涉及借款合同纠纷引发的财产拍卖执行异议及复议。虽然其基础法律关系属于民事纠纷（借款合同纠纷），且引用了民事调解书和民事裁定书，但文书本身的性质明确为“执行异议和复议案件”（案号含“执异”），核心内容围绕执行过程中的拍卖、异议审查展开。因此，该文书同时具备民事案件和执行案件的特征，但在分类上主要体现为执行案件。\n\n**2. 关于《判决文书 2》**\n该文书涉及行政机关（城管局）申请强制执行行政处罚决定，以及当事人对该执行行为提出的异议和复议。尽管引用了民事诉讼法关于执行程序的规定，但其实体基础是行政非诉执行，并非平等主体间的民事纠纷，故不属于民事案件。其核心程序为“执行复议”，明确属于执行案件范畴。\n\n**3. 关于《判决文书 3》**\n该文书涉及对刑事判决中罚金刑的强制执行（如限制消费措施）的审查。基础法律关系源于刑事犯罪（走私废物罪），旨在执行刑事财产刑，而非民事债务或赔偿请求。文书案号含“执”字，内容涉及执行决定的审查与复议，因此明确归类为执行案件，不属于民事或赔偿案件。\n\n**4. 关于《判决文书 4》**\n该文书明确标识为“国家赔偿”案件。当事人分别为“赔偿请求人”和“赔偿义务机关”，法律依据为《中华人民共和国国家赔偿法》，案由涉及对错误羁押、殴打等行为的国家赔偿申请及申诉审查。这属于典型的赔偿案件，既非普通民事纠纷，也非执行案件。\n\n**5. 关于《判决文书 5》**\n该文书涉及建设工程款仲裁裁决的强制执行，具体争议点为银行账户冻结与扣划的异议复议。基础关系为民事合同（建设工程合同），适用民事诉讼法及民事执行司法解释，属于民事纠纷引发的执行程序。因此，该文书既是民事案件，也是执行案件。\n\n**6. 关于《判决文书 6》**\n该文书涉及投资建设工程合同纠纷的再审申请审查。当事人之间因合同效力及工程款结算产生争议，属于典型的民事合同纠纷。文书性质为对已生效民事判决的“再审审查”，旨在决定是否启动审判监督程序，而非执行生效判决。因此，该文书属于民事案件，不属于执行案件或赔偿案件。\n\n**7. 关于《判决文书 7》**\n该文书同样明确为“国家赔偿”案件。文书中当事人身份为“赔偿请求人”和“赔偿义务机关”，核心争议为因司法行为（如查封、扣押）导致的财产损失及错误羁押的国家赔偿问题，适用《国家赔偿法》。法院明确排除了其属于民事争议范畴，且该程序是对赔偿决定的申诉审查，而非执行案件。因此，该文书归类为赔偿案件。\n\n**综上所述，分类结果如下：**\n\n{'赔偿案件': ['《判决文书 4》', '《判决文书 7》'], '民事案件': ['《判决文书 1》', '《判决文书 5》', '《判决文书 6》'], '执行案件': ['《判决文书 1》', '《判决文书 2》', '《判决文书 3》', '《判决文书 5》']}"
+        [
+          "民事案件",
+          "《判决文书1》"
+        ],
+        [
+          "民事案件",
+          "《判决文书5》"
+        ]
       ]
     },
     {
@@ -716,29 +532,13 @@
       "selected_index": 410,
       "type": "legal",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "刑事案件": [
-            "《判决文书1》"
-          ],
-          "执行案件": [
-            "《判决文书3》",
-            "《判决文书5》",
-            "《判决文书6》"
-          ],
-          "行政案件": [
-            "《判决文书2》",
-            "《判决文书4》"
-          ]
-        }
-      ],
-      "extra": [
-        "根据提供的检索结果，对六篇判决文书的分类分析如下：\n\n**《判决文书1》** 被归类为 **刑事案件**。该文书明确涉及“危险驾驶一案”，文中多次出现“刑事判决”、“刑事裁定”及“危险驾驶罪”等术语，并引用了《中华人民共和国刑事诉讼法》作为法律依据，重点讨论了刑事证据、量刑以及被告人的供述，属于典型的刑事案件范畴，不涉及执行或行政争议。\n\n**《判决文书2》** 被归类为 **行政案件**。该文书的当事人一方为公民（赵某某），另一方为行政机关（乌鲁木齐市公安局天山分局），争议焦点在于公安机关依据《治安管理处罚法》作出的行政拘留和罚款等行政处罚的合法性。法院在审理中明确引用了《中华人民共和国行政诉讼法》，且案号中包含代表行政案件的“行”字（如\"(2023) 新 01 行终 216 号”），因此属于行政案件，而非刑事或执行案件。\n\n**《判决文书3》** 被归类为 **执行案件**。该文书的核心内容是关于仲裁裁决的“执行异议”和“执行复议”，涉及债权人（郑世春）与债务人公司（珠海金巴罗商业广场有限公司）之间的财产转移及违约金支付纠纷。文中出现了“被执行人”、“执行案号”（如\"(2020) 粤 04 执异 329\"）以及《最高人民法院关于人民法院办理执行异议和复议案件若干问题的规定》等执行相关法律依据，明确属于民事执行程序中的案件。\n\n**《判决文书4》** 被归类为 **行政案件**。该文书是公民（王某某）与行政机关（石家庄市司法局）之间关于行政处罚合法性的再审申请判决。法院依据《中华人民共和国行政诉讼法》对行政处罚决定的合法性及原判决的程序正确性进行了审查，案号\"(2022) 冀 01 行终 848 号”中的“行”字也证实了其行政案件属性，不涉及刑事犯罪或判决执行。\n\n**《判决文书5》** 被归类为 **执行案件**。尽管文书内容涉及某集团公司的集资诈骗和非法吸收公众存款等刑事犯罪背景，但该文书本身的性质是“执行异议和复议”裁定。其当事人身份为“申请执行人”和“被执行人”，处理的是股权拍卖以清偿债务以及因刑事调查是否应中止执行的问题，案号格式（如\"(2023) 川执复 133 号”）及引用的法律程序均指向执行案件，而非直接的刑事判决或行政诉讼。\n\n**《判决文书6》** 被归类为 **执行案件**。该文书是对“执行裁定”的复议裁定，具体涉及刑事裁判涉财产部分的执行问题。文中明确提到了“执行异议”、“执行复议”以及“执行案号”（如\"(2021) 川 01 执异 2998 号”），争议焦点在于执行过程中银行账户的冻结问题。虽然背景涉及刑事犯罪（金某某集资诈骗案），但该文书本身属于执行阶段的程序性审查，因此归类为执行案件。\n\n综上所述，分类结果如下：\n\n{'刑事案件': ['《判决文书1》'], '执行案件': ['《判决文书3》', '《判决文书5》', '《判决文书6》'], '行政案件': ['《判决文书2》', '《判决文书4》']}"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "c59a2cef-21d2-47a4-9f2a-75e68c4797a1",
@@ -746,30 +546,28 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "刑事案件": [
-            "《判决文书1》",
-            "《判决文书2》"
-          ],
-          "民事案件": [
-            "《判决文书4》",
-            "《判决文书6》",
-            "《判决文书8》"
-          ],
-          "管辖案件": [
-            "《判决文书3》",
-            "《判决文书5》",
-            "《判决文书7》",
-            "《判决文书9》"
-          ]
-        }
-      ],
+      "pair_precision": 0.6923076923076923,
+      "pair_recall": 1.0,
+      "pair_f1": 0.8181818181818181,
+      "position_accuracy": null,
+      "missing": [],
       "extra": [
-        "{'刑事案件': ['《判决文书1》', '《判决文书2》'], '民事案件': ['《判决文书3》', '《判决文书4》', '《判决文书5》', '《判决文书6》', '《判决文书7》', '《判决文书8》', '《判决文书9》'], '管辖案件': ['《判决文书3》', '《判决文书5》', '《判决文书7》', '《判决文书9》']}"
+        [
+          "民事案件",
+          "《判决文书3》"
+        ],
+        [
+          "民事案件",
+          "《判决文书5》"
+        ],
+        [
+          "民事案件",
+          "《判决文书7》"
+        ],
+        [
+          "民事案件",
+          "《判决文书9》"
+        ]
       ]
     },
     {
@@ -778,36 +576,36 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "民事案件": [
-            "《判决文书3》",
-            "《判决文书8》"
-          ],
-          "执行案件": [
-            "《判决文书4》",
-            "《判决文书13》"
-          ],
-          "管辖案件": [
-            "《判决文书1》",
-            "《判决文书7》",
-            "《判决文书9》",
-            "《判决文书10》",
-            "《判决文书11》",
-            "《判决文书12》"
-          ],
-          "刑事案件": [
-            "《判决文书2》",
-            "《判决文书5》",
-            "《判决文书6》"
-          ]
-        }
-      ],
+      "pair_precision": 0.6842105263157895,
+      "pair_recall": 1.0,
+      "pair_f1": 0.8125000000000001,
+      "position_accuracy": null,
+      "missing": [],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书13》进行详细分类分析如下：\n\n**一、民事案件分类分析**\n此类案件主要涉及平等主体之间的财产关系和人身关系纠纷，包括合同纠纷、侵权纠纷、劳动争议等，且文书中明确引用《中华人民共和国民事诉讼法》或案号包含“民初”、“民终”等字样。\n*   **《判决文书1》**：属于民事案件。文书涉及“广播电视播放合同纠纷”，当事人为公司，引用《民事诉讼法》，虽涉及管辖权异议，但基础法律关系为民事合同。\n*   **《判决文书3》**：属于民事案件。文书涉及“劳动争议”，当事人涉及自然人与公司，引用《民事诉讼法》，且原判决明确标注为“民事判决”。\n*   **《判决文书7》**：属于民事案件。文书涉及“合伙合同纠纷”，当事人包括原告、被告及第三人，引用《民事诉讼法》，属于典型的民事商事纠纷。\n*   **《判决文书8》**：属于民事案件。文书涉及“财产损害赔偿纠纷”，案号包含“民初”，当事人涉及个人与物业公司，依据《民法典》处理，属于民事侵权纠纷。\n*   **《判决文书9》**：属于民事案件。文书涉及“侵害信息网络传播权及不正当竞争”纠纷，当事人为公司，引用《民事诉讼法》，属于知识产权及反不正当竞争领域的民事案件。\n*   **《判决文书10》**：属于民事案件。文书涉及“侵害作品信息网络传播权纠纷”及“不正当竞争纠纷”，当事人为公司，引用《民事诉讼法》，属于典型的民事商事诉讼。\n*   **《判决文书11》**：属于民事案件。文书涉及“保证合同纠纷”，当事人涉及公司与银行，案号包含“民初”，引用《民事诉讼法》，属于金融借款及担保领域的民事案件。\n*   **《判决文书12》**：属于民事案件。文书涉及“产品责任纠纷”及“消费欺诈”，当事人涉及消费者与公司，引用《民事诉讼法》及《消费者权益保护法》，属于民事侵权及合同领域案件。\n\n**二、执行案件分类分析**\n此类案件主要涉及对已生效法律文书的强制执行程序，包括执行异议、执行复议等，文书中会出现“申请执行人”、“被执行人”、“执行裁定”等特定术语，案号通常包含“执”字。\n*   **《判决文书4》**：属于执行案件。文书明确为“执行异议及复议”裁定，当事人列为“申请执行人”和“被执行人”，案号包含“执异”，内容涉及查封、拍卖及执行异议的审查，属于执行阶段的程序性案件。\n*   **《判决文书13》**：属于执行案件。文书涉及“执行异议及复议”，当事人列为“申请执行人”和“被执行人”，案号包含“执异”，内容是对行政判决执行情况的审查，属于执行阶段的案件。\n\n**三、管辖案件分类分析**\n此类案件的核心争议点在于确定审理案件的法院，文书内容主要围绕管辖权异议、移送管辖或指定管辖展开，通常以“裁定”形式结案，且明确提及管辖权问题。虽然部分管辖案件的基础是民事纠纷，但在分类上因其核心议题为管辖权，故单独列出（注：若某文书既属民事又属管辖，根据题目要求分类，此处将其归入管辖案件类别以体现其核心特征，或根据文书性质双重属性，但根据检索结果中明确标注“管辖案件：Yes\"的文书进行归类）。\n*   **《判决文书1》**：属于管辖案件。文书核心是对管辖权异议的上诉审查，法院重点审查重庆第一中级人民法院是否有管辖权，最终裁定驳回上诉，维持原管辖裁定。\n*   **《判决文书7》**：属于管辖案件。文书核心是“指定管辖”，原法院因不便行使管辖权报请上级法院指定，法院裁定将案件移送至万州区人民法院，属于典型的管辖权裁定。\n*   **《判决文书9》**：属于管辖案件。文书核心是“管辖权异议上诉”，上诉人撤回了对管辖权异议的上诉，法院裁定准许，处理对象纯粹为管辖权问题。\n*   **《判决文书10》**：属于管辖案件。文书核心是管辖权异议的上诉，上诉人请求将案件移送至北京互联网法院，法院重点分析管辖连接点，最终裁定驳回上诉，维持原管辖。\n*   **《判决文书11》**：属于管辖案件。文书核心争议焦点是原审法院（城口金融法院）是否有管辖权，法院详细分析了级别管辖和地域管辖，并作出相应裁定。\n*   **《判决文书12》**：属于管辖案件。文书内容完全围绕确定管辖法院展开，涉及案件从青岛黄岛区法院到北京互联网法院的移送争议及最终由青岛黄岛区法院管辖的裁定，核心议题为管辖权。\n\n**四、刑事案件分类分析**\n此类案件涉及国家公诉机关提起公诉或自诉人提起自诉，指控被告人犯罪，文书中会出现“刑事判决”、“刑事裁定”、“被告人”、“公诉机关”、“罪名”等术语，并引用《刑法》或《刑事诉讼法》。\n*   **《判决文书2》**：属于刑事案件。文书明确为“刑事判决”，涉及“职务侵占罪”和“合同诈骗罪”，由公诉机关提起公诉，对被告人判处刑罚，案号包含“刑”字。\n*   **《判决文书5》**：属于刑事案件。文书涉及“故意伤害罪”，引用《刑事诉讼法》，当事人称为“原审被告人”，是对刑事判决和裁定的申诉审查，属于刑事范畴。\n*   **《判决文书6》**：属于刑事案件。文书涉及“刑事自诉案件”及“故意伤害罪”，引用《刑事诉讼法》及其解释，是对刑事自诉案件程序处理的申诉审查，属于刑事范畴。\n\n综上所述，分类结果如下：\n\n{'民事案件': ['《判决文书1》', '《判决文书3》', '《判决文书7》', '《判决文书8》', '《判决文书9》', '《判决文书10》', '《判决文书11》', '《判决文书12》'], '执行案件': ['《判决文书4》', '《判决文书13》'], '管辖案件': ['《判决文书1》', '《判决文书7》', '《判决文书9》', '《判决文书10》', '《判决文书11》', '《判决文书12》'], '刑事案件': ['《判决文书2》', '《判决文书5》', '《判决文书6》']}\n\n*注：部分文书（如《判决文书1》、《判决文书7》、《判决文书9》、《判决文书10》、《判决文书11》、《判决文书12》）在基础法律关系上属于民事纠纷，但其文书的核心内容和裁定事项专门针对“管辖权”问题。根据题目要求的分类逻辑及检索结果中明确标注的“管辖案件：Yes”，这些文书同时被归入了“民事案件”和“管辖案件”类别，以准确反映其双重属性。*"
+        [
+          "民事案件",
+          "《判决文书10》"
+        ],
+        [
+          "民事案件",
+          "《判决文书11》"
+        ],
+        [
+          "民事案件",
+          "《判决文书12》"
+        ],
+        [
+          "民事案件",
+          "《判决文书1》"
+        ],
+        [
+          "民事案件",
+          "《判决文书7》"
+        ],
+        [
+          "民事案件",
+          "《判决文书9》"
+        ]
       ]
     },
     {
@@ -815,129 +613,52 @@
       "selected_index": 417,
       "type": "legal",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "民事案件": [
-            "《判决文书10》"
-          ],
-          "赔偿案件": [
-            "《判决文书1》",
-            "《判决文书6》",
-            "《判决文书7》"
-          ],
-          "行政案件": [
-            "《判决文书4》",
-            "《判决文书8》"
-          ],
-          "执行案件": [
-            "《判决文书3》",
-            "《判决文书5》"
-          ],
-          "刑事案件": [
-            "《判决文书2》",
-            "《判决文书9》"
-          ]
-        }
-      ],
-      "extra": [
-        "根据提供的判决文书检索结果，对十篇判决文书的分类如下：\n\n**民事案件**：\n仅包含《判决文书10》。该文书涉及“公司解散纠纷”，案号中包含“民”字，且明确引用《民事诉讼法》和《公司法》，属于典型的民事再审申请案件。\n\n**赔偿案件**：\n包含《判决文书1》、《判决文书6》和《判决文书7》。\n- 《判决文书1》明确标识为“国家赔偿决定”，涉及赔偿请求人与赔偿义务机关，核心争议为国家赔偿责任。\n- 《判决文书6》虽涉及刑事背景，但文书性质为“刑事赔偿”案件，依据《国家赔偿法》审理，属于赔偿案件范畴。\n- 《判决文书7》同样涉及“国家赔偿”及“刑事赔偿复议决定”，针对监狱等机关的赔偿责任进行审查，归类为赔偿案件。\n\n**行政案件**：\n包含《判决文书4》和《判决文书8》。\n- 《判决文书4》涉及对住房公积金管理中心“不履行法定职责”的争议，案号含“行”字，依据《行政诉讼法》审理，属于行政案件。\n- 《判决文书8》涉及对应急管理局行政处罚（罚款）不服的再审申请，案号含“行”字，明确引用《行政诉讼法》，属于行政案件。\n\n**执行案件**：\n包含《判决文书3》和《判决文书5》。\n- 《判决文书3》是案外人在执行金融借款合同纠纷过程中提出的“执行异议”裁定，案号含“执”字，依据执行异议相关规定处理，属于执行案件。\n- 《判决文书5》涉及执行异议及执行复议，针对网络司法拍卖的效力进行审查，案号含“执”字，属于执行案件。\n\n**刑事案件**：\n包含《判决文书2》和《判决文书9》。\n- 《判决文书2》涉及“危险驾驶罪”，案号含“刑”字，是对刑事判决的申诉审查，属于刑事案件。\n- 《判决文书9》为“刑事附带民事判决”，主文针对“故意伤害罪”进行定罪量刑，由检察院提起公诉，属于刑事案件。\n\n{'民事案件': ['《判决文书10》'], '赔偿案件': ['《判决文书1》', '《判决文书6》', '《判决文书7》'], '行政案件': ['《判决文书4》', '《判决文书8》'], '执行案件': ['《判决文书3》', '《判决文书5》'], '刑事案件': ['《判决文书2》', '《判决文书9》']}"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "149e82b2-3a24-41c1-a32e-e020164dc5b0",
       "selected_index": 420,
       "type": "legal",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "行政案件": [
-            "《判决文书4》"
-          ],
-          "民事案件": [
-            "《判决文书2》",
-            "《判决文书3》",
-            "《判决文书7》"
-          ],
-          "执行案件": [
-            "《判决文书1》"
-          ],
-          "赔偿案件": [
-            "《判决文书5》"
-          ],
-          "刑事案件": [
-            "《判决文书6》"
-          ]
-        }
-      ],
-      "extra": [
-        "根据提供的检索结果，对七篇判决文书的分类分析如下：\n\n**《判决文书1》** 被归类为 **执行案件**。该文书标题为“裁定”，内容明确涉及“执行异议”和“复议”程序。文中关键信息包括“复议申请人（异议人、被执行人）”、“申请执行人”以及“不服...作出的...执行裁定”，表明该案是对法院在执行过程中采取的措施（如冻结、扣划资金）提出的异议审查。其案号后缀“执异”进一步证实了其属于民事执行异议和复议案件的范畴，而非单纯的民事审判或行政、刑事案件。\n\n**《判决文书2》** 被归类为 **民事案件**。该文书涉及的案由为“分家析产、法定继承纠纷”，是典型的平等主体之间的财产与身份关系争议。案号中的“民初”标识（(2023) 沪 0114 民初 22338 号）明确指示其为民事一审案件。法院依据《民法典》和《民事诉讼法》对家庭内部财产分割及继承问题作出判决，不涉及行政机关、刑事犯罪或国家赔偿。\n\n**《判决文书3》** 被归类为 **民事案件**。该文书处理的是“相邻关系纠纷”，即邻居之间因财产使用、损害产生的争议。文中明确引用了《民事诉讼法》和《民法典》，案号同样包含“民初”字样。虽然案件内容涉及损害赔偿请求，但这属于民事侵权责任范畴，并非独立的“赔偿案件”（通常指国家赔偿），且无刑事或行政因素介入。\n\n**《判决文书4》** 被归类为 **行政案件**。该文书的核心争议在于“工伤保险资格认定”，当事人一方为“乌鲁木齐市人力资源和社会保障局”这一行政机关。文中明确引用了原“行政判决”（案号含“行终”字样）以及《中华人民共和国行政诉讼法》的相关解释，表明这是针对行政机关具体行政行为提起的诉讼，属于行政诉讼范畴。\n\n**《判决文书5》** 被归类为 **赔偿案件**。尽管该案件背景涉及民事纠纷和民事执行程序，但该文书本身的性质是“国家赔偿”案件的审查。文中明确将当事人定义为“申诉人（赔偿请求人）”和“被申诉人（赔偿义务机关）”，并多次提及“国家赔偿”、“赔偿委员会”及《国家赔偿法》。该文书旨在审查因法院执行行为可能导致的国家赔偿责任，因此属于专门的赔偿案件。\n\n**《判决文书6》** 被归类为 **刑事案件**。该文书涉及“原审被告人王昊非法吸收公众存款一案”，案号显示为“刑初”（(2022) 辽 0604 刑初 71 号），明确指向刑事一审。文书内容围绕“非法吸收公众存款”、“违法所得”、“赃款赃物”的追缴与处置展开，是对刑事判决中资产处理部分的申诉审查，属于刑事诉讼程序的延伸，而非民事或行政纠纷。\n\n**《判决文书7》** 被归类为 **民事案件**。该文书案由为“继承纠纷”，涉及原告与被告之间关于遗产继承及房产过户的争议。法院依据《民法典》审理，并明确排除了行政登记行为本身引发的行政诉讼性质。虽然涉及要求配合过户（类似执行效果），但该文书本身是解决实体权利义务关系的民事判决书，而非执行裁定书。\n\n综上所述，分类结果如下：\n\n{'行政案件': ['《判决文书4》'], '民事案件': ['《判决文书2》', '《判决文书3》', '《判决文书7》'], '执行案件': ['《判决文书1》'], '赔偿案件': ['《判决文书5》'], '刑事案件': ['《判决文书6》']}"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "f4876639-ba90-49d4-b177-5a4bab701e3e",
       "selected_index": 428,
       "type": "legal",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "民事案件": [
-            "《判决文书2》"
-          ],
-          "执行案件": [
-            "《判决文书4》"
-          ],
-          "行政案件": [
-            "《判决文书1》",
-            "《判决文书3》"
-          ]
-        }
-      ],
-      "extra": [
-        "根据提供的判决文书检索结果，对四篇判决文书的分类分析如下：\n\n首先，关于《判决文书 1》，该文书涉及申请人对“巴音郭楞蒙古自治州人力资源和社会保障局”作出的“工伤认定不予认定决定书”不服而提起的诉讼。文书中明确引用了《中华人民共和国行政诉讼法》，且案件性质为针对行政机关具体行政行为的“撤销之诉”，案号中包含“行”字（如\"(2023) 新 28 行终 46 号”），因此该文书属于**行政案件**。虽然文中提及了此前确认劳动关系的民事判决，但本案核心并非民事纠纷，也不涉及判决执行，故不属于民事或执行案件。\n\n其次，关于《判决文书 2》，该文书案号为\"(2023) 浙 0421 民初 1174 号”，明确标注为“民事判决”。案件内容为张某某 1 与张某某 2 之间的“分家析产纠纷”及继承权争议，属于平等主体之间的财产纠纷，适用《民法典》及《民事诉讼法》。尽管涉及与政府签订的协议，但诉讼双方为个人，非针对行政机关的行政行为，且文书为实体审理的二审判决而非执行裁定，因此该文书属于**民事案件**。\n\n再次，关于《判决文书 3》，该文书涉及个人吴某某与“东莞市生态环境局”之间的争议，核心是对《行政处罚决定书》合法性的审查。文书明确引用《中华人民共和国行政诉讼法》及其司法解释，且被告为行政机关，案件性质为针对行政处罚的行政诉讼再审申请审查。该文书不涉及民事主体间的纠纷，也不是对生效判决的强制执行程序，因此该文书属于**行政案件**。\n\n最后，关于《判决文书 4》，该文书案号为\"(2024) 辽 12 执异 14 号”，内容明确为“执行异议和复议”审查。文书中出现了“申请执行人”、“被执行人”、“执行裁定”、“强制执行措施”等典型术语，法院审理的是关于冻结和扣划银行存款的执行行为是否合法的问题。虽然基础法律关系源于民事仲裁，但该文书本身处理的是执行阶段的程序性问题，依据《民事诉讼法》中关于执行的规定进行裁判，因此该文书属于**执行案件**。\n\n综上所述，按照要求的格式分类如下：\n\n{'民事案件': ['《判决文书 2》'], '执行案件': ['《判决文书 4》'], '行政案件': ['《判决文书 1》', '《判决文书 3》']}"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "0f33d54f-ac51-4d5c-9f4d-87b2fb3e6f23",
       "selected_index": 429,
       "type": "legal",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "刑事案件": [
-            "《判决文书1》",
-            "《判决文书3》"
-          ],
-          "行政案件": [
-            "《判决文书2》",
-            "《判决文书6》",
-            "《判决文书8》"
-          ],
-          "民事案件": [
-            "《判决文书4》",
-            "《判决文书5》",
-            "《判决文书7》"
-          ]
-        }
-      ],
-      "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书8》的案件类型分类如下：\n\n**刑事案件**包括：\n1.  **《判决文书1》**：该文书明确提及“原公诉机关泉州市人民检察院”、“被告人”、“涉嫌犯故意伤害罪”以及“刑事拘留”、“逮捕”等刑事强制措施，法院判决依据为《中华人民共和国刑法》并判处“有期徒刑”，案号中包含“刑初”字样，虽涉及附带民事诉讼，但其核心性质为刑事案件。\n2.  **《判决文书3》**：该文书涉及“原审被告人雷冰”犯“故意伤害罪”，案号分别为\"(2022) 陕 0102 刑初 246 号”和\"(2023) 陕 01 刑终 49 号”，其中“刑”字明确标识为刑事案件，且法院依据《中华人民共和国刑事诉讼法》进行审理，涉及量刑与犯罪认定，属于典型的刑事案件。\n\n**行政案件**包括：\n1.  **《判决文书2》**：该文书涉及当事人不服行政判决，案号为\"(2022) 新 01 行终 132 号”，其中“行”字代表行政案件。争议焦点为房屋征收补偿协议（行政协议），被告为乌鲁木齐米东区房屋征收补偿管理办公室等行政主体，法院依据《中华人民共和国行政诉讼法》审理，明确界定为行政协议纠纷。\n2.  **《判决文书6》**：该文书中申请人为公民，被申请人为巴楚县农业农村局等政府行政机关，争议事项为撤销土地承包经营权等行政行为。案号\"(2023) 新 31 行终 38 号”中的“行”字表明其行政性质，且法院明确引用《中华人民共和国行政诉讼法》作为裁判依据，属于行政诉讼案件。\n3.  **《判决文书8》**：该文书涉及申请人刘诉海淀区四季青镇人民政府关于“建房施工许可”的行政争议。法院多次引用《中华人民共和国行政诉讼法》关于起诉期限的规定，并指出该案为行政诉讼，尽管申请人主张适用民事法律，但法院最终依据行政法律驳回申请，确认为行政案件。\n\n**民事案件**包括：\n1.  **《判决文书4》**：该文书涉及侵害植物新品种权纠纷，当事人为公司与个体工商户，属于平等民事主体之间的知识产权侵权争议。案号\"(2021) 吉 01 知民初 46 号”中的“民初”表明为民事一审案件，法院依据《民法典》、《民事诉讼法》及《种子法》等民事法律进行裁判，判决内容涉及停止侵权及民事赔偿，无刑事或行政要素。\n2.  **《判决文书5》**：该文书案由为“财产损害赔偿纠纷”，发生在个人与公司之间，涉及租赁店铺内的物品所有权及损害赔偿。案号\"(2021) 浙 0102 民初 XXXX 号”等明确标识为民事案件，法院依据《中华人民共和国民法典》和《中华人民共和国民事诉讼法》审理，判决结果涉及金钱赔偿及诉讼费用分担，属于典型的民事案件。\n3.  **《判决文书7》**：该文书明确为“案外人执行异议之诉”，是民事诉讼中的一种特殊类型。争议双方为公司，涉及银行转账错误、财产所有权确认及不当得利等民事权益，法院依据《民法典》和《民事诉讼法》进行裁判，不涉及刑事犯罪或行政行为审查，因此归类为民事案件。\n\n综上所述，分类结果如下：\n\n{'刑事案件': ['《判决文书1》', '《判决文书3》'], '行政案件': ['《判决文书2》', '《判决文书6》', '《判决文书8》'], '民事案件': ['《判决文书4》', '《判决文书5》', '《判决文书7》']}"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "6bc1ff39-760e-451d-a5a7-3c7f8671f1a4",
@@ -945,9 +666,10 @@
       "type": "legal",
       "level": 3,
       "exact_match": true,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
       "missing": [],
       "extra": []
     },
@@ -957,47 +679,93 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.5,
+      "pair_recall": 0.3,
+      "pair_f1": 0.37499999999999994,
+      "position_accuracy": null,
       "missing": [
-        {
-          "适用特殊程序案件案由": [
-            "《判决文书1》",
-            "《判决文书3》",
-            "《判决文书6》",
-            "《判决文书12》",
-            "《判决文书20》"
-          ],
-          "侵权责任纠纷": [
-            "《判决文书2》",
-            "《判决文书11》",
-            "《判决文书14》",
-            "《判决文书16》",
-            "《判决文书18》"
-          ],
-          "民间借贷纠纷": [
-            "《判决文书4》"
-          ],
-          "行政行为-行政监督": [
-            "《判决文书7》",
-            "《判决文书17》"
-          ],
-          "渎职罪": [
-            "《判决文书9》",
-            "《判决文书19》"
-          ],
-          "行政主体-房屋拆迁管理（拆迁）": [
-            "《判决文书5》",
-            "《判决文书8》",
-            "《判决文书10》",
-            "《判决文书13》",
-            "《判决文书15》"
-          ]
-        }
+        [
+          "侵权责任纠纷",
+          "《判决文书16》"
+        ],
+        [
+          "渎职罪",
+          "《判决文书9》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书10》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书13》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书15》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书5》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书8》"
+        ],
+        [
+          "行政行为-行政监督",
+          "《判决文书17》"
+        ],
+        [
+          "行政行为-行政监督",
+          "《判决文书7》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书12》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书1》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书20》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书3》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书6》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书20》按照指定的六种案由进行分类整理如下：\n\n**分类依据说明：**\n1.  **侵权责任纠纷**：包含《判决文书2》（提供劳务者受害责任纠纷）、《判决文书11》（产品责任纠纷）、《判决文书14》（机动车交通事故责任纠纷）及《判决文书18》（明确标注为侵权责任纠纷）。这些案件均涉及民事主体间的侵权损害赔偿，符合侵权责任纠纷的广义范畴。\n2.  **民间借贷纠纷**：仅《判决文书4》明确被法院认定为“民间借贷纠纷”，涉及个人间的借款及还款争议。其他涉及借贷背景的案件（如《判决文书12》、《判决文书20》）因案由为执行异议之诉或金融借款合同纠纷，故不列入此类。\n3.  **行政行为 - 行政监督**：仅《判决文书17》涉及政府信息公开及行政复议，检索结果明确指出其属于行政监督或行政复核范畴，故归入此类。\n4.  **渎职罪**：仅《判决文书19》涉及“滥用职权”的刑事自诉案件，虽然法院因程序问题未受理实体审理，但案件起因及指控罪名属于渎职罪范畴，故归入此类。\n5.  **行政主体 - 房屋拆迁管理（拆迁）**：包含《判决文书5》（拆迁安置协议纠纷）、《判决文书8》（强制拆除及赔偿）、《判决文书10》（拆迁安置一案）、《判决文书13》（强制拆除设施）、《判决文书15》（强制拆除房屋）。这些案件均涉及行政机关在房屋拆迁、安置或强制拆除过程中的行政行为。\n6.  **适用特殊程序案件案由**：经检索分析，所有提供的判决文书（包括执行异议之诉、普通民事/行政/刑事诉讼）均属于普通诉讼程序，无一属于宣告失踪、认定无民事行为能力等“适用特殊程序案件案由”。\n\n**分类结果如下：**\n\n{'适用特殊程序案件案由': [], '侵权责任纠纷': ['《判决文书2》', '《判决文书11》', '《判决文书14》', '《判决文书18》'], '民间借贷纠纷': ['《判决文书4》'], '行政行为 - 行政监督': ['《判决文书17》'], '渎职罪': ['《判决文书19》'], '行政主体 - 房屋拆迁管理（拆迁）': ['《判决文书5》', '《判决文书8》', '《判决文书10》', '《判决文书13》', '《判决文书15》']}"
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书10》"
+        ],
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书13》"
+        ],
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书15》"
+        ],
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书5》"
+        ],
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书8》"
+        ],
+        [
+          "行政行为 - 行政监督",
+          "《判决文书17》"
+        ]
       ]
     },
     {
@@ -1006,45 +774,69 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.5714285714285714,
+      "pair_recall": 0.5,
+      "pair_f1": 0.5333333333333333,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政主体-房屋拆迁管理（拆迁）": [
-            "《判决文书11》",
-            "《判决文书14》"
-          ],
-          "行政行为-行政强制": [
-            "《判决文书8》"
-          ],
-          "行政主体-劳动和社会保障行政管理（劳动，社会保障）": [
-            "《判决文书3》",
-            "《判决文书5》",
-            "《判决文书10》",
-            "《判决文书15》"
-          ],
-          "贪污受贿罪": [
-            "《判决文书6》"
-          ],
-          "行政行为-行政撤销": [
-            "《判决文书13》",
-            "《判决文书16》"
-          ],
-          "行政行为-行政处罚": [
-            "《判决文书4》",
-            "《判决文书7》"
-          ],
-          "行政行为-行政征收": [
-            "《判决文书1》",
-            "《判决文书2》",
-            "《判决文书9》",
-            "《判决文书12》"
-          ]
-        }
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书14》"
+        ],
+        [
+          "行政行为-行政强制",
+          "《判决文书8》"
+        ],
+        [
+          "行政行为-行政征收",
+          "《判决文书12》"
+        ],
+        [
+          "行政行为-行政征收",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为-行政征收",
+          "《判决文书2》"
+        ],
+        [
+          "行政行为-行政征收",
+          "《判决文书9》"
+        ],
+        [
+          "行政行为-行政撤销",
+          "《判决文书13》"
+        ],
+        [
+          "行政行为-行政撤销",
+          "《判决文书16》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对16篇判决文书按照指定的7种案由进行分类，结果如下：\n\n{'行政主体-房屋拆迁管理（拆迁）': ['《判决文书1》', '《判决文书2》', '《判决文书9》', '《判决文书11》', '《判决文书12》', '《判决文书13》'], '行政行为-行政强制': ['《判决文书14》'], '行政主体-劳动和社会保障行政管理（劳动，社会保障）': ['《判决文书3》', '《判决文书5》', '《判决文书10》', '《判决文书15》'], '贪污受贿罪': ['《判决文书6》'], '行政行为-行政撤销': [], '行政行为-行政处罚': ['《判决文书4》', '《判决文书7》'], '行政行为-行政征收': []}\n\n**分类依据说明：**\n\n1.  **行政主体-房屋拆迁管理（拆迁）**：\n    *   **《判决文书1》**：涉及“房屋征收决定”及“房屋征收与补偿管理办公室”，属于房屋拆迁管理范畴。\n    *   **《判决文书2》**：涉及“房屋征收补偿决定”及“住房保障和房屋管理局”，属于房屋拆迁管理范畴。\n    *   **《判决文书9》**：涉及“国有土地上房屋征收项目”及“征收补偿协议书”，属于房屋拆迁管理范畴。\n    *   **《判决文书11》**：明确为“拆迁安置一案”，涉及“安置补偿协议”，属于房屋拆迁管理范畴。\n    *   **《判决文书12》**：涉及“房屋征收与补偿管理办公室”及“房屋征收补偿协议”，属于房屋拆迁管理范畴。\n    *   **《判决文书13》**：涉及“撤销补偿安置协议”，属于房屋拆迁管理中的协议纠纷。\n    *   *注：《判决文书14》虽涉及房屋拆除，但被明确界定为“应急排危行为”而非一般拆迁管理，故归入行政强制；《判决文书1》、《2》、《9》、《12》虽涉及“征收”，但在有“房屋拆迁管理”这一更具体案由时，优先归入此类，故“行政行为-行政征收”类别为空。*\n\n2.  **行政行为-行政强制**：\n    *   **《判决文书14》**：核心争议为“强制拆除房屋”及“应急排危行为”，法院审查的是强制拆除行为的合法性，属于典型的行政强制行为。\n\n3.  **行政主体-劳动和社会保障行政管理（劳动，社会保障）**：\n    *   **《判决文书3》**：涉及“工伤保险资格认定”及“高新区人社局”，属于劳动社保管理。\n    *   **《判决文书5》**：涉及“人力资源和社会保障局”及“农民工工资支付”，属于劳动社保管理。\n    *   **《判决文书10》**：涉及“社会保险服务中心”及“工伤保险待遇先行支付”，属于劳动社保管理。\n    *   **《判决文书15》**：被告为“湖北省人力资源和社会保障厅”，涉及其法定职责，属于劳动社保管理。\n\n4.  **贪污受贿罪**：\n    *   **《判决文书6》**：明确为刑事案件，涉及“受贿罪”的认定与申诉，属于贪污受贿罪范畴。\n\n5.  **行政行为-行政撤销**：\n    *   检索结果中，虽然部分案件（如《判决文书13》）原告请求撤销协议，或《判决文书16》涉及撤销土地承包经营权，但在法律文书案由分类中，这些通常被归类为具体的行政管理领域（如拆迁、土地管理）或行政协议纠纷，而非通用的“行政撤销”案由。且《判决文书16》实质为准许撤回再审申请的程序性裁定。因此，该类别下无符合严格定义的文书。\n\n6.  **行政行为-行政处罚**：\n    *   **《判决文书4》**：涉及“吊销机动车驾驶证”，明确为“行政处罚决定”。\n    *   **《判决文书7》**：涉及“没收违法所得”及“罚款”，明确为证监会作出的行政处罚。\n\n7.  **行政行为-行政征收**：\n    *   虽然《判决文书1》、《2》、《9》、《12》涉及“房屋征收”，但根据中国司法实践中的案由分类，涉及房屋的具体征收与补偿纠纷优先归类于“房屋拆迁管理（拆迁）”这一更具体的行政主体/事项分类下。因此，在此分类体系下，该类别无独立列出的文书。"
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书12》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书13》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书1》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书2》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书9》"
+        ],
+        [
+          "行政行为-行政强制",
+          "《判决文书14》"
+        ]
       ]
     },
     {
@@ -1053,42 +845,57 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.5833333333333334,
+      "pair_recall": 0.5384615384615384,
+      "pair_f1": 0.5599999999999999,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政行为-行政登记": [
-            "《判决文书1》",
-            "《判决文书3》",
-            "《判决文书13》"
-          ],
-          "与公司，证券，保险，票据等有关的民事纠纷": [
-            "《判决文书8》",
-            "《判决文书11》"
-          ],
-          "执行案由-先予执行": [
-            "《判决文书5》",
-            "《判决文书10》",
-            "《判决文书12》"
-          ],
-          "执行案由-对下级法院执行异议裁定的复议": [
-            "《判决文书6》"
-          ],
-          "行政行为-行政裁决": [
-            "《判决文书7》"
-          ],
-          "刑事赔偿": [
-            "《判决文书2》"
-          ],
-          "执行案由-其他案由": [
-            "《判决文书4》",
-            "《判决文书9》"
-          ]
-        }
+        [
+          "执行案由-先予执行",
+          "《判决文书10》"
+        ],
+        [
+          "执行案由-先予执行",
+          "《判决文书12》"
+        ],
+        [
+          "执行案由-先予执行",
+          "《判决文书5》"
+        ],
+        [
+          "执行案由-其他案由",
+          "《判决文书4》"
+        ],
+        [
+          "执行案由-其他案由",
+          "《判决文书9》"
+        ],
+        [
+          "行政行为-行政裁决",
+          "《判决文书7》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对13篇判决文书按照指定的7种案由进行分类，结果如下：\n\n{'行政行为-行政登记': ['《判决文书1》', '《判决文书3》', '《判决文书13》'], '与公司，证券，保险，票据等有关的民事纠纷': ['《判决文书8》', '《判决文书11》'], '执行案由-先予执行': [], '执行案由-对下级法院执行异议裁定的复议': ['《判决文书4》', '《判决文书6》', '《判决文书9》', '《判决文书12》'], '行政行为-行政裁决': [], '刑事赔偿': ['《判决文书2》'], '执行案由-其他案由': ['《判决文书5》', '《判决文书10》']}\n\n**分类依据详解：**\n\n1.  **行政行为-行政登记**：\n    *   **《判决文书1》**：涉及“土地承包经营权登记”及“农村土地承包经营权证”的发放，法院明确认定为登记确认行为。\n    *   **《判决文书3》**：涉及“公司设立登记”，申请人起诉市场监督管理局要求撤销公司设立登记，属于典型的行政登记纠纷。\n    *   **《判决文书13》**：涉及“不动产抵押登记”及“房屋抵押登记”，争议焦点为北京市规划和自然资源委员会海淀分局的登记行为合法性。\n\n2.  **与公司，证券，保险，票据等有关的民事纠纷**：\n    *   **《判决文书8》**：案由为“股权转让纠纷”，涉及《股权转让协议》及股东权益，属于与公司有关的民事纠纷。\n    *   **《判决文书11》**：案由为“破产债权确认纠纷”，涉及公司股东决议中的固定股息及《公司法》、《企业破产法》的适用，属于与公司有关的民事纠纷。\n\n3.  **执行案由-对下级法院执行异议裁定的复议**：\n    *   **《判决文书4》**：申请人不服铁岭市中级人民法院作出的执行裁定，向上一级法院申请复议。\n    *   **《判决文书6》**：西海头村委会不服大连海事法院作出的执行异议裁定，申请复议。\n    *   **《判决文书9》**：云南省某产业发展集团有限责任公司不服云南省高级人民法院的执行裁定，申请执行复议。\n    *   **《判决文书12》**：赵某某、崔某某不服下级法院（豫0821）作出的执行异议裁定，申请复议。\n\n4.  **刑事赔偿**：\n    *   **《判决文书2》**：涉及国家赔偿，具体为申诉人因原被判处诈骗罪后改判无罪，申请刑事赔偿，属于刑事赔偿案件。\n\n5.  **执行案由-其他案由**：\n    *   **《判决文书5》**：涉及案外人对执行标的（房产）提出的执行异议，法院作出的是执行异议裁定，而非复议裁定或先予执行裁定，归类为执行其他案由。\n    *   **《判决文书10》**：涉及当事人对“终结本次执行程序”裁定提出的执行异议，属于执行异议案件，但未达到复议层级，归类为执行其他案由。\n\n6.  **未归入任何类别的文书**：\n    *   **《判决文书7》**：涉及“行政处理决定及行政复议”的再审申请，虽属行政诉讼，但根据检索分析，其具体案由为行政处理决定而非“行政登记”或“行政裁决”，故未归入上述7类特定案由中。\n\n7.  **无匹配文书的类别**：\n    *   **执行案由-先予执行**：检索结果中无文书明确属于先予执行裁定。\n    *   **行政行为-行政裁决**：检索结果中无文书明确属于行政裁决行为（如土地权属争议裁决等）。"
+        [
+          "执行案由-其他案由",
+          "《判决文书10》"
+        ],
+        [
+          "执行案由-其他案由",
+          "《判决文书5》"
+        ],
+        [
+          "执行案由-对下级法院执行异议裁定的复议",
+          "《判决文书12》"
+        ],
+        [
+          "执行案由-对下级法院执行异议裁定的复议",
+          "《判决文书4》"
+        ],
+        [
+          "执行案由-对下级法院执行异议裁定的复议",
+          "《判决文书9》"
+        ]
       ]
     },
     {
@@ -1097,40 +904,33 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.9,
+      "pair_recall": 0.6923076923076923,
+      "pair_f1": 0.7826086956521738,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政行为-行政许可": [
-            "《判决文书7》",
-            "《判决文书8》",
-            "《判决文书9》"
-          ],
-          "渎职罪": [
-            "《判决文书12》"
-          ],
-          "行政主体-司法行政管理（司法行政）": [
-            "《判决文书2》",
-            "《判决文书13》"
-          ],
-          "行政主体-房屋拆迁管理（拆迁）": [
-            "《判决文书1》",
-            "《判决文书3》",
-            "《判决文书10》"
-          ],
-          "破坏社会主义市场经济秩序罪": [
-            "《判决文书11》"
-          ],
-          "非刑事赔偿-错误执行赔偿": [
-            "《判决文书4》",
-            "《判决文书5》",
-            "《判决文书6》"
-          ]
-        }
+        [
+          "渎职罪",
+          "《判决文书12》"
+        ],
+        [
+          "行政主体-司法行政管理（司法行政）",
+          "《判决文书13》"
+        ],
+        [
+          "非刑事赔偿-错误执行赔偿",
+          "《判决文书4》"
+        ],
+        [
+          "非刑事赔偿-错误执行赔偿",
+          "《判决文书5》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对13篇判决文书按照指定的6种案由进行分类，结果如下：\n\n{'行政行为-行政许可': ['《判决文书7》', '《判决文书8》', '《判决文书9》'], '渎职罪': [], '行政主体-司法行政管理（司法行政）': ['《判决文书2》'], '行政主体-房屋拆迁管理（拆迁）': ['《判决文书1》', '《判决文书3》', '《判决文书4》', '《判决文书10》'], '破坏社会主义市场经济秩序罪': ['《判决文书11》'], '非刑事赔偿-错误执行赔偿': ['《判决文书6》']}\n\n**分类依据说明：**\n\n1.  **行政行为-行政许可**：\n    *   **《判决文书7》**：案件核心争议为“建房施工许可”，即行政机关作出的施工许可行为，属于典型的行政许可。\n    *   **《判决文书8》**：文书明确指出是上诉人诉区政府“行政许可”一案，争议焦点在于政府许可他人倾倒土壤的行为。\n    *   **《判决文书9》**：案件涉及国家文物局作出的“不予行政许可决定书”，争议围绕行政许可的授予与否展开。\n    *   *注*：《判决文书1》、《判决文书3》、《判决文书4》、《判决文书10》虽涉及无证建设或拆迁，但诉讼标的为“强制拆除”或“拆迁安置”行为本身，而非行政许可决定，故归入拆迁类。《判决文书13》虽涉及无证经营，但诉讼标的为“行政处罚”（罚款），故不归入此类。\n\n2.  **渎职罪**：\n    *   所有检索到的文书中，**无**一篇属于“渎职罪”的刑事判决。\n    *   *注*：《判决文书12》虽涉及当事人控告法院人员“滥用职权”（属渎职范畴），但该文书性质为驳回刑事自诉的裁定，法院明确认定滥用职权罪不属于自诉案件范围，因此该文书并非对渎职罪的定罪判决，故不列入此类。\n\n3.  **行政主体-司法行政管理（司法行政）**：\n    *   **《判决文书2》**：被告为“石家庄市司法局”，案件涉及司法局依据《律师法》对律师进行的行政处罚，属于司法行政管理范畴。\n    *   *注*：《判决文书5》涉及公安机关的刑事侦查行为，《判决文书6》涉及法院的执行行为，均不属于司法行政管理（即司法行政机关的行政管理职能）。\n\n4.  **行政主体-房屋拆迁管理（拆迁）**：\n    *   **《判决文书1》**：案件核心为镇政府“强制拆除”养猪场设施的行为，属于拆迁管理。\n    *   **《判决文书3》**：案件涉及“强制拆除房屋”及危旧房改住房改造项目的补偿安置，属于拆迁管理。\n    *   **《判决文书4》**：案件涉及住建局“强制拆除”申请人房屋及相关的行政赔偿，属于拆迁管理。\n    *   **《判决文书10》**：案件明确为“拆迁安置”一案，涉及安置补偿协议的签订与确认，属于拆迁管理。\n\n5.  **破坏社会主义市场经济秩序罪**：\n    *   **《判决文书11》**：被告人被判决犯“集资诈骗罪”，根据刑法分类，集资诈骗罪属于破坏社会主义市场经济秩序罪。\n\n6.  **非刑事赔偿-错误执行赔偿**：\n    *   **《判决文书6》**：文书明确记载申请人因申请贵州省高级人民法院“错误执行赔偿”一案，争议焦点为法院在民事判决执行过程中的错误执行行为，属于非刑事赔偿中的错误执行赔偿。\n    *   *注*：《判决文书5》虽涉及赔偿，但属于“刑事赔偿”（针对刑事侦查中的查封扣押），且法院认定行为合法不予赔偿，故不属于“非刑事赔偿”。《判决文书3》、《判决文书4》虽涉及行政赔偿，但针对的是违法强拆行为，而非“错误执行”（通常指司法执行错误）。"
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书4》"
+        ]
       ]
     },
     {
@@ -1139,37 +939,37 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 1.0,
+      "pair_recall": 0.3333333333333333,
+      "pair_f1": 0.5,
+      "position_accuracy": null,
       "missing": [
-        {
-          "执行案由-先予执行": [
-            "《判决文书4》"
-          ],
-          "适用特殊程序案件案由": [
-            "《判决文书5》",
-            "《判决文书9》"
-          ],
-          "行政行为-行政征收": [
-            "《判决文书1》",
-            "《判决文书3》"
-          ],
-          "产品责任纠纷": [
-            "《判决文书6》"
-          ],
-          "行政行为-行政处罚": [
-            "《判决文书8》"
-          ],
-          "人格权纠纷": [
-            "《判决文书2》",
-            "《判决文书7》"
-          ]
-        }
+        [
+          "人格权纠纷",
+          "《判决文书2》"
+        ],
+        [
+          "人格权纠纷",
+          "《判决文书7》"
+        ],
+        [
+          "执行案由-先予执行",
+          "《判决文书4》"
+        ],
+        [
+          "行政行为-行政征收",
+          "《判决文书3》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书5》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书9》"
+        ]
       ],
-      "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书9》按照指定案由进行分类分析如下：\n\n**1. 行政行为 - 行政征收**\n*   **《判决文书1》**：该文书明确记载上诉人余某某起诉被告乌鲁木齐市新市区人民政府，争议焦点为“房屋征收决定”。案件核心涉及政府房屋征收与补偿管理行为，法院分析指出该案属于典型的行政征收纠纷，因此归类为此项。\n\n**2. 产品责任纠纷**\n*   **《判决文书6》**：该文书中原告张某亮与被告之间的纠纷被法院明确认定为“产品责任纠纷”。案件涉及消费者因手机产品描述欺诈及质量问题主张惩罚性赔偿，法院在“本院认为”部分明确指出本案系产品责任纠纷，故归类为此项。\n\n**3. 行政行为 - 行政处罚**\n*   **《判决文书8》**：该文书涉及申请人（旅游开发公司）与被申请人（昌吉市应急管理局）之间的争议，起因是应急管理局对申请人作出的“罚款”决定。罚款属于典型的行政处罚种类，且案件依据《行政诉讼法》审理，故归类为此项。\n\n**4. 其他未匹配项说明**\n*   **《判决文书2》**：案由为“侵害发明专利权纠纷”，属于知识产权侵权纠纷，不属于产品责任（非缺陷致损）、行政征收、行政处罚或人格权纠纷，亦非先予执行或特殊程序案件。\n*   **《判决文书3》**：案由为“行政协议纠纷”，具体涉及“房屋征收补偿协议”的解除。虽然涉及征收背景，但法律定性为协议纠纷而非直接的行政征收行为，且不属于其他列出的特殊程序或人格权等类别。\n*   **《判决文书4》**：案由为“执行异议”，源于金融借款合同纠纷的执行程序，不属于先予执行（先予执行通常指判决前的紧急执行），也不属于特殊程序案件或其他行政/民事特定案由。\n*   **《判决文书5》**：案由为“案外人执行异议之诉”，涉及建设工程施工合同纠纷及担保纠纷，不属于先予执行、特殊程序或列出的行政/人格权/产品责任类别。\n*   **《判决文书7》**：案由为“专利权权属纠纷”，属于知识产权权属争议，不涉及产品责任、行政处罚或人格权等列出的类别。\n*   **《判决文书9》**：案由为“案外人执行异议之诉”，涉及不当得利及资金冻结争议，不属于先予执行、特殊程序或其他列出的特定案由。\n\n综上所述，仅有三篇文书能精准匹配给定的6种案由，其余文书的案由（如专利侵权、行政协议、执行异议、权属纠纷等）均不在指定的分类列表中。\n\n{'执行案由-先予执行': [], '适用特殊程序案件案由': [], '行政行为-行政征收': ['《判决文书1》'], '产品责任纠纷': ['《判决文书6》'], '行政行为-行政处罚': ['《判决文书8》'], '人格权纠纷': []}"
-      ]
+      "extra": []
     },
     {
       "id": "aaa21385-8b1b-456b-af09-2151c41e5e14",
@@ -1177,36 +977,21 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.8888888888888888,
+      "pair_recall": 0.8888888888888888,
+      "pair_f1": 0.8888888888888888,
+      "position_accuracy": null,
       "missing": [
-        {
-          "海事海商纠纷": [
-            "《判决文书7》"
-          ],
-          "执行案由-对下级法院执行异议裁定的复议": [
-            "《判决文书4》"
-          ],
-          "行政行为-行政复议": [
-            "《判决文书6》",
-            "《判决文书8》",
-            "《判决文书9》"
-          ],
-          "渎职罪": [
-            "《判决文书1》",
-            "《判决文书2》"
-          ],
-          "产品责任纠纷": [
-            "《判决文书3》"
-          ],
-          "行政行为-行政裁决": [
-            "《判决文书5》"
-          ]
-        }
+        [
+          "行政行为-行政裁决",
+          "《判决文书5》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书9》按照指定案由进行分类，结果如下：\n\n{'海事海商纠纷': ['《判决文书7》'], '执行案由-对下级法院执行异议裁定的复议': ['《判决文书4》'], '行政行为-行政复议': ['《判决文书5》', '《判决文书6》', '《判决文书8》', '《判决文书9》'], '渎职罪': ['《判决文书1》', '《判决文书2》'], '产品责任纠纷': ['《判决文书3》'], '行政行为-行政裁决': []}\n\n**分类依据说明：**\n\n1.  **海事海商纠纷**：仅《判决文书7》被归类为此项。该文书明确涉及“海上货物运输合同”纠纷，属于典型的海事海商案件。虽然《判决文书4》的背景涉及海上养殖损害，但其文书性质为对执行异议裁定的复议，故归入执行类。\n2.  **执行案由-对下级法院执行异议裁定的复议**：仅《判决文书4》符合。该文书内容明确记载申请人不服大连海事法院作出的执行裁定而申请复议，法院对此进行了审查并作出裁定，完全符合该案由定义。\n3.  **行政行为-行政复议**：包含《判决文书5》、《判决文书6》、《判决文书8》和《判决文书9》。\n    *   《判决文书5》涉及对行政处理决定及行政复议的诉讼。\n    *   《判决文书6》涉及行政拘留及行政复议的合法性审查。\n    *   《判决文书8》涉及工伤保险资格认定及行政复议一案。\n    *   《判决文书9》涉及征收防空地下室易地建设费及行政复议一案。\n    这四篇文书的核心争议点均围绕行政行为的合法性及行政复议程序展开。\n4.  **渎职罪**：包含《判决文书1》和《判决文书2》。\n    *   《判决文书1》虽为自诉案件被驳回，但案件实质是申请人指控法院人员“滥用职权”（渎职罪的一种），争议核心围绕该罪名展开。\n    *   《判决文书2》明确涉及“玩忽职守”罪的认定与申诉，属于典型的渎职罪案件。\n5.  **产品责任纠纷**：仅《判决文书3》符合。该文书明确记载原告与被告之间因购买手机产生的纠纷，法院认定本案系“产品责任纠纷”。\n6.  **行政行为-行政裁决**：检索结果中没有任何一篇文书被归类为此项。虽然部分文书涉及行政决定（如《判决文书9》中的征收决定），但根据分析，这些属于行政征收或行政处罚引发的行政复议诉讼，而非行政机关对民事纠纷进行的“行政裁决”。"
+        [
+          "行政行为-行政复议",
+          "《判决文书5》"
+        ]
       ]
     },
     {
@@ -1215,37 +1000,41 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.6666666666666666,
+      "pair_recall": 0.6,
+      "pair_f1": 0.631578947368421,
+      "position_accuracy": null,
       "missing": [
-        {
-          "渎职罪": [
-            "《判决文书3》",
-            "《判决文书7》"
-          ],
-          "执行案由-行政非诉执行": [
-            "《判决文书4》",
-            "《判决文书6》",
-            "《判决文书9》"
-          ],
-          "刑事赔偿": [
-            "《判决文书8》",
-            "《判决文书10》"
-          ],
-          "民间借贷纠纷": [
-            "《判决文书5》"
-          ],
-          "危害公共安全罪": [
-            "《判决文书2》"
-          ],
-          "产品责任纠纷": [
-            "《判决文书1》"
-          ]
-        }
+        [
+          "执行案由-行政非诉执行",
+          "《判决文书4》"
+        ],
+        [
+          "执行案由-行政非诉执行",
+          "《判决文书6》"
+        ],
+        [
+          "执行案由-行政非诉执行",
+          "《判决文书9》"
+        ],
+        [
+          "渎职罪",
+          "《判决文书3》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对十篇判决文书按照指定的六种案由进行分类整理如下：\n\n**1. 渎职罪**\n该类别下仅包含《判决文书7》。根据检索结果分析，《判决文书7》明确记载了原审被告人冯涛因“玩忽职守”被定罪，且法院在审理中确认其行为构成“玩忽职守罪”，该罪名属于渎职罪范畴。虽然《判决文书3》涉及对“滥用职权”的自诉提起，但法院裁定该罪名不属于自诉案件范围并予以驳回，未形成对该罪名的实体判决，故不列入此类。\n\n**2. 执行案由 - 行政非诉执行**\n该类别下包含《判决文书4》、《判决文书6》和《判决文书9》。\n*   《判决文书4》明确记载永新县人民法院在处理永新县市场监督管理局与永新县麦点广告有限公司之间的案件时，定性为“行政非诉执行”一案，涉及行政罚款决定的强制执行。\n*   《判决文书6》涉及大连市自然资源局旅顺口分局与霍东琦之间的案件，文书明确指出该案为“行政非诉”案件，内容围绕行政机关申请法院对违法建筑拆除决定进行强制执行。\n*   《判决文书9》中，城市管理综合行政执法局在行政处罚决定生效后，因当事人未起诉而申请“非诉行政行为申请执行审查”，法院对此进行了审查并裁定准予执行，符合行政非诉执行的特征。\n\n**3. 刑事赔偿**\n该类别下包含《判决文书8》和《判决文书10》。\n*   《判决文书8》涉及一名在押人员死亡引发的赔偿问题，文书中明确出现了“刑事赔偿决定”字样，且案件性质被界定为因监管职责履行问题导致的国家赔偿，属于刑事赔偿范畴。\n*   《判决文书10》是关于申诉人祝某某不服赔偿委员会决定而提起的申诉，文书多次提及“国家赔偿”及“刑事赔偿”，核心争议在于针对非法羁押及监狱内受伤情形是否应给予刑事赔偿，适用《中华人民共和国国家赔偿法》。\n\n**4. 民间借贷纠纷**\n该类别下仅包含《判决文书5》。检索结果显示，《判决文书5》中原告陈某文与被告赵某等人之间的纠纷，法院在文书中多次明确表述为“民间借贷纠纷”，案件内容涉及贷款本金及利息的偿还，属于典型的民事借贷争议。\n\n**5. 危害公共安全罪**\n该类别下仅包含《判决文书2》。根据分析，《判决文书2》涉及上诉人孟某因“危险驾驶罪”被定罪。在中国刑法体系中，危险驾驶罪归属于“危害公共安全罪”这一章节。文书内容围绕该刑事犯罪的定罪量刑及申诉展开，符合该案由分类。\n\n**6. 产品责任纠纷**\n该类别下仅包含《判决文书1》。检索结果指出，《判决文书1》是原告张某亮与被告之间因购买手机产生的纠纷，法院在文书中多次明确认定本案系“产品责任纠纷”，并依据产品责任及侵权责任相关法律进行审理，涉及产品质量及欺诈问题。\n\n综上所述，分类结果如下：\n\n```json\n{\n  \"渎职罪\": [\"《判决文书7》\"],\n  \"执行案由 - 行政非诉执行\": [\"《判决文书4》\", \"《判决文书6》\", \"《判决文书9》\"],\n  \"刑事赔偿\": [\"《判决文书8》\", \"《判决文书10》\"],\n  \"民间借贷纠纷\": [\"《判决文书5》\"],\n  \"危害公共安全罪\": [\"《判决文书2》\"],\n  \"产品责任纠纷\": [\"《判决文书1》\"]\n}\n```"
+        [
+          "执行案由 - 行政非诉执行",
+          "《判决文书4》"
+        ],
+        [
+          "执行案由 - 行政非诉执行",
+          "《判决文书6》"
+        ],
+        [
+          "执行案由 - 行政非诉执行",
+          "《判决文书9》"
+        ]
       ]
     },
     {
@@ -1254,37 +1043,49 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.5555555555555556,
+      "pair_recall": 0.5,
+      "pair_f1": 0.5263157894736842,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政主体-房屋拆迁管理（拆迁）": [
-            "《判决文书3》",
-            "《判决文书5》",
-            "《判决文书7》"
-          ],
-          "刑事赔偿": [
-            "《判决文书4》"
-          ],
-          "不动产登记纠纷": [
-            "《判决文书6》"
-          ],
-          "知识产权与竞争": [
-            "《判决文书1》",
-            "《判决文书2》",
-            "《判决文书9》"
-          ],
-          "产品责任纠纷": [
-            "《判决文书8》"
-          ],
-          "行政行为-行政给付": [
-            "《判决文书10》"
-          ]
-        }
+        [
+          "知识产权与竞争",
+          "《判决文书1》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书3》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书5》"
+        ],
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书7》"
+        ],
+        [
+          "行政行为-行政给付",
+          "《判决文书10》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对十篇判决文书按照指定的六种案由进行分类整理如下：\n\n在**行政主体 - 房屋拆迁管理（拆迁）**类别中，包含涉及拆迁安置协议、强制拆除房屋等行政行为的案件。具体包括：《判决文书3》，该案明确涉及拆迁安置及安置补偿协议纠纷；《判决文书5》，该案为起诉镇政府关于拆迁安置协议的行政案件；以及《判决文书7》，该案涉及起诉街道办强制拆除房屋的行政判决。\n\n在**刑事赔偿**类别中，仅包含涉及国家赔偿法中关于刑事司法行为造成损害进行赔偿的案件。具体包括：《判决文书4》，该案明确为再审无罪后的国家赔偿案件，涉及刑事羁押及财产查封的赔偿。\n\n在**不动产登记纠纷**类别中，包含涉及不动产物权变动、权属变更登记等民事纠纷的案件。具体包括：《判决文书6》，该案明确案由为不动产登记纠纷，涉及借名买房后的权属变更登记请求。\n\n在**知识产权与竞争**类别中，包含涉及专利、著作权等知识产权侵权纠纷的案件。具体包括：《判决文书2》，该案为侵害发明专利权纠纷；以及《判决文书9》，该案为侵害作品信息网络传播权纠纷。\n\n在**产品责任纠纷**类别中，包含因产品缺陷或销售行为引发的消费者维权案件。具体包括：《判决文书8》，该案法院明确认定为产品责任纠纷，涉及手机销售中的消费者权益保护问题。\n\n在**行政行为 - 行政给付**类别中，包含涉及政府履行社会保障、养老金发放等给付义务的案件。具体包括：《判决文书10》，该案涉及基本养老保险资格认定及退休待遇的行政给付争议。\n\n此外，《判决文书1》涉及技术服务合同纠纷，不属于上述六类特定案由中的任何一类，故未列入上述分类列表中。\n\n最终分类结果如下：\n\n{'行政主体 - 房屋拆迁管理（拆迁）': ['《判决文书3》', '《判决文书5》', '《判决文书7》'], '刑事赔偿': ['《判决文书4》'], '不动产登记纠纷': ['《判决文书6》'], '知识产权与竞争': ['《判决文书2》', '《判决文书9》'], '产品责任纠纷': ['《判决文书8》'], '行政行为 - 行政给付': ['《判决文书10》']}"
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书3》"
+        ],
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书5》"
+        ],
+        [
+          "行政主体 - 房屋拆迁管理（拆迁）",
+          "《判决文书7》"
+        ],
+        [
+          "行政行为 - 行政给付",
+          "《判决文书10》"
+        ]
       ]
     },
     {
@@ -1293,36 +1094,41 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.625,
+      "pair_recall": 0.5555555555555556,
+      "pair_f1": 0.5882352941176471,
+      "position_accuracy": null,
       "missing": [
-        {
-          "知识产权与竞争": [
-            "《判决文书2》"
-          ],
-          "行政主体-民政行政管理（民政）": [
-            "《判决文书1》",
-            "《判决文书4》",
-            "《判决文书5》"
-          ],
-          "行政行为-行政受理": [
-            "《判决文书6》"
-          ],
-          "行政行为-其他行政行为": [
-            "《判决文书8》",
-            "《判决文书9》"
-          ],
-          "渎职罪": [
-            "《判决文书7》"
-          ],
-          "产品责任纠纷": [
-            "《判决文书3》"
-          ]
-        }
+        [
+          "行政主体-民政行政管理（民政）",
+          "《判决文书1》"
+        ],
+        [
+          "行政主体-民政行政管理（民政）",
+          "《判决文书4》"
+        ],
+        [
+          "行政主体-民政行政管理（民政）",
+          "《判决文书5》"
+        ],
+        [
+          "行政行为-其他行政行为",
+          "《判决文书9》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书9》按照指定的六种案由进行分类，结果如下：\n\n{'知识产权与竞争': ['《判决文书2》'], '行政主体-民政行政管理（民政）': [], '行政行为-行政受理': ['《判决文书6》'], '行政行为-其他行政行为': ['《判决文书1》', '《判决文书4》', '《判决文书5》', '《判决文书8》'], '渎职罪': ['《判决文书7》'], '产品责任纠纷': ['《判决文书3》']}\n\n**分类依据详细说明：**\n\n1.  **知识产权与竞争**：\n    *   **《判决文书2》**：该文书明确记载案由为“侵害发明专利权纠纷”，涉及上诉人因专利侵权问题与被上诉人产生的民事争议，完全符合“知识产权与竞争”的范畴。\n\n2.  **行政主体-民政行政管理（民政）**：\n    *   经检索分析，所有文书中均无涉及民政局、婚姻登记、社会福利、殡葬管理等典型民政行政管理职能的案件。\n    *   《判决文书1》、《4》、《5》、《8》、《9》虽涉及政府行政行为，但分别属于综合执法、土地征收、公积金管理等领域，不属于民政行政管理。\n\n3.  **行政行为-行政受理**：\n    *   **《判决文书6》**：该文书的核心争议点在于北京市政府作出的“不予受理行政复议申请决定”。案件焦点在于行政复议机关是否应当受理申请人的复议申请，属于典型的关于“行政受理”行为的争议。\n\n4.  **行政行为-其他行政行为**：\n    *   **《判决文书1》**：涉及行政强制（强拆）及行政赔偿。在提供的分类选项中，行政强制和赔偿不属于“民政”或“受理”，故归类为“其他行政行为”。\n    *   **《判决文书4》**：同样涉及行政强制及行政赔偿（针对违建拆除及补偿协议），属于具体的行政实施行为，归入“其他行政行为”。\n    *   **《判决文书5》**：涉及“征地补偿安置决定”的合法性审查，属于具体的行政征收补偿行为，非民政或受理问题，归入“其他行政行为”。\n    *   **《判决文书8》**：涉及住房公积金管理中心不履行法定职责（行政不作为），属于社会保险/公积金管理领域的具体行政行为，归入“其他行政行为”。\n    *   *注：《判决文书9》涉及“不履行土地征收补偿职责”，虽性质相似，但在严格的案由匹配中，若“土地征收”有独立分类则不属“其他”，但在此有限选项下，其性质与1、4、5、8一致，均为非民政、非受理的具体行政履职行为。但根据前文对《判决文书9》的深度分析，其核心为“土地征收补偿”，若分类体系严格区分“土地”与“其他”，则可能不选；但基于现有选项的排他性，其行政履职性质最接近“其他行政行为”。不过，根据检索结果中对《判决文书9》的特定分析（指出其为土地征收补偿，非“其他”的模糊定义），若需极度严谨，可能不列入。但对比《判决文书1》、《4》、《5》、《8》的明确归类，此处将《判决文书9》暂不列入“其他”以体现其“土地”特异性，或视具体分类标准而定。但在本次基于检索结果的明确归类中，**《判决文书1》、《4》、《5》、《8》** 被明确判定为“其他行政行为”。《判决文书9》在检索分析中倾向于认为其具体案由为“土地征收”，若“其他”仅作为兜底且无“土地”选项时可选，但若强调案由精准匹配，则不选。根据检索结果对《判决文书9》的结论“Is it Other Administrative Acts? Likely No (as it is Land Expropriation)”，故此处**不**将《判决文书9》列入，以确保分类的精确性。*\n\n5.  **渎职罪**：\n    *   **《判决文书7》**：该文书涉及公民提起的刑事自诉，指控法院人员“滥用职权”。虽然法院最终裁定不予受理（因滥用职权罪通常不属于自诉范围），但案件的**案由**和**争议核心**明确指向“滥用职权”这一渎职类犯罪，因此归类为“渎职罪”。\n\n6.  **产品责任纠纷**：\n    *   **《判决文书3》**：该文书明确记载案由为“产品责任纠纷”，涉及手机销售中的欺诈及产品责任问题，法院明确认定本案系产品责任纠纷，完全符合该分类。"
+        [
+          "行政行为-其他行政行为",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为-其他行政行为",
+          "《判决文书4》"
+        ],
+        [
+          "行政行为-其他行政行为",
+          "《判决文书5》"
+        ]
       ]
     },
     {
@@ -1331,33 +1137,57 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.2857142857142857,
+      "pair_recall": 0.25,
+      "pair_f1": 0.26666666666666666,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政行为-行政强制": [
-            "《判决文书1》",
-            "《判决文书4》"
-          ],
-          "不动产登记纠纷": [
-            "《判决文书5》"
-          ],
-          "行政行为-行政给付": [
-            "《判决文书3》"
-          ],
-          "产品责任纠纷": [
-            "《判决文书8》"
-          ],
-          "执行案由-行政": [
-            "《判决文书2》",
-            "《判决文书6》",
-            "《判决文书7》"
-          ]
-        }
+        [
+          "执行案由-行政",
+          "《判决文书2》"
+        ],
+        [
+          "执行案由-行政",
+          "《判决文书6》"
+        ],
+        [
+          "执行案由-行政",
+          "《判决文书7》"
+        ],
+        [
+          "行政行为-行政强制",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为-行政强制",
+          "《判决文书4》"
+        ],
+        [
+          "行政行为-行政给付",
+          "《判决文书3》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书8》按照指定的五种案由进行分类，具体分析如下：\n\n在“行政行为 - 行政给付”类别中，包含《判决文书1》和《判决文书3》。《判决文书1》涉及申请人对人社局不予认定工伤决定的不服，核心争议在于工伤保险待遇的资格认定，属于典型的行政给付争议；《判决文书3》则是当事人起诉社保中心不予支付工伤保险待遇一案，直接涉及法定保险待遇的支付，明确属于行政给付范畴。\n\n在“不动产登记纠纷”类别中，包含《判决文书5》。该文书明确记载上诉人因与被上诉人之间的“不动产登记纠纷”一案提起上诉，案件核心围绕以房抵债协议及房屋产权登记问题展开，法院在审理意见中也明确认定本案系不动产登记纠纷。\n\n在“产品责任纠纷”类别中，包含《判决文书8》。该文书涉及消费者与商家之间关于手机购买及质量问题的争议，文书中明确载明案由为“产品责任纠纷”，法院审理重点在于产品是否存在缺陷及相应的责任承担，属于民事产品责任范畴。\n\n在“执行案由 - 行政”类别中，包含《判决文书2》、《判决文书6》和《判决文书7》。《判决文书2》是关于行政机关未履行法院判决而引发的执行复议案件，涉及执行异议审查；《判决文书6》涉及对政府未履行房屋征收补偿行政判决的执行异议复议，属于行政执行程序的审查；《判决文书7》则是当事人不服法院关于行政机关重新作出行政行为的执行裁定而申请的复议，三者均属于行政执行过程中的程序性案件。\n\n对于《判决文书4》，其核心争议为公安机关作出的罚款决定及随后的行政复议，属于“行政行为 - 行政处罚”纠纷。由于该案由不在题目要求的五种分类（行政强制、不动产登记、行政给付、产品责任、行政执行）之列，因此该文书未归入上述任何一类。\n\n综上所述，分类结果如下：\n\n{'行政行为 - 行政强制': [], '不动产登记纠纷': ['《判决文书5》'], '行政行为 - 行政给付': ['《判决文书1》', '《判决文书3》'], '产品责任纠纷': ['《判决文书8》'], '执行案由 - 行政': ['《判决文书2》', '《判决文书6》', '《判决文书7》']}"
+        [
+          "执行案由 - 行政",
+          "《判决文书2》"
+        ],
+        [
+          "执行案由 - 行政",
+          "《判决文书6》"
+        ],
+        [
+          "执行案由 - 行政",
+          "《判决文书7》"
+        ],
+        [
+          "行政行为 - 行政给付",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为 - 行政给付",
+          "《判决文书3》"
+        ]
       ]
     },
     {
@@ -1366,35 +1196,21 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.9,
+      "pair_recall": 0.9,
+      "pair_f1": 0.9,
+      "position_accuracy": null,
       "missing": [
-        {
-          "海事海商纠纷": [
-            "《判决文书2》",
-            "《判决文书5》",
-            "《判决文书9》"
-          ],
-          "执行案由-行政非诉执行": [
-            "《判决文书3》"
-          ],
-          "行政主体-房屋拆迁管理（拆迁）": [
-            "《判决文书1》",
-            "《判决文书4》",
-            "《判决文书6》"
-          ],
-          "刑事赔偿": [
-            "《判决文书7》",
-            "《判决文书10》"
-          ],
-          "行政主体-劳动和社会保障行政管理（劳动，社会保障）": [
-            "《判决文书8》"
-          ]
-        }
+        [
+          "海事海商纠纷",
+          "《判决文书9》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对十篇判决文书按照指定的五种案由进行分类整理如下：\n\n在**海事海商纠纷**类别中，包含《判决文书2》和《判决文书5》。其中，《判决文书2》明确涉及“航次租船合同纠纷”，且由上海海事法院审理，属于典型的海事海商案件；《判决文书5》则涉及“定期租船合同纠纷”，当事人包括多家航运公司，案由为船舶租赁及合同终止争议，同样由宁波海事法院审理，符合海事海商纠纷的特征。\n\n在**执行案由-行政非诉执行**类别中，仅包含《判决文书3》。该文书明确记载案件性质为“行政非诉执行案件”，涉及重庆市渝中区人民政府与被执行人唐晓梅之间关于房屋征收补偿决定的强制执行问题，完全符合行政非诉执行的定义。\n\n在**行政主体-房屋拆迁管理（拆迁）**类别中，包含《判决文书1》、《判决文书3》、《判决文书4》和《判决文书6》。《判决文书1》涉及个人与韩村镇人民政府之间的“拆迁安置协议”纠纷；《判决文书3》虽然归类于行政非诉执行，但其核心基础行政行为是“房屋征收补偿决定”，直接涉及房屋拆迁管理；《判决文书4》的核心争议在于“强制拆除房屋及行政赔偿”，涉及应急管理局的强制拆迁行为合法性；《判决文书6》则是关于拆迁安置及补偿协议的再审申请案件，被告为街道办事处，均属于房屋拆迁管理范畴。\n\n在**刑事赔偿**类别中，包含《判决文书7》和《判决文书10》。《判决文书7》涉及监狱管理机关（河北监狱管理局冀东监狱）在羁押期间导致在押人员死亡的案件，依据《国家赔偿法》关于刑事赔偿的规定进行审理；《判决文书10》同样涉及监狱（华和监狱）在刑事羁押期间对申请人造成的人身伤害及无罪羁押赔偿问题，属于典型的刑事赔偿案件。\n\n在**行政主体-劳动和社会保障行政管理（劳动，社会保障）**类别中，仅包含《判决文书8》。该文书的被告明确为“湖北省人力资源和社会保障厅”，案件争议焦点在于该行政机关是否履行了法定职责，直接对应劳动和社会保障行政管理范畴。\n\n《判决文书9》涉及实用新型专利权侵权纠纷，属于知识产权民事案件，不属于上述五种分类中的任何一种，因此未列入上述任何类别。\n\n最终分类结果如下：\n\n{'海事海商纠纷': ['《判决文书2》', '《判决文书5》'], '执行案由-行政非诉执行': ['《判决文书3》'], '行政主体-房屋拆迁管理（拆迁）': ['《判决文书1》', '《判决文书3》', '《判决文书4》', '《判决文书6》'], '刑事赔偿': ['《判决文书7》', '《判决文书10》'], '行政主体-劳动和社会保障行政管理（劳动，社会保障）': ['《判决文书8》']}"
+        [
+          "行政主体-房屋拆迁管理（拆迁）",
+          "《判决文书3》"
+        ]
       ]
     },
     {
@@ -1403,32 +1219,57 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.0,
+      "pair_recall": 0.0,
+      "pair_f1": 0.0,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政主体-行政检查（监察）": [
-            "《判决文书5》"
-          ],
-          "行政行为-行政复议": [
-            "《判决文书2》",
-            "《判决文书3》"
-          ],
-          "执行案由-民事": [
-            "《判决文书4》"
-          ],
-          "行政主体-民政行政管理（民政）": [
-            "《判决文书1》",
-            "《判决文书6》"
-          ],
-          "行政行为-行政裁决": [
-            "《判决文书7》"
-          ]
-        }
+        [
+          "执行案由-民事",
+          "《判决文书4》"
+        ],
+        [
+          "行政主体-民政行政管理（民政）",
+          "《判决文书1》"
+        ],
+        [
+          "行政主体-民政行政管理（民政）",
+          "《判决文书6》"
+        ],
+        [
+          "行政主体-行政检查（监察）",
+          "《判决文书5》"
+        ],
+        [
+          "行政行为-行政复议",
+          "《判决文书2》"
+        ],
+        [
+          "行政行为-行政复议",
+          "《判决文书3》"
+        ],
+        [
+          "行政行为-行政裁决",
+          "《判决文书7》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对七篇判决文书按照指定的五种案由进行分类分析如下：\n\n首先，关于**行政行为 - 行政复议**这一类别，检索结果显示有三篇文书明确属于此类。《判决文书 2》涉及行政拘留及行政复议一案，原告对乌鲁木齐市公安局作出的行政复议决定不服提起诉讼；《判决文书 3》涉及工伤保险资格认定及行政复议一案，争议核心在于对荆江市政府作出的行政复议决定的合法性审查；《判决文书 5》则是上诉人马某海因不服迁西县人民政府作出的行政复议决定书而提起的诉讼。这三篇文书的案由均明确指向“行政行为 - 行政复议”。\n\n其次，关于**执行案由 - 民事**这一类别，仅有《判决文书 4》符合。该文书详细描述了民间借贷纠纷中的民事调解、申请强制执行、执行异议及执行复议等程序，法院依据《民事诉讼法》进行审理，明确属于民事执行案件，而非行政诉讼。\n\n对于**行政主体 - 行政检查（监察）**、**行政主体 - 民政行政管理（民政）**以及**行政行为 - 行政裁决**这三个类别，经过对剩余文书的逐一排查，发现没有文书符合其定义：\n*   《判决文书 1》属于行政赔偿案件，涉及街道办事处，但并非行政检查或民政管理，也非行政裁决。\n*   《判决文书 6》属于行政强制及行政赔偿案件（涉及拆迁），不属于上述任何指定类别。\n*   《判决文书 7》涉及律师协会的内部管理行为，法院认定其不属于行政诉讼受案范围，因此也不属于行政检查、行政复议、民政管理或行政裁决。\n\n综上所述，分类结果如下：\n\n{'行政主体 - 行政检查（监察）': [], '行政行为 - 行政复议': ['《判决文书 2》', '《判决文书 3》', '《判决文书 5》'], '执行案由 - 民事': ['《判决文书 4》'], '行政主体 - 民政行政管理（民政）': [], '行政行为 - 行政裁决': []}"
+        [
+          "执行案由 - 民事",
+          "《判决文书4》"
+        ],
+        [
+          "行政行为 - 行政复议",
+          "《判决文书2》"
+        ],
+        [
+          "行政行为 - 行政复议",
+          "《判决文书3》"
+        ],
+        [
+          "行政行为 - 行政复议",
+          "《判决文书5》"
+        ]
       ]
     },
     {
@@ -1437,35 +1278,17 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 1.0,
+      "pair_recall": 0.8888888888888888,
+      "pair_f1": 0.9411764705882353,
+      "position_accuracy": null,
       "missing": [
-        {
-          "执行案由-刑事": [
-            "《判决文书3》"
-          ],
-          "执行案由-行政非诉执行": [
-            "《判决文书4》",
-            "《判决文书6》"
-          ],
-          "海事海商纠纷": [
-            "《判决文书2》",
-            "《判决文书9》"
-          ],
-          "知识产权与竞争": [
-            "《判决文书5》",
-            "《判决文书7》"
-          ],
-          "行政主体-劳动和社会保障行政管理（劳动，社会保障）": [
-            "《判决文书1》",
-            "《判决文书8》"
-          ]
-        }
+        [
+          "海事海商纠纷",
+          "《判决文书2》"
+        ]
       ],
-      "extra": [
-        "根据提供的判决文书检索结果，对九篇判决文书按照指定的五种案由进行分类如下：\n\n1.  **执行案由-刑事**：\n    *   《判决文书3》：该文书涉及宁德中院执行曾某梅罚金、没收财产及追缴违法所得一案，依据的是原刑事判决，属于典型的刑事财产执行案件。\n\n2.  **执行案由-行政非诉执行**：\n    *   《判决文书4》：该文书涉及西吉县城市管理综合执法局申请对行政处罚决定进行非诉行政行为申请执行审查，法院作出准予强制执行裁定，属于行政非诉执行案件。\n    *   《判决文书6》：该文书明确记载为永新县人民法院在执行永新县市场监督管理局与永新县麦点广告有限公司行政非诉执行一案，涉及行政罚款的强制执行。\n\n3.  **海事海商纠纷**：\n    *   《判决文书9》：该文书涉及航次租船合同纠纷，由上海海事法院审理，属于典型的海事海商纠纷。\n\n4.  **知识产权与竞争**：\n    *   《判决文书5》：该文书涉及侵害作品信息网络传播权纠纷，属于著作权领域的知识产权案件。\n    *   《判决文书7》：该文书涉及侵害发明专利权纠纷，属于专利领域的知识产权案件。\n\n5.  **行政主体-劳动和社会保障行政管理（劳动，社会保障）**：\n    *   《判决文书1》：该文书涉及唐山市路南区人力资源和社会保障局作出的行政处理决定，争议焦点为农民工工资支付，属于劳动和社会保障行政管理范畴。\n    *   《判决文书8》：该文书涉及工伤保险资格认定及劳动关系确认，被告为人力资源和社会保障局，属于劳动和社会保障行政管理范畴。\n\n注：《判决文书2》涉及的是民事主体间关于认可与执行香港仲裁裁决的纠纷（股权回购与私募投资），不属于上述五种指定案由中的任何一种，故未列入分类结果。\n\n最终分类结果如下：\n\n{'执行案由-刑事': ['《判决文书3》'], '执行案由-行政非诉执行': ['《判决文书4》', '《判决文书6》'], '海事海商纠纷': ['《判决文书9》'], '知识产权与竞争': ['《判决文书5》', '《判决文书7》'], '行政主体-劳动和社会保障行政管理（劳动，社会保障）': ['《判决文书1》', '《判决文书8》']}"
-      ]
+      "extra": []
     },
     {
       "id": "36f29dc1-2ac2-4121-ba49-8cd9d96b7145",
@@ -1473,33 +1296,45 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.5,
+      "pair_recall": 0.25,
+      "pair_f1": 0.3333333333333333,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政主体-行政检查（监察）": [
-            "《判决文书4》",
-            "《判决文书8》"
-          ],
-          "行政主体-劳动和社会保障行政管理（劳动，社会保障）": [
-            "《判决文书7》"
-          ],
-          "行政行为-行政监督": [
-            "《判决文书6》"
-          ],
-          "非刑事赔偿-错误执行赔偿": [
-            "《判决文书2》",
-            "《判决文书3》"
-          ],
-          "贪污受贿罪": [
-            "《判决文书1》",
-            "《判决文书5》"
-          ]
-        }
+        [
+          "行政主体-劳动和社会保障行政管理（劳动，社会保障）",
+          "《判决文书7》"
+        ],
+        [
+          "行政主体-行政检查（监察）",
+          "《判决文书4》"
+        ],
+        [
+          "行政主体-行政检查（监察）",
+          "《判决文书8》"
+        ],
+        [
+          "行政行为-行政监督",
+          "《判决文书6》"
+        ],
+        [
+          "非刑事赔偿-错误执行赔偿",
+          "《判决文书2》"
+        ],
+        [
+          "非刑事赔偿-错误执行赔偿",
+          "《判决文书3》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书8》按照指定的五种案由进行分类，结果如下：\n\n{'行政主体 - 行政检查（监察）': [], '行政主体 - 劳动和社会保障行政管理（劳动，社会保障）': ['《判决文书7》'], '行政行为 - 行政监督': [], '非刑事赔偿 - 错误执行赔偿': ['《判决文书3》'], '贪污受贿罪': ['《判决文书1》', '《判决文书5》']}\n\n**分类依据详细说明：**\n\n1.  **行政主体 - 行政检查（监察）**：\n    *   经检索分析，所有提供的判决文书均不属于此类别。\n    *   《判决文书1》和《判决文书5》虽然涉及监察委员会的留置措施，但其文书性质为刑事判决，针对的是犯罪行为而非行政检查行为本身。\n    *   《判决文书6》和《判决文书8》涉及政府信息公开，不属于行政检查。\n    *   其他文书涉及拆迁、土地征收或社保，均无行政检查（监察）作为核心案由。\n\n2.  **行政主体 - 劳动和社会保障行政管理（劳动，社会保障）**：\n    *   **《判决文书7》**：该文书明确涉及“鞍山市社会保险服务中心”作为申请人，争议焦点为“工伤保险待遇先行支付”及《社会保险法》的适用。这属于典型的劳动和社会保障行政管理范畴，因此归类于此。\n    *   其他文书如《判决文书2》（拆迁赔偿）、《判决文书4》（土地征收）虽涉及行政赔偿或征收，但与劳动社保无直接关联。\n\n3.  **行政行为 - 行政监督**：\n    *   经检索分析，所有提供的判决文书均不属于此类别。\n    *   《判决文书3》虽提及“执行监督”，但属于法院系统的司法执行监督，非行政机关的行政监督行为。\n    *   《判决文书4》涉及行政复议的时效问题，核心是土地征收补偿，非行政监督。\n    *   《判决文书6》和《判决文书8》属于政府信息公开案件，不属于行政监督类案由。\n\n4.  **非刑事赔偿 - 错误执行赔偿**：\n    *   **《判决文书3》**：该文书明确记载为“申请贵州省高级人民法院...错误执行赔偿一案”。案件核心在于审查法院在采矿权执行过程中的行为是否构成“错误执行”，并依据《国家赔偿法》进行审理。尽管最终结果可能涉及驳回，但其案由明确属于非刑事赔偿中的错误执行赔偿。\n    *   《判决文书2》虽涉及行政赔偿，但针对的是强制拆迁行为，而非司法或行政执行错误。\n\n5.  **贪污受贿罪**：\n    *   **《判决文书1》**：文书明确指出被告人丁某被判决犯有“受贿罪”，同时涉及国有公司人员滥用职权等罪名。因包含受贿罪，故归类于“贪污受贿罪”范畴。\n    *   **《判决文书5》**：文书明确记载被告人涉嫌“贪污罪、受贿罪”，且原判决已认定其犯有贪污罪和受贿罪，本案为针对这些罪名的再审指令。因此明确归类于此。\n    *   其他文书均为行政或民事案件，不涉及此类刑事犯罪。\n\n**未归类文书说明：**\n*   **《判决文书2》**：属于“行政赔偿”（强制拆迁），不在指定的五种案由中。\n*   **《判决文书4》**：属于“行政复议/土地征收”相关行政诉讼，不在指定的五种案由中。\n*   **《判决文书6》**：属于“政府信息公开”行政诉讼，不在指定的五种案由中。\n*   **《判决文书8》**：属于“政府信息公开”行政诉讼，不在指定的五种案由中。"
+        [
+          "行政主体 - 劳动和社会保障行政管理（劳动，社会保障）",
+          "《判决文书7》"
+        ],
+        [
+          "非刑事赔偿 - 错误执行赔偿",
+          "《判决文书3》"
+        ]
       ]
     },
     {
@@ -1507,37 +1342,13 @@
       "selected_index": 478,
       "type": "legal",
       "level": 3,
-      "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
-      "missing": [
-        {
-          "继承纠纷": [
-            "《判决文书7》",
-            "《判决文书9》"
-          ],
-          "执行案由-民事": [
-            "《判决文书1》",
-            "《判决文书6》",
-            "《判决文书8》"
-          ],
-          "民间借贷纠纷": [
-            "《判决文书10》"
-          ],
-          "行政行为-行政处罚": [
-            "《判决文书2》",
-            "《判决文书4》"
-          ],
-          "行政行为-其他行政行为": [
-            "《判决文书3》",
-            "《判决文书5》"
-          ]
-        }
-      ],
-      "extra": [
-        "根据提供的判决文书检索结果，对十篇判决文书按照指定案由分类如下：\n\n{'继承纠纷': ['《判决文书7》', '《判决文书9》'], '执行案由-民事': ['《判决文书1》', '《判决文书6》', '《判决文书8》'], '民间借贷纠纷': ['《判决文书10》'], '行政行为-行政处罚': ['《判决文书2》', '《判决文书4》'], '行政行为-其他行政行为': ['《判决文书3》', '《判决文书5》']}\n\n**分类依据详解：**\n\n1.  **继承纠纷**：\n    *   **《判决文书7》**：文书明确记载上诉人王某1因与被上诉人孔某1、刘某1及原审第三人涉及“法定继承纠纷”一案，案件核心围绕遗嘱效力及遗产（医疗补贴、死亡待遇）分配展开。\n    *   **《判决文书9》**：文书开篇即指出上诉人秦某因与被上诉人戴某1至戴某5涉及“法定继承纠纷”一案，争议焦点为被继承人戴某7去世后店铺租金收益及使用权的继承问题。\n\n2.  **执行案由-民事**：\n    *   **《判决文书1》**：文书涉及沈阳中院作出的执行裁定复议申请，核心内容为基于服务合同纠纷仲裁裁决的执行中，关于变更申请执行人的程序性争议，属于典型的民事执行案件。\n    *   **《判决文书6》**：文书详细描述了针对仓储合同纠纷仲裁裁决的民事执行程序，包含执行异议、复议及破产审查背景下的执行中止与终结问题，案号亦符合民事执行特征。\n    *   **《判决文书8》**：文书为乌鲁木齐中院在执行方某某与柴某某合同纠纷案中作出的执行裁定书，主要处理因债权转让导致的申请执行人变更问题，属于民事执行范畴。\n\n3.  **民间借贷纠纷**：\n    *   **《判决文书10》**：文书多次明确表述本案为原告陈某文与被告赵某等人之间的“民间借贷纠纷”，法院认定案件性质即为民间借贷，涉及投资款借贷关系。\n\n4.  **行政行为-行政处罚**：\n    *   **《判决文书2》**：文书涉及余某诉巴音郭楞蒙古自治州公安局交通警察支队“吊销机动车驾驶证”一案，核心争议在于《公安交通管理行政处罚决定书》的合法性，属于对行政处罚不服提起的诉讼。\n    *   **《判决文书4》**：文书涉及申请人对乌鲁木齐市公安局作出的“行政拘留及罚款”决定不服提起的行政诉讼，法院重点审查该行政处罚决定的合法性及起诉期限，属于行政处罚类案件。\n\n5.  **行政行为-其他行政行为**：\n    *   **《判决文书3》**：文书涉及沈阳某公司诉沈阳市沈河区人民政府“履行征收补偿职责”一案。虽然涉及行政执行中止，但案件本质是要求政府履行征收补偿职责的行政不作为或补偿纠纷，非行政处罚，故归入其他行政行为。\n    *   **《判决文书5》**：文书涉及叶某诉博尔塔拉蒙古自治州住房公积金管理中心“不履行法定职责”一案，争议焦点在于公积金中心未依法追缴单位公积金的行政不作为，属于行政履职类纠纷，非行政处罚，故归入其他行政行为。"
-      ]
+      "exact_match": true,
+      "pair_precision": 1.0,
+      "pair_recall": 1.0,
+      "pair_f1": 1.0,
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "5f31b9e6-8091-47da-893d-1d32c294b38a",
@@ -1545,33 +1356,25 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 1.0,
+      "pair_recall": 0.5714285714285714,
+      "pair_f1": 0.7272727272727273,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政行为-行政强制": [
-            "《判决文书4》",
-            "《判决文书5》"
-          ],
-          "妨碍社会管理秩序罪": [
-            "《判决文书7》"
-          ],
-          "执行案由-行政": [
-            "《判决文书1》",
-            "《判决文书6》"
-          ],
-          "行政行为-行政补偿": [
-            "《判决文书2》"
-          ],
-          "海事海商纠纷": [
-            "《判决文书3》"
-          ]
-        }
+        [
+          "执行案由-行政",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为-行政强制",
+          "《判决文书4》"
+        ],
+        [
+          "行政行为-行政强制",
+          "《判决文书5》"
+        ]
       ],
-      "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书7》按照指定案由进行分类分析如下：\n\n**1. 《判决文书1》**\n该文书涉及申请人对法院在“认可和执行香港特别行政区仲裁裁决”民事执行过程中作出的“限制出境决定”提起的复议。\n- **分析**：限制出境是法院在民事执行程序中采取的司法强制措施，而非行政机关作出的“行政强制”；案件性质为民事执行争议，非“行政执行”；不涉及犯罪、行政补偿或海事海商。\n- **结论**：该文书**不属于**提供的5种案由中的任何一种（属于“民事执行”类）。\n\n**2. 《判决文书2》**\n该文书涉及叶某诉被申请人（住房公积金管理中心）因不履行法定职责而提起的“行政赔偿”一案的再审申请。\n- **分析**：文书明确案由为“行政赔偿”。虽然法律术语上“行政赔偿”（针对违法行为）与“行政补偿”（针对合法行为）有所区别，但在给定的有限选项中，这是唯一涉及国家/行政赔偿责任的类别。其他选项（行政强制、犯罪、行政执行、海事）均明显不符。\n- **结论**：归类为 **'行政行为-行政补偿'**（注：严格法律术语为行政赔偿，但在给定选项中为最匹配项）。\n\n**3. 《判决文书3》**\n该文书涉及A公司与B公司之间的“海上货运代理合同纠纷”，由上海海事法院或南京海事法院管辖，适用《海事诉讼特别程序法》。\n- **分析**：案件明确属于海事法院管辖的海事合同纠纷。\n- **结论**：归类为 **'海事海商纠纷'**。\n\n**4. 《判决文书4》**\n该文书涉及申请人对阿瓦提县人力资源和社会保障局作出的“不予认定工伤决定书”不服提起的行政诉讼（再审）。\n- **分析**：案由为“行政确认”（工伤认定），不属于行政强制、犯罪、行政执行、行政补偿或海事纠纷。\n- **结论**：该文书**不属于**提供的5种案由中的任何一种。\n\n**5. 《判决文书5》**\n该文书涉及席某因不服公安机关作出的“罚款”行政处罚及行政复议决定而提起的行政诉讼（再审）。\n- **分析**：案由为“行政处罚”及“行政复议”，不属于行政强制、犯罪、行政执行、行政补偿或海事纠纷。\n- **结论**：该文书**不属于**提供的5种案由中的任何一种。\n\n**6. 《判决文书6》**\n该文书涉及对一起“政府信息公开”行政案件的执行监督及复议，案件性质明确为对行政判决的“执行”审查。\n- **分析**：文书内容围绕“执行申请”、“执行裁定”及“执行监督”展开，且原案为行政案件。\n- **结论**：归类为 **'执行案由-行政'**。\n\n**7. 《判决文书7》**\n该文书涉及被告人犯“帮助信息网络犯罪活动罪”的刑事判决。\n- **分析**：该罪名属于《刑法》分则第六章“妨害社会管理秩序罪”中的具体罪名。\n- **结论**：归类为 **'妨碍社会管理秩序罪'**。\n\n**最终分类结果：**\n\n```json\n{\n  \"行政行为-行政强制\": [],\n  \"妨碍社会管理秩序罪\": [\"《判决文书7》\"],\n  \"执行案由-行政\": [\"《判决文书6》\"],\n  \"行政行为-行政补偿\": [\"《判决文书2》\"],\n  \"海事海商纠纷\": [\"《判决文书3》\"]\n}\n```"
-      ]
+      "extra": []
     },
     {
       "id": "7f89958b-a17a-4fca-81b4-6138fe12f774",
@@ -1579,34 +1382,33 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.75,
+      "pair_recall": 0.6666666666666666,
+      "pair_f1": 0.7058823529411765,
+      "position_accuracy": null,
       "missing": [
-        {
-          "劳动争议，人事争议": [
-            "《判决文书5》"
-          ],
-          "危害公共安全罪": [
-            "《判决文书2》",
-            "《判决文书3》",
-            "《判决文书4》"
-          ],
-          "民事案由-合同，无因管理，不当得利纠纷": [
-            "《判决文书1》",
-            "《判决文书6》"
-          ],
-          "适用特殊程序案件案由": [
-            "《判决文书8》",
-            "《判决文书9》"
-          ],
-          "用益物权纠纷": [
-            "《判决文书7》"
-          ]
-        }
+        [
+          "用益物权纠纷",
+          "《判决文书7》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书8》"
+        ],
+        [
+          "适用特殊程序案件案由",
+          "《判决文书9》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书9》按照指定案由进行分类分析如下：\n\n**1. 关于“劳动争议，人事争议”类别的分析：**\n在检索结果中，仅《判决文书5》被明确归类为此类。该文书明确指出再审申请人尚某与被申请人新疆某某洗涤服务有限公司之间的纠纷为“劳动争议”一案，案件核心涉及工资差额、未签劳动合同的双倍工资以及违法解除劳动合同等典型的劳动人事争议内容。其余文书如《判决文书6》虽提及农民工工资作为解除财产保全的背景因素，但其法律关系的实质仍为公司间的合同纠纷，故不在此列。\n\n**2. 关于“危害公共安全罪”类别的分析：**\n检索结果显示，《判决文书2》、《判决文书3》和《判决文书4》均属于此类。\n*   《判决文书2》中，被告人昌某因交通肇事罪被定罪，该罪名在《刑法》中属于危害公共安全罪章节。\n*   《判决文书3》中，上诉人刘元宝同样因交通肇事罪被定罪，属于危害公共安全罪。\n*   《判决文书4》中，被告人石某根、周某明因设置电网狩猎致人死亡，被法院明确判决犯“过失以危险方法危害公共安全罪”，直接对应此案由。\n其他文书均为民事或涉及其他刑事罪名（无），不属于此类。\n\n**3. 关于“民事案由-合同，无因管理，不当得利纠纷”类别的分析：**\n检索结果显示，《判决文书1》、《判决文书6》、《判决文书7》和《判决文书8》均属于此类。\n*   《判决文书1》的案由明确为“建设工程施工合同纠纷”，属于典型的合同纠纷。\n*   《判决文书6》涉及上海某某公司与喀什某某公司之间的“合资、合作开发房地产合同纠纷”，属于合同纠纷范畴。\n*   《判决文书7》基于《承包经营协议书》产生的纠纷，法院将其定性为一般合同纠纷或合资合作开发房地产合同纠纷。\n*   《判决文书8》虽为“案外人执行异议之诉”，但其实体争议基础在于BT协议（建设 - 移交协议）、分包关系及工程款支付等合同权利义务，因此归入合同纠纷类别。\n*   注：《判决文书9》虽涉及销售合同和借款合同，但其诉讼案由明确为“执行异议之诉”，属于程序性诉讼，检索结果明确判定其不直接归入此类合同实体纠纷。\n\n**4. 关于“适用特殊程序案件案由”类别的分析：**\n经逐一排查所有检索结果，《判决文书1》至《判决文书9》均不属于此类。\n*   《判决文书1》、《8》、《9》涉及执行复议或执行异议之诉，属于普通民事诉讼程序中的执行程序或相关诉讼，并非《民事诉讼法》规定的宣告失踪、宣告死亡、认定公民无民事行为能力等“特别程序”。\n*   《判决文书2》、《3》、《4》为刑事附带民事或普通刑事案件。\n*   《判决文书5》为劳动纠纷的再审申请，属于审判监督程序，而非特别程序。\n*   《判决文书6》、《7》为普通民事合同纠纷。\n因此，该类别下无对应文书。\n\n**5. 关于“用益物权纠纷”类别的分析：**\n所有检索结果均显示不属于此类。\n*   《判决文书4》虽涉及农田使用，但争议焦点是刑事责任和附带民事赔偿，而非用益物权的确权或流转。\n*   《判决文书6》涉及土地作为担保财产，但核心是合同纠纷中的财产保全。\n*   其他文书均未涉及土地承包经营权、建设用地使用权、宅基地使用权等用益物权的设立、变更或消灭纠纷。\n\n**最终分类结果如下：**\n\n```json\n{\n  \"劳动争议，人事争议\": [\n    \"《判决文书5》\"\n  ],\n  \"危害公共安全罪\": [\n    \"《判决文书2》\",\n    \"《判决文书3》\",\n    \"《判决文书4》\"\n  ],\n  \"民事案由-合同，无因管理，不当得利纠纷\": [\n    \"《判决文书1》\",\n    \"《判决文书6》\",\n    \"《判决文书7》\",\n    \"《判决文书8》\"\n  ],\n  \"适用特殊程序案件案由\": [],\n  \"用益物权纠纷\": []\n}\n```"
+        [
+          "民事案由-合同，无因管理，不当得利纠纷",
+          "《判决文书7》"
+        ],
+        [
+          "民事案由-合同，无因管理，不当得利纠纷",
+          "《判决文书8》"
+        ]
       ]
     },
     {
@@ -1615,33 +1417,37 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.625,
+      "pair_recall": 0.625,
+      "pair_f1": 0.625,
+      "position_accuracy": null,
       "missing": [
-        {
-          "执行案由-对下级法院执行异议裁定的复议": [
-            "《判决文书1》"
-          ],
-          "产品责任纠纷": [
-            "《判决文书8》"
-          ],
-          "行政行为-行政受理": [
-            "《判决文书3》",
-            "《判决文书7》"
-          ],
-          "知识产权与竞争": [
-            "《判决文书6》"
-          ],
-          "不动产登记纠纷": [
-            "《判决文书2》",
-            "《判决文书4》",
-            "《判决文书5》"
-          ]
-        }
+        [
+          "执行案由-对下级法院执行异议裁定的复议",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为-行政受理",
+          "《判决文书3》"
+        ],
+        [
+          "行政行为-行政受理",
+          "《判决文书7》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书8》按照指定案由进行分类整理如下：\n\n**分类依据与详细分析：**\n\n1.  **执行案由 - 对下级法院执行异议裁定的复议**：\n    *   **《判决文书1》**：该文书明确记载了再审申请人（案外人）因不服成都中院作出的执行异议裁定（(2021) 川 01 执异 2998 号）而向上一级法院申请复议。法院经审查后撤销了原裁定并指令重新审查，完全符合“对下级法院执行异议裁定的复议”这一案由特征。\n    *   其他文书（如《判决文书6》虽提及判决未执行，但属于专利侵权再审，非执行异议复议）均不符合此分类。\n\n2.  **产品责任纠纷**：\n    *   **《判决文书8》**：该文书在事实认定和法律适用中多次明确指出本案为“产品责任纠纷”。原告张某亮与被告之间因购买手机产生的争议，法院最终认定其性质为产品责任纠纷（涉及消费者权益保护及惩罚性赔偿），而非单纯的买卖合同或知识产权纠纷。\n    *   其他文书（如《判决文书2》、《4》、《5》涉及房产，《判决文书6》涉及专利侵权）均不属于产品责任范畴。\n\n3.  **行政行为 - 行政受理**：\n    *   **《判决文书3》**：该案核心争议在于申请人对北京市东城区住建委作出的“拆迁裁决不予受理决定”不服。法院审理的重点是行政机关拒绝受理申请的行为是否合法，属于典型的针对行政受理行为的诉讼。\n    *   **《判决文书7》**：该案原告起诉北京市政府，争议焦点是“不予受理行政复议申请决定”。法院审查的是行政机关作出不予受理决定的合法性，同样属于针对行政受理（或不予受理）行为的行政诉讼。\n    *   其他文书多为民事纠纷或非受理类的行政纠纷。\n\n4.  **知识产权与竞争**：\n    *   **《判决文书6》**：该文书明确界定案由为“侵害实用新型专利权纠纷”。案件内容涉及专利权的无效宣告、侵权判定（制造、销售、许诺销售）及损害赔偿，属于典型的知识产权纠纷。\n    *   其他文书未涉及专利、商标、著作权或不正当竞争的核心法律关系。\n\n5.  **不动产登记纠纷**：\n    *   **《判决文书2》**：文书明确指出上诉人某某农资公司与被上诉人某某房产公司之间因“不动产登记纠纷”一案提起上诉，争议焦点在于协助办理不动产权证书的义务。\n    *   **《判决文书4》**：文书开篇即表明原告李生英与被告青海首宏置业投资有限公司之间系“不动产登记纠纷”，核心诉求为被告未履行协助办理房屋产权登记的义务。\n    *   **《判决文书5》**：文书明确记载原告张某与被告张某某、周某之间系“不动产登记纠纷”，争议在于要求协助变更房屋所有权登记。\n    *   其他文书虽可能涉及房产（如拆迁、买卖），但法律定性并非直接针对“不动产登记”本身的纠纷。\n\n**最终分类结果输出：**\n\n```json\n{\n  \"执行案由 - 对下级法院执行异议裁定的复议\": [\n    \"《判决文书1》\"\n  ],\n  \"产品责任纠纷\": [\n    \"《判决文书8》\"\n  ],\n  \"行政行为 - 行政受理\": [\n    \"《判决文书3》\",\n    \"《判决文书7》\"\n  ],\n  \"知识产权与竞争\": [\n    \"《判决文书6》\"\n  ],\n  \"不动产登记纠纷\": [\n    \"《判决文书2》\",\n    \"《判决文书4》\",\n    \"《判决文书5》\"\n  ]\n}\n```"
+        [
+          "执行案由 - 对下级法院执行异议裁定的复议",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为 - 行政受理",
+          "《判决文书3》"
+        ],
+        [
+          "行政行为 - 行政受理",
+          "《判决文书7》"
+        ]
       ]
     },
     {
@@ -1650,36 +1456,29 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 1.0,
+      "pair_recall": 0.6,
+      "pair_f1": 0.7499999999999999,
+      "position_accuracy": null,
       "missing": [
-        {
-          "贪污受贿罪": [
-            "《判决文书2》",
-            "《判决文书9》"
-          ],
-          "行政主体-劳动和社会保障行政管理（劳动，社会保障）": [
-            "《判决文书3》",
-            "《判决文书7》",
-            "《判决文书10》"
-          ],
-          "执行案由-行政": [
-            "《判决文书8》"
-          ],
-          "所有权纠纷": [
-            "《判决文书5》"
-          ],
-          "行政行为-行政裁决": [
-            "《判决文书1》",
-            "《判决文书4》",
-            "《判决文书6》"
-          ]
-        }
+        [
+          "所有权纠纷",
+          "《判决文书5》"
+        ],
+        [
+          "行政行为-行政裁决",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为-行政裁决",
+          "《判决文书4》"
+        ],
+        [
+          "行政行为-行政裁决",
+          "《判决文书6》"
+        ]
       ],
-      "extra": [
-        "根据提供的判决文书检索结果，对十篇判决文书按照指定的五种案由进行分类如下：\n\n1.  **贪污受贿罪**：\n    *   《判决文书2》：该文书明确涉及原审被告人孙明贪污一案，法院认定其行为构成贪污罪，属于贪污受贿类刑事案件。\n    *   《判决文书9》：该文书涉及被告人王建华受贿一案，法院认定其行为构成受贿罪，属于贪污受贿类刑事案件。\n\n2.  **行政主体-劳动和社会保障行政管理（劳动，社会保障）**：\n    *   《判决文书3》：被告人为湖北省人力资源和社会保障厅，案件涉及该部门不履行法定职责的行政争议，属于劳动和社会保障行政管理范畴。\n    *   《判决文书7》：申请人为淄博高新技术产业开发区人力资源和社会保障局，案件涉及工伤资格认定的行政争议，属于劳动和社会保障行政管理范畴。\n    *   《判决文书10》：被申请人为某市人力资源和社会保障局，案件涉及对不予认定工伤决定书的审查，属于劳动和社会保障行政管理范畴。\n\n3.  **执行案由-行政**：\n    *   《判决文书8》：该文书明确为行政执行复议案件（案号含“执异”），涉及茂名中院在执行行政答复一案中的执行异议审查，属于行政执行类案件。\n\n4.  **所有权纠纷**：\n    *   经检索分析，提供的十篇判决文书中，没有一篇属于“所有权纠纷”。《判决文书5》虽涉及土地补偿权益，但其案由明确为“侵害集体经济组织成员权益纠纷”，属于民事权益纠纷而非典型的所有权纠纷；其他文书分别为行政或刑事案件，不涉及平等主体间的所有权争议。\n\n5.  **行政行为-行政裁决**：\n    *   经检索分析，提供的十篇判决文书中，没有一篇被明确归类为“行政行为-行政裁决”。虽然《判决文书7》涉及工伤认定，但检索结果指出工伤认定通常属于“行政确认”而非严格意义上的“行政裁决”（即行政机关解决民事纠纷的行为）；其他文书或为一般行政处理决定、或为信访复查、或为行业自律行为，均不符合行政裁决的定义。\n\n**最终分类结果如下：**\n\n{'贪污受贿罪': ['《判决文书2》', '《判决文书9》'], '行政主体-劳动和社会保障行政管理（劳动，社会保障）': ['《判决文书3》', '《判决文书7》', '《判决文书10》'], '执行案由-行政': ['《判决文书8》'], '所有权纠纷': [], '行政行为-行政裁决': []}"
-      ]
+      "extra": []
     },
     {
       "id": "0c44b62e-4d91-4d31-8da5-ec183aecafe8",
@@ -1687,34 +1486,21 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.8888888888888888,
+      "pair_recall": 0.8888888888888888,
+      "pair_f1": 0.8888888888888888,
+      "position_accuracy": null,
       "missing": [
-        {
-          "物权保护纠纷": [
-            "《判决文书3》",
-            "《判决文书7》"
-          ],
-          "合同，无因管理，不当得利纠纷": [
-            "《判决文书1》",
-            "《判决文书5》"
-          ],
-          "侵权责任纠纷": [
-            "《判决文书6》",
-            "《判决文书8》"
-          ],
-          "行政主体-劳动和社会保障行政管理（劳动，社会保障）": [
-            "《判决文书4》",
-            "《判决文书9》"
-          ],
-          "行政行为-行政征收": [
-            "《判决文书2》"
-          ]
-        }
+        [
+          "物权保护纠纷",
+          "《判决文书7》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对九篇判决文书按照指定的五种案由分类如下：\n\n{'物权保护纠纷': ['《判决文书3》'], '合同，无因管理，不当得利纠纷': ['《判决文书1》', '《判决文书5》'], '侵权责任纠纷': ['《判决文书6》', '《判决文书7》', '《判决文书8》'], '行政主体-劳动和社会保障行政管理（劳动，社会保障）': ['《判决文书4》', '《判决文书9》'], '行政行为-行政征收': ['《判决文书2》']}\n\n**分类依据详述：**\n\n1.  **物权保护纠纷**：\n    *   **《判决文书3》**：该文书明确记载案由为“所有权确认纠纷”。在司法案由分类中，所有权确认纠纷属于物权保护纠纷的具体类型，核心争议在于资金/存款的所有权归属，而非合同违约或侵权赔偿。\n\n2.  **合同，无因管理，不当得利纠纷**：\n    *   **《判决文书1》**：文书明确界定为“劳务合同纠纷”，涉及劳务费支付问题，属于合同类纠纷。\n    *   **《判决文书5》**：文书明确记载为“劳务合同纠纷”，争议焦点在于劳务费结算及欠条效力，归属于合同纠纷范畴。\n\n3.  **侵权责任纠纷**：\n    *   **《判决文书6》**：文书明确案由为“产品责任纠纷”，产品责任在法律上属于特殊的侵权责任。\n    *   **《判决文书7》**：文书案由为“财产损害赔偿纠纷”，系因交通事故引发，依据《民法典》侵权责任编及《道路交通安全法》审理，属于典型的侵权责任纠纷。\n    *   **《判决文书8》**：文书案由为“提供劳务者受害责任纠纷”，涉及劳务过程中的人身损害赔偿，依据《民法典》侵权责任相关规定审理，归类为侵权责任纠纷。\n\n4.  **行政主体-劳动和社会保障行政管理（劳动，社会保障）**：\n    *   **《判决文书4》**：该案为行政诉讼，被告为“人力资源和社会保障局”，争议焦点在于该局作出的关于农民工工资支付的行政处理决定，属于劳动和社会保障行政管理范畴。\n    *   **《判决文书9》**：该案同样为行政诉讼，被告为“人力资源和社会保障局”，争议焦点在于工伤认定或待遇认定的行政决定，属于劳动和社会保障行政管理范畴。\n\n5.  **行政行为-行政征收**：\n    *   **《判决文书2》**：该案为行政诉讼，原告起诉苏州市姑苏区人民政府的“房屋征收决定”，核心法律依据为《国有土地上房屋征收与补偿条例》，完全符合行政行为中行政征收的定义。"
+        [
+          "侵权责任纠纷",
+          "《判决文书7》"
+        ]
       ]
     },
     {
@@ -1723,34 +1509,57 @@
       "type": "legal",
       "level": 3,
       "exact_match": false,
-      "pair_precision": null,
-      "pair_recall": null,
-      "pair_f1": null,
+      "pair_precision": 0.25,
+      "pair_recall": 0.1111111111111111,
+      "pair_f1": 0.15384615384615383,
+      "position_accuracy": null,
       "missing": [
-        {
-          "行政行为-行政监督": [
-            "《判决文书1》",
-            "《判决文书2》",
-            "《判决文书8》"
-          ],
-          "执行案由-对下级法院执行异议裁定的复议": [
-            "《判决文书6》"
-          ],
-          "行政行为-行政合同": [
-            "《判决文书9》"
-          ],
-          "行政主体-民政行政管理（民政）": [
-            "《判决文书3》",
-            "《判决文书5》"
-          ],
-          "与公司，证券，保险，票据等有关的民事纠纷": [
-            "《判决文书4》",
-            "《判决文书7》"
-          ]
-        }
+        [
+          "与公司，证券，保险，票据等有关的民事纠纷",
+          "《判决文书4》"
+        ],
+        [
+          "执行案由-对下级法院执行异议裁定的复议",
+          "《判决文书6》"
+        ],
+        [
+          "行政主体-民政行政管理（民政）",
+          "《判决文书3》"
+        ],
+        [
+          "行政主体-民政行政管理（民政）",
+          "《判决文书5》"
+        ],
+        [
+          "行政行为-行政合同",
+          "《判决文书9》"
+        ],
+        [
+          "行政行为-行政监督",
+          "《判决文书1》"
+        ],
+        [
+          "行政行为-行政监督",
+          "《判决文书2》"
+        ],
+        [
+          "行政行为-行政监督",
+          "《判决文书8》"
+        ]
       ],
       "extra": [
-        "根据提供的判决文书检索结果，对《判决文书1》至《判决文书9》按照指定的五种案由进行分类分析如下：\n\n首先，关于**“行政行为 - 行政监督”**这一类别，经过对九份文书的逐一审查，发现没有任何一份文书属于此类别。《判决文书1》、《判决文书2》、《判决文书8》均涉及政府信息公开，属于政府信息公开类案件；《判决文书3》涉及征地补偿安置决定；《判决文书5》涉及行政强制及赔偿；《判决文书9》涉及行政协议。这些案件的核心争议均非针对行政机关内部的监督行为或特定的行政监管职责，因此该类别下无匹配文书。\n\n其次，在**“执行案由 - 对下级法院执行异议裁定的复议”**这一类别中，仅《判决文书6》符合分类标准。该文书明确记载了申请人因不服下级法院（浙江省绍兴市中级人民法院）作出的执行异议裁定而申请复议，案件性质明确为执行异议复议案件。其余文书如《判决文书4》虽涉及合同纠纷的再审，但属于实体审判而非执行异议复议；《判决文书7》为股权纠纷的再审申请；《判决文书2》、《判决文书8》、《判决文书9》均为行政诉讼中的管辖权或受理裁定，均不涉及执行异议裁定的复议程序。\n\n第三，关于**“行政行为 - 行政合同”**（即行政协议）类别，共有三份文书被归入此类，分别是《判决文书5》、《判决文书9》以及虽未明确列出但根据逻辑推导可能涉及的文书（但在当前检索结果中明确匹配的为《判决文书5》和《判决文书9》）。《判决文书5》的核心争议在于政府与申请人签订的征地补偿协议（虽名为土地征收协议，实为协商达成的补偿协议），法院重点审查了该行政协议的效力及基于协议进行的拆除行为合法性。《判决文书9》中，原告明确以“行政协议”为案由提起诉讼，尽管法院最终认定该协议性质上属于民事合同从而驳回起诉，但该判决文书的审理对象和案由分类明确指向“行政协议”这一行政合同范畴。需要注意的是，《判决文书3》虽提及安置补偿协议，但诉讼标的是政府单方作出的征收补偿决定，故不属于行政合同类；《判决文书4》和《判决文书6》中的合同均为平等主体间的民事合同。\n\n第四，关于**“行政主体 - 民政行政管理（民政）”**类别，经检索分析，所有九份文书均不属于此类别。《判决文书1》、《判决文书3》、《判决文书5》、《判决文书9》涉及住建、自然资源或一般政府行政管理；《判决文书2》涉及公安部（公安行政管理）；《判决文书8》涉及金融监管局（金融行政管理）。没有任何一份文书的被告为民政部门，或争议内容涉及婚姻登记、社会福利、殡葬管理等典型的民政行政管理事项。\n\n最后，在**“与公司，证券，保险，票据等有关的民事纠纷”**这一类别中，仅《判决文书7》符合分类要求。该文书明确记载为“股权转让纠纷”，涉及公司与个人之间的股权转让协议及投资协议，属于典型的与公司有关的民事纠纷。虽然《判决文书4》涉及合同纠纷，但属于个体间的火锅店转让，未涉及公司股权、证券或保险等特定金融商事领域；《判决文书6》虽涉及公司，但其案由为执行异议复议，属于程序性案件而非实体民事纠纷审判。\n\n综上所述，分类结果如下：\n\n```json\n{\n  \"行政行为 - 行政监督\": [],\n  \"执行案由 - 对下级法院执行异议裁定的复议\": [\"《判决文书6》\"],\n  \"行政行为 - 行政合同\": [\"《判决文书5》\", \"《判决文书9》\"],\n  \"行政主体 - 民政行政管理（民政）\": [],\n  \"与公司，证券，保险，票据等有关的民事纠纷\": [\"《判决文书7》\"]\n}\n```"
+        [
+          "执行案由 - 对下级法院执行异议裁定的复议",
+          "《判决文书6》"
+        ],
+        [
+          "行政行为 - 行政合同",
+          "《判决文书5》"
+        ],
+        [
+          "行政行为 - 行政合同",
+          "《判决文书9》"
+        ]
       ]
     },
     {
@@ -1762,6 +1571,7 @@
       "pair_precision": 1.0,
       "pair_recall": 1.0,
       "pair_f1": 1.0,
+      "position_accuracy": null,
       "missing": [],
       "extra": []
     },
@@ -1774,6 +1584,7 @@
       "pair_precision": 1.0,
       "pair_recall": 1.0,
       "pair_f1": 1.0,
+      "position_accuracy": null,
       "missing": [],
       "extra": []
     },
@@ -1786,6 +1597,7 @@
       "pair_precision": 1.0,
       "pair_recall": 1.0,
       "pair_f1": 1.0,
+      "position_accuracy": null,
       "missing": [],
       "extra": []
     },
@@ -1794,192 +1606,156 @@
       "selected_index": 903,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "144,480.00"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，关于英力特（宁夏英力特化工股份有限公司）的公允价值变动收益情况，具体信息如下：\n\n在查阅的 **2024 年第一季度报告** 中，通过其 **合并利润表（Consolidated Income Statement）**（即检索结果中的 Table 2）可以明确获取相关数据。在该报表的“公允价值变动收益（损失以“－”号填列）”这一项目中，英力特在 **本期发生额（Current Period Amount）** 列示的数值为 **144,480.00 元**。这表示在 2024 年第一季度，该公司确认的公允价值变动收益为 144,480.00 元人民币。\n\n此外，报表中关于“上期发生额（Previous Period Amount）”一栏显示为空白或无数据（标记为\"-\"），意味着在对应的上一可比期间内，该报表未列示具体的公允价值变动收益数值，或者该期间无此项发生额记录。需要特别说明的是，检索过程中排除了 Table 1 中的数据，因为该表属于“金力华电气有限公司”，与英力特无关。\n\n综上所述，仅基于上述可见的财报内容，英力特在 2024 年第一季度的公允价值变动收益确切为 **144,480.00 元**。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "b9f53701-4f2f-4dc9-9df5-d40aca186028",
       "selected_index": 907,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "39,334,577.43"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，东阿阿胶股份有限公司（Dong-E-E-Jiao Co., Ltd.）在2024年第一季度报告中的“使用权资产”数据已明确披露。该数据出自其合并资产负债表中的“非流动资产”部分，报告截止日为2024年3月31日，金额单位为人民币元。\n\n具体而言，截至2024年3月31日（期末余额），东阿阿胶的使用权资产金额为 **39,334,577.43元**。与上一会计期间相比，该数值较2023年12月31日（期初余额）的 **44,460,859.95元** 有所下降，减少了约512.6万元。这一变动反映了公司在该报告期内对租赁资产相关使用权的计量调整或租赁合同的到期与终止情况。\n\n需要说明的是，检索结果中另一份涉及四川中光防雷科技股份有限公司的财务报表并未包含东阿阿胶的相关数据，因此仅依据上述东阿阿胶的2024年第一季度报告进行回答。综上，东阿阿胶在2024年第一季度的使用权资产期末余额为39,334,577.43元，期初余额为44,460,859.95元。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "0a2a5a6a-94fe-43e1-9c09-e5e0bc41d56b",
       "selected_index": 908,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "6,889,697.28"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，华凯易佰科技股份有限公司（华凯易佰）在2024年第一季度的信用减值损失数据如下：\n\n在《2024年一季度报告》的合并利润表及相关财务分析表中，华凯易佰本报告期（即2024年第一季度）的信用减值损失金额为 **6,889,697.28 元**。作为对比，该指标在上年同期（即2023年第一季度）的数值为 **2,589,507.89 元**。\n\n通过对比两个时期的数据可以看出，华凯易佰在2024年第一季度的信用减值损失较上年同期大幅增长，变动比例高达 **166.06%**。关于这一显著增长的具体原因，财报中明确解释为：主要系报告期内公司收回款项所冲回的信用减值损失较上期有所增加。在财务报表的列示中，该项目以正数表示（即“损失以‘-’号填列”的规则下，此处正数代表收益或冲回），表明这实际上是对前期计提的减值准备的一种回收或转回，从而对当期利润产生了正向贡献。\n\n综上所述，华凯易佰2024年第一季度的信用减值损失（实为冲回收益）具体数值为6,889,697.28元，这一数据反映了公司在该季度应收账款回收情况及信用风险管理的积极变化。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "8e18ef29-cd7a-4227-9a6c-2daae9fda400",
       "selected_index": 910,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "239,644,736.01"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，上海华峰超纤科技股份有限公司（证券代码：300180）在2024年第一季度报告中的“其他应付款”具体数据如下：\n\n截至2024年3月31日（期末余额），华峰超纤的其他应付款金额为**239,644,736.01元**（人民币）。相较于2023年12月31日（期初余额）的**308,046,220.98元**，该科目在2024年第一季度出现了明显的下降，减少了约6840万元。\n\n在详细的资产负债表中，其他应付款项下进一步列示了包括应付利息、应付股利、应付手续费及佣金以及应付分保账款等细分项目。然而，根据本次检索到的具体数据表格显示，这些细分项目（如应付利息、应付股利等）在2024年一季度的报告中并未显示具体数值或标记为无，因此目前仅能确认其他应付款的总金额为239,644,736.01元。\n\n需要特别说明的是，检索结果中明确排除了其他两家公司的数据（南方风机股份有限公司和深圳芬达科技股份有限公司），因此上述关于其他应付款的数值仅严格对应于上海华峰超纤科技股份有限公司的财务数据，确保了信息的准确性和针对性。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "d9a8d9d2-5f02-4253-b2dc-a9411debeb34",
       "selected_index": 911,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "435,022.00"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，针对百亚股份（重庆百亚卫生用品股份有限公司）本期公允价值变动收益较上一报告期的变化情况，详细分析如下：\n\n在检索到的多份财务报告中，仅**Table 2**包含了百亚股份的有效数据，该表源自《2024 年一季度报告》。其他检索结果（Table 1 涉及弘讯科技，Table 3 涉及大丰实业）均明确不包含百亚股份的相关财务信息，因此在本次分析中予以排除。\n\n根据 Table 2 中“合并利润表”的具体数据，百亚股份在**本期（2024 年第一季度）**的“公允价值变动收益”发生额为 **2,914,389.00 元**。与之对应的**上期（2023 年第一季度）**发生额为 **2,479,367.00 元**。\n\n通过对比这两个数值计算其变化幅度：\n$$ \\text{变化额} = \\text{本期发生额} - \\text{上期发生额} $$\n$$ \\text{变化额} = 2,914,389.00 - 2,479,367.00 = 435,022.00 \\text{元} $$\n\n综上所述，百亚股份本期公允价值变动收益较上一报告期**增加了 435,022.00 元**。这一增长表明公司在该报告期内通过公允价值变动获得的收益有所提升。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "9b78667b-b80b-475b-a574-6748d8668a77",
       "selected_index": 912,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "7,941,067.96"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，关于广东拓斯达科技股份有限公司（简称“拓斯达”）“一年内到期的非流动资产”的具体数据，主要来源于其发布的《2024年第一季度报告》中的“合并资产负债表”。\n\n在该报表的流动资产部分，明确列示了“一年内到期的非流动资产”这一项目的金额。具体数值显示，截至2024年第一季度报告期末，拓斯达的一年内到期的非流动资产余额为**7,941,067.96元**。作为对比，该报表同时也提供了期初余额数据，即该项目的期初余额为**6,597,436.36元**。这表明在2024年第一季度期间，拓斯达的一年内到期的非流动资产较期初有所增加。\n\n需要说明的是，检索结果中虽然包含了苏交科集团股份有限公司和四川科新机电股份有限公司的财务数据，但经分析确认，这两份报表中并未包含任何关于拓斯达的财务信息，因此不予采纳。综上所述，仅依据拓斯达自身的2024年第一季度财务报告，其一年内到期的非流动资产期末余额确切为7,941,067.96元。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "e44ce525-18eb-4d3a-b904-384caf1a6270",
       "selected_index": 913,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "2,914,389.00"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，百亚股份（重庆百亚卫生用品股份有限公司）的公允价值变动收益数据明确记录在其2024年第一季度报告的合并利润表（Table 3）中。在该报表的“公允价值变动收益（损失以“－”号填列）”这一项目下，百亚股份在本期（即2024年第一季度）发生的公允价值变动收益金额为**2,914,389.00元**。\n\n为了更全面地理解这一财务指标的变动情况，检索结果还同时提供了该项目的上期发生额作为对比参考。数据显示，在上一期（即上年同期），百亚股份的公允价值变动收益为**2,479,367.00元**。通过对比这两个时期的数据可以看出，百亚股份在2024年第一季度的公允价值变动收益相较于上期有所增长，本期金额比上期增加了约43.5万元。\n\n需要特别说明的是，在提供的多份检索表格中，Table 1 和 Table 2 分别包含了“丰立智能”和“同飞股份”的财务数据，与百亚股份无关，因此在分析百亚股份的公允价值变动收益时，仅依据Table 3 中专门针对“Chongqing Baiya Hygiene Products Co., Ltd. (百亚股份)”的数据进行了提取和确认。综上所述，仅根据上述可见的财报内容，百亚股份2024年第一季度的公允价值变动收益确切数值为2,914,389.00元。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "4276f382-bab0-484a-a789-a3531aaafd3d",
       "selected_index": 914,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "74,341,718.39"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，江苏洋河酒厂股份有限公司（洋河股份）在2024年第一季度报告中明确披露了其“使用权资产”的具体数值。在相关的财务数据表中，洋河股份的使用权资产期末余额为74,341,718.39元，而对应的期初余额为82,464,551.16元。这一数据直接反映了该公司在报告期初至期末期间使用权资产的变动情况，显示其使用权资产规模在该季度内有所下降。\n\n需要特别说明的是，检索结果中虽然包含了其他公司（如银邦股份和奋达科技）的财务信息，但这些表格明确标注不包含洋河股份的数据，因此在分析洋河股份的使用权资产时，仅依据包含洋河股份数据的表格（即2024年第一季度报告相关表格）进行统计和引用。综上所述，洋河股份截至2024年3月31日的使用权资产金额为74,341,718.39元，较期初的82,464,551.16元减少了约812万元。这一具体数值为评估该公司在租赁资产方面的财务结构和运营状况提供了直接依据。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "7d301247-6dd6-494f-9771-65e887f5f0b9",
       "selected_index": 916,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "913,610.87"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，关于夏厦精密（浙江夏厦精密制造股份有限公司）的“其他应付款”数据，仅能在其发布的《2024 年第一季度报告》中的“合并资产负债表”部分找到明确记载，而九芝堂股份有限公司和湖南国科微电子股份有限公司的报表中均不包含该公司的相关财务信息。\n\n具体而言，在夏厦精密的合并资产负债表中，以人民币“元”为计量单位，其“其他应付款”科目的财务数据如下：截至报告期末（即 2024 年第一季度末），该科目的**期末余额为 913,610.87 元**；与之相比，该科目的**期初余额为 743,805.85 元**。这表明在 2024 年第一季度期间，夏厦精密的其他应付款项较期初有所增加，增长额约为 169,805.02 元。\n\n此外，报表中针对“其他应付款”这一总项下的细分项目进行了列示，包括“应付利息”、“应付股利”、“手续费及佣金”以及“应付分保账款”等具体子项。然而，根据检索到的表格内容显示，这些细分项目在当期期末和期初的数值均为空或显示为\"-\"，这意味着在夏厦精密 2024 年第一季度的财务报表中，其他应付款的构成并未在这些特定的细分科目中体现具体金额，或者其金额极小未单独列示，所有的应付款项均直接汇总反映在“其他应付款”的总余额中。\n\n综上所述，依据现有检索到的财务资料，夏厦精密在 2024 年第一季度报告期末的其他应付款确切金额为 **913,610.87 元**。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "0991635f-602b-4453-a887-fa646c922446",
       "selected_index": 917,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "880,750.00"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，关于惠州亿纬锂能股份有限公司（简称“亿纬锂能”）的交易性金融负债数据，仅能从《2024 年一季度报告》（即检索结果中的 Table 1）中找到确切信息。其他检索到的表格（Table 2 和 Table 3）分别涉及湖南国科微电子股份有限公司和江苏中信博新能源科技股份有限公司的财务数据，与亿纬锂能无关，因此不予采纳。\n\n在亿纬锂能的 2024 年第一季度资产负债表中，明确列示了“交易性金融负债”这一项目的具体数值。该项目的期末余额为 **880,750.00** 元。值得注意的是，该报表中并未列出该项目的年初余额（显示为\"-\"），这表明该负债项目可能是在本期新发生或此前未确认。针对该数值产生的具体原因，报表中明确解释为“远期结汇产品公允价值变动”。这意味着亿纬锂能为了管理汇率风险，可能进行了远期结汇等金融衍生交易，这些交易在会计期末根据市场公允价值计量后，其变动部分被确认为交易性金融负债。\n\n综上所述，依据现有检索到的 2024 年一季度财务报告内容，亿纬锂能的交易性金融负债期末余额为 880,750.00 元，其形成主要归因于远期结汇产品的公允价值波动。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "0efa49bf-4fa1-4d42-9e0d-685d2d5fd7d9",
       "selected_index": 920,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "15,491.66"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，关于中国全聚德（集团）股份有限公司（证券代码：002186）“一年内到期的非流动资产”的具体数据，主要来源于其发布的《2024 年一季度报告》中的合并资产负债表部分。\n\n在该份报告（公告编号：2024-17）的财务数据中，全聚德在 2024 年 3 月 31 日这一报告期末的“一年内到期的非流动资产”期末余额为 **15,491.66 元**。与上一会计期间相比，该项目的期初余额（即 2023 年末余额）为 **113,843.56 元**。这表明在 2024 年第一季度期间，全聚德的一年内到期的非流动资产金额出现了显著下降，从期初的十余万元减少至期末的一万五千余元。\n\n需要说明的是，检索结果中涉及的其他公司，包括圣元环保股份有限公司、南昌矿机集团股份有限公司以及浙江华策影视股份有限公司的财务报表，均不包含全聚德的相关财务数据，因此上述关于全聚德的数值是唯一且准确的依据。该数据反映了全聚德在 2024 年一季度末的资产结构状况，具体体现了其将在未来一年内到期的非流动资产规模。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "efa6f4df-2bc5-4cbe-ae2b-0b72ee71294c",
       "selected_index": 922,
       "type": "financial",
       "level": 1,
-      "exact_match": false,
+      "exact_match": true,
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
-      "missing": [
-        "310,617,164.36"
-      ],
-      "extra": [
-        "根据提供的财务报表检索结果，关于深圳雷曼光电科技股份有限公司（证券代码：300162）的交易性金融资产数据，主要来源于其发布的《2024 年一季度报告》中的合并资产负债表。在该报告中，雷曼光电在2024年第一季度期末（即2024年3月31日）的交易性金融资产期末余额为310,617,164.36元人民币。与此同时，该报表也列示了期初余额数据，显示在2024年第一季度期初（即2023年12月31日），雷曼光电的交易性金融资产余额为356,141,849.77元人民币。\n\n通过对比这两个时点的数据可以看出，在2024年第一季度期间，雷曼光电的交易性金融资产规模较期初有所下降，减少了约4552万元人民币。需要特别说明的是，检索结果中明确指出的其他表格（如表1、表2和表4）分别涉及大丰实业、中信博和腾远钴业等公司，并不包含雷曼光电的相关财务数据，因此上述关于雷曼光电交易性金融资产的具体数值仅依据表3中的《2024年一季度报告》合并资产负债表得出，数据单位为人民币元。"
-      ]
+      "position_accuracy": null,
+      "missing": [],
+      "extra": []
     },
     {
       "id": "93040973-e3a2-4861-8dd7-650f7534d18e",
@@ -1990,6 +1766,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "迈克生物"
       ],
@@ -2006,6 +1783,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "盾安环境"
       ],
@@ -2022,6 +1800,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "(倍加洁: 11,078,142.33), (迈克生物: 21,428,623.41), (盾安环境: 40,638,256.54)"
       ],
@@ -2038,6 +1817,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "科大讯飞"
       ],
@@ -2054,6 +1834,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "百亚股份"
       ],
@@ -2070,6 +1851,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "英力特: 5.04%, 科大讯飞: 26.27%, 百亚股份: 46.40%"
       ],
@@ -2086,6 +1868,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "拓斯达: 3,176,429.81, 蔚蓝锂芯: 7,148,939.55, 汤臣倍健: 11,789,849.47"
       ],
@@ -2102,6 +1885,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "汤臣倍健"
       ],
@@ -2118,6 +1902,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "汤臣倍健: 67,802,146.14元, 拓斯达: 102,449,276.56元, 蔚蓝锂芯: 293,936,136.56元"
       ],
@@ -2134,6 +1919,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "依米康: 243,430,007.72元, 洁美科技: 312,296,510.50元, 华夏航空: 1,850,982,243.53"
       ],
@@ -2150,11 +1936,12 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         2
       ],
       "extra": [
-        "根据提供的财务报表检索结果，我们对三家公司的“存货”期末余额进行了详细核查与对比，以统计存货金额超过 10 亿元（1,000,000,000 元）的公司数量。\n\n首先，查看**武汉凡谷电子技术股份有限公司**在 2024 年第一季度报告（截至 2024 年 3 月 31 日）中的财务数据。该公司的存货期末余额为 **312,864,069.86 元**。这一数值明显低于 10 亿元的门槛，因此该公司不符合统计条件。\n\n其次，分析**杭州海康威视数字技术股份有限公司**在 2024 年第一季度报告（截至 2024 年 3 月 31 日）中的数据。该公司的存货期末余额高达 **19,730,687,004.42 元**。经过对比，该数值远超 1,000,000,000 元，是唯一一家在检索结果中满足存货金额超过 10 亿元条件的企业。\n\n最后，检查**金通灵科技集团股份有限公司**在 2024 年一季度报告（截至 2024 年 3 月 31 日）中的合并资产负债表数据。该公司的存货期末余额为 **539,799,391.08 元**。尽管该金额在数家企业中处于中间水平，但仍未达到 10 亿元的标准，因此也不计入符合条件的公司数量。\n\n综上所述，在提供的三家公司的财务报表中，仅有**杭州海康威视数字技术股份有限公司**一家的存货金额超过了 1,000,000,000 元。因此，存货在 10 亿元以上的公司数量为 **1** 家。"
+        "312,864,069.86"
       ]
     },
     {
@@ -2166,6 +1953,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "楚天科技"
       ],
@@ -2182,6 +1970,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "楚天科技"
       ],
@@ -2198,6 +1987,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "华峰超纤"
       ],
@@ -2214,6 +2004,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "恩捷股份"
       ],
@@ -2230,6 +2021,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "华峰超纤: 0.0131, 恩捷股份: 0.16, 洋河股份: 4.0195"
       ],
@@ -2246,6 +2038,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "雷曼光电"
       ],
@@ -2262,6 +2055,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "天华新能"
       ],
@@ -2278,6 +2072,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "三湘印象"
       ],
@@ -2294,11 +2089,12 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         2
       ],
       "extra": [
-        "根据提供的财务报表检索结果，针对“流动资产合计”数值在 6,000,000,000 元以上的公司数量进行详细分析如下：\n\n在检索到的三家公司的财务数据中，我们逐一核对了其“流动资产合计”的期末余额数值。首先，**三湘印象股份有限公司**（证券代码：000863）在 2024 年 3 月 31 日的报告期末，其流动资产合计为 **5,298,929,206.47** 元。将该数值与设定的 60 亿元门槛进行比较，52.99 亿元明显小于 60 亿元，因此该公司不满足条件。\n\n其次，**航天智造科技股份有限公司**（证券代码：300446）的财务数据显示，其流动资产合计期末余额为 **6,225,285,084.55** 元。该数值约为 62.25 亿元，超过了 6,000,000,000 元的标准，因此该公司被计入符合条件的名单。\n\n最后，**苏州天华新能源科技股份有限公司**（证券代码：300390）在 2024 年第一季度报告期末的流动资产合计高达 **12,619,142,541.18** 元。该数值约为 126.19 亿元，远超 60 亿元的阈值，同样满足条件。\n\n综上所述，在所提供的检索结果中，共有 **2** 家公司的“流动资产合计”数值超过了 6,000,000,000 元，这两家公司分别是航天智造科技股份有限公司和苏州天华新能源科技股份有限公司。"
+        "6,225,285,084.55"
       ]
     },
     {
@@ -2310,6 +2106,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         "东阿阿胶"
       ],
@@ -2326,6 +2123,7 @@
       "pair_precision": null,
       "pair_recall": null,
       "pair_f1": null,
+      "position_accuracy": null,
       "missing": [
         {
           "Reference": [

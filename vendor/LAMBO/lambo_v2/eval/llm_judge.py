@@ -43,12 +43,24 @@ Now, start your evaluation:"""
 
 
 def _extract_score(text: str) -> Optional[float]:
+    if not text:
+        return None
     m = re.search(r"\[\[([0-9]*\.?[0-9]+)\]\]", text)
     if m:
         return float(m.group(1))
     m = re.search(r"\[([0-9]*\.?[0-9]+)\]", text)
     if m:
         return float(m.group(1))
+    for pattern in (
+        r"(?i)\b(?:rating|score|overall score)\s*[:=]\s*([0-9]{1,3}(?:\.[0-9]+)?)\b",
+        r"(?i)\b([0-9]{1,3}(?:\.[0-9]+)?)\s*/\s*100\b",
+        r"(?i)\b(?:rating|score|overall score)\D{0,12}\b([0-9]{1,3}(?:\.[0-9]+)?)\b",
+    ):
+        m = re.search(pattern, text)
+        if m:
+            value = float(m.group(1))
+            if 0 <= value <= 100:
+                return value
     return None
 
 
@@ -59,6 +71,28 @@ def _stringify(value: Any) -> str:
         return json.dumps(value, ensure_ascii=False)
     except Exception:
         return str(value)
+
+
+def _repair_score(
+    *,
+    llm: QwenLocalClient,
+    raw_evaluation: str,
+) -> tuple[Optional[float], str]:
+    repair_prompt = f"""The following evaluation may not follow the required score format.
+Extract the final score as a number from 1 to 100.
+If the score is implied but not explicitly bracketed, infer the intended numeric score from the evaluation text.
+Return exactly one line in this format and nothing else:
+Rating: [[score]]
+
+[Evaluation]
+{raw_evaluation}
+"""
+    repaired = llm.generate_text(
+        system_prompt="You normalize evaluator outputs into a single numeric score.",
+        user_prompt=repair_prompt,
+        max_output_tokens=32,
+    )
+    return _extract_score(repaired), repaired
 
 
 def run_llm_judge(
@@ -92,6 +126,9 @@ def run_llm_judge(
             metadata={"module": "llm_judge", "sample_id": row.get("sample_id", "")},
         )
         score = _extract_score(raw)
+        repair_raw = None
+        if score is None:
+            score, repair_raw = _repair_score(llm=llm, raw_evaluation=raw)
         if score is not None:
             scores.append(score)
         verdicts.append(
@@ -104,12 +141,22 @@ def run_llm_judge(
                 "gold": gold,
                 "prediction": prediction,
                 "raw": raw,
+                "repair_raw": repair_raw,
             }
         )
 
         if index % progress_every == 0 or index == total:
             sample_elapsed = time.time() - sample_started_at
             total_elapsed = time.time() - started_at
+            if score is None:
+                preview = re.sub(r"\s+", " ", raw).strip()[:200]
+                print(
+                    "llm_judge_parse_warning="
+                    f"{index}/{total} "
+                    f"sample_id={row.get('id', '')} "
+                    f"raw_preview={preview}",
+                    flush=True,
+                )
             print(
                 "llm_judge_progress="
                 f"{index}/{total} "

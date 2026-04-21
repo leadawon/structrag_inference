@@ -3,12 +3,24 @@ import numpy as np
 
 
 def extract_number(text):
+    if not text:
+        return None
     match = re.search(r'\[\[([0-9]*\.?[0-9]+)\]\]', text)
     if match:
         return float(match.group(1))
     match = re.search(r'\[([0-9]*\.?[0-9]+)\]', text)
     if match:
         return float(match.group(1))
+    for pattern in (
+        r'(?i)\b(?:rating|score|overall score)\s*[:=]\s*([0-9]{1,3}(?:\.[0-9]+)?)\b',
+        r'(?i)\b([0-9]{1,3}(?:\.[0-9]+)?)\s*/\s*100\b',
+        r'(?i)\b(?:rating|score|overall score)\D{0,12}\b([0-9]{1,3}(?:\.[0-9]+)?)\b',
+    ):
+        match = re.search(pattern, text)
+        if match:
+            value = float(match.group(1))
+            if 0 <= value <= 100:
+                return value
     return None
 
 

@@ -1,0 +1,14 @@
+# Minimal requirements for running the LLM judge (Qwen3.5-27B via transformers).
+#
+# torch: install the CUDA-matched version for your machine BEFORE running the judge scripts.
+#   e.g. pip install torch --index-url https://download.pytorch.org/whl/cu121
+# The scripts auto-create a .venv_judge and install this file, but torch may land as
+# CPU-only if no extra index is set. Reinstall torch with the right CUDA wheel if needed.
+
+torch>=2.0
+transformers>=4.40
+accelerate>=0.30
+safetensors>=0.4
+sentencepiece>=0.1.99
+tokenizers>=0.19
+python-dotenv>=1.0
